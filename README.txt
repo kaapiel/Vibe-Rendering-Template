@@ -1,5 +1,7 @@
 Renderizacao em massa
 
+ANTES DE TUDO
+	1 - Extraia o arquivo "AdobePSL.dll.zip"
 
 PRE REQUISITOS
 	1 - After Effects instalado
