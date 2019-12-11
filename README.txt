@@ -4,10 +4,11 @@ ANTES DE TUDO
 	1 - Extraia o arquivo "AdobePSL.dll.zip"
 
 PRE REQUISITOS
-	1 - After Effects instalado
-	2 - Projeto .aep dentro da pasta "projetos"
-	3 - Arquivo da base de dados na pasta raiz (database.csv/database.txt)
-	4 - Ultima versao do java instalado
+	1 - Rodar em máquina Windows
+	2 - After Effects instalado
+	3 - Projeto .aep dentro da pasta "projetos"
+	4 - Arquivo da base de dados na pasta raiz (database.csv/database.txt)
+	5 - Ultima versao do java instalado
 	
 INSTRUCOES
 	1 - Apos obter o arquivo database, deixar no mesmo apenas os nomes
