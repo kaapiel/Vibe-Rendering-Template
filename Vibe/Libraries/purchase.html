@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+
+    <link rel="dns-prefetch" href="//127.0.0.1">
+    <link rel="stylesheet" href="PHXS/css/dark/main.css">
+
+    <!-- AdobePatentID="P5086-US" -->
+    <!-- AdobePatentID="P5087-US" -->
+
+    <title></title>
+</head>
+
+<body ng-controller="purchaseCtrl" ng-class="cssClasses" lang="{{lang}}">
+
+    <div id="content" class="purchase-dialog ng-cloak">
+        <edgecc-modal-dialog show-dialog="stockPurchaseDialog.text" full-screen="true" on-submit="okCallback" on-cancel="cancelStockPurchase()" title-text="{{stockPurchaseDialog.title}}" ok-text="{{stockPurchaseDialog.okText}}" cancel-text="{{stockPurchaseDialog.cancelText}}" secondary-ok-text="{{stockPurchaseDialog.secondaryOkText}}" error-mode="isErrorMode" disable-ok="(stockPurchaseDialog.agencyForm && !formContainer.agencyFormCtrl.$valid) || (library && !library.isWritable)">
+            <!-- Dynamic html message passed from stock-->
+            <span ng-if="!showSpinner" ng-repeat="messagePart in stockPurchaseDialog.message track by $index" ng-style="messagePart.url ? {'text-decoration': 'underline', 'cursor': 'pointer'} : ''" ng-click="messagePart.url ? launchLicenseURL(messagePart.url) : ''" ng-bind-html="messagePart.text"></span>
+
+            <form ng-if="!showSpinner && stockPurchaseDialog.agencyForm" name="formContainer.agencyFormCtrl" class="panel-dialog-agency-form" novalidate>
+                <!-- Quick fix for DOM elements rendering before Angular initializes is keeping hidden until Angular inits with hiddenBeforeAngularInit and showAfterAngularInit, and by using ng-bind-html-->
+                <!-- Long term fix/ TODO: Move content div into a directive -->
+                <div ng-if="mandatoryFormFields.length > 0">
+                    <span ng-bind-html="'DL_STOCK_PURCHASE_DIALOG_MANDATORY_REFERENCES' | translate"></span> 
+                    <input ng-repeat="field in mandatoryFormFields track by field.id" type="text" class="hiddenBeforeAngularInit" ng-class="'showAfterAngularInit'" name="{{field.id}}" ng-attr-placeholder="{{field.text}}" ng-model="field.value" ng-required="field.required" size="{{placeholderCharacters}}" ng-maxlength="{{maxCharacters}}">
+                </div>
+                <div ng-if="optionalFormFields.length > 0">
+                    <span ng-bind-html="'DL_STOCK_PURCHASE_DIALOG_OPTIONAL_REFERENCES' | translate"></span>
+                    <input ng-repeat="field in optionalFormFields track by field.id" type="text" class="hiddenBeforeAngularInit" ng-class="'showAfterAngularInit'" name="{{field.id}}" ng-attr-placeholder="{{field.text}}" ng-model="field.value" size="{{placeholderCharacters}}" ng-maxlength="{{maxCharacters}}">
+                </div>
+            </form>
+        </edgecc-modal-dialog>
+
+        <div class="purchase-dialog-icon">
+            <img ng-if="!isErrorMode" src="images/stock_logo.png"></img>
+            <span class="edgecc-icon panel-dialog-error-color" style="display: none" ng-style="isErrorMode ? {'display': 'block'} : {'display': 'none'}">newalert</span>
+        </div>
+        <div class="purchase-dialog-divider"></div>
+        <div class="purchase-dl-dropdown-container" ng-show="chooseLibraryMode">
+            <edgecc-select class="panel-library-combo" ng-disabled="!libraries || libraries.length === 0" ng-model="library" options-array="libraries" display-field="name" order-by="{{uiState.librarySortFunction}}" max-height="60" library-selection-only-mode="true">
+            </edgecc-select>
+        </div>
+    </div>
+
+    <div class="purchase-dl-stock-spinner" ng-if="showSpinner"><img src="images/wait_32.gif"/></div>
+
+    <!-- rename require before loading requireJS, so we can access node modules -->
+    <script type="text/javascript">window.nodeRequire = window.require || function () {}; window.nodeModule = window.module; delete window.module; window.nodeGlobal = window.global; delete window.global;</script>
+
+    <script src="js/main.js"></script>
+
+
+</body>
+</html>

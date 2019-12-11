@@ -1,0 +1,41 @@
+layout FWDeviceControlDialog
+{	
+   view dva_dialog(name: '$$$/MediaCoreUI/FWDeviceControlSettings/kResDLGDV_HDVDeviceControlSettings=DV/HDV Device Control Settings', identifier: 'FWDeviceControl')
+	{
+		row(child_horizontal: align_fill, horizontal: align_fill, spacing: 15)
+		{
+			column()
+			{
+				row()
+				{
+					dva_popup(name: 'Video Standard', identifier:'videoStandard', minWidth:180, label: '$$$/MediaCoreUI/FWDeviceControlSettings/kVideoStandard=Video Standard:');
+				}
+				row()
+				{
+					dva_popup(name: 'Device Brand', identifier:'deviceBrand', minWidth:180, label: '$$$/MediaCoreUI/FWDeviceControlSettings/kDeviceBrand=Device Brand:');
+				}
+				row()		
+				{
+					dva_popup(name: 'Device Type', identifier:'deviceType', minWidth:180, label: '$$$/MediaCoreUI/FWDeviceControlSettings/kDeviceType=Device Type:');
+				}
+				row()		
+				{
+					dva_popup(name: 'Timecode Format', identifier:'timecodeFormat', minWidth:180, label: '$$$/MediaCoreUI/FWDeviceControlSettings/kTimeCodeFormat=Timecode Format:');
+				}
+				row(spacing: -2)		
+				{
+					dva_button(name: '$$$/MediaCoreUI/FWDeviceControlSettings/kCheckStatus=Check Status', identifier:'checkStatus', minWidth:84);
+					dva_static_text(name: ': status_status', identifier:'checkStatusText', label: ':');
+				}
+				row(child_horizontal: align_fill, horizontal: align_fill)		
+				{
+					dva_button(name: '$$$/MediaCoreUI/FWDeviceControlSettings/kGoOnlineForDeviceInfo=Go Online for Device Info', identifier:'goOnlineForDeviceInfo', minWidth:140);
+				}
+				row(child_horizontal: align_right, horizontal: align_right)
+				{
+					dva_ok_cancel_row(minWidth:80, minHeight:20);
+				}
+			}
+		}
+	}
+}; 

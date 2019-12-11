@@ -1,0 +1,139 @@
+<shader name="ConvolveH" secondpass="GaussianBlur(Range)">
+<window width="1400">
+<settab 80><settab 270><settab 590><settab 820>
+
+<p>
+<tab>"$$$/Shaders/GaussianBlurRange/Labels/Blur=Blur Radius"<tab>"$$$/Shaders/GaussianBlurRange/Labels/Range=Range"<tab>"$$$/Shaders/GaussianBlurRange/Labels/Tolerance=Tolerance"<tab>"$$$/Shaders/GaussianBlurRange/Labels/Blur=Blur radius"<br>
+<tab><slider name="Radius.R" label=""$$$/Shaders/GaussianBlurRange/Sliders/Red=Red"" size="100" align="center" default="0" max="5" gang="gang" forcerange=1><tab><rangecontrol enable="enableHLS" name="middleHLS" range="rangeHLS" tolerance="toleranceHLS" invert="invert" noop=1 align="top" elevation="5"><tab><slider name="middleHLS.x" label=""$$$/Shaders/GaussianBlurRange/Sliders/Hue=Hue (middle)"" size="130" min="360" max="0" default="0" align="center"><tab><tab><slider name="Blur.R" label=""$$$/Shaders/GaussianBlurRange/Sliders/Red=Red"" size="100" align="center" default="0" gang="gangR" forcerange=1><br>
+<tab><slider name="Radius.G" label=""$$$/Shaders/GaussianBlurRange/Sliders/Green=Green"" size="100" align="center" default="0" max="5" gang="gang" forcerange=1><tab><tab><slider name="toleranceHLS.x" label=""$$$/Shaders/GaussianBlurRange/Sliders/H=H"" size="130" max="180" default="0" align="center"><tab><slider name="Blur.G" label=""$$$/Shaders/GaussianBlurRange/Sliders/Green=Green"" size="100" align="center" default="0" gang="gangR" forcerange=1><br>
+<tab><slider name="Radius.B" label=""$$$/Shaders/GaussianBlurRange/Sliders/Blue=Blue"" size="100" align="center" default="0" max="5" gang="gang" forcerange=1><tab><tab><slider name="toleranceHLS.y" label=""$$$/Shaders/GaussianBlurRange/Sliders/L=L"" default="0" size="130" align="center"><tab><slider name="Blur.B" label=""$$$/Shaders/GaussianBlurRange/Sliders/Blue=Blue"" size="100" align="center" default="0" gang="gangR" forcerange=1><br>
+<tab><slider name="Radius.A" label=""$$$/Shaders/GaussianBlurRange/Sliders/Alpha=Alpha"" size="100" align="center" default="0" max="5" gang="gang" forcerange=1><tab><tab><slider name="toleranceHLS.z" label=""$$$/Shaders/GaussianBlurRange/Sliders/S=S"" default="0" size="130" align="center"><tab><gang name="gangR" default="on" align="center">"$$$/Shaders/GaussianBlurRange/Labels/Gang=gang"<br><br>
+<tab><gang name="gang" default="on" align="center">"$$$/Shaders/GaussianBlurRange/Labels/Gang=gang"</p>
+
+<hwslider id="0" name="Radius.R" max="5" forcerange=1>
+<hwslider id="1" name="Radius.G" max="5" forcerange=1>
+<hwslider id="2" name="Radius.B" max="5" forcerange=1>
+<hwslider id="3" name="Radius.A" max="5" forcerange=1>
+
+<hwslider id="4" name="Blur.R" default="0">
+<hwslider id="5" name="Blur.G" default="0">
+<hwslider id="6" name="Blur.B" default="0">
+
+<hwvector id="1" name="toleranceHLS.x,toleranceHLS.y,toleranceHLS.z">
+
+<IRIDAScript>
+	w1;w2;w3;w4;
+	invSum;
+
+	Radius.R = 1 / max((Radius.R + 1) * __PixelSize, 1);
+	Radius.G = 1 / max((Radius.G + 1) * __PixelSize, 1);
+	Radius.B = 1 / max((Radius.B + 1) * __PixelSize, 1);
+	Radius.A = 1 / max((Radius.A + 1) * __PixelSize, 1);
+
+	x = Radius.R;
+	if (x < 1)	w1.R = exp(-2 * x * x) * 0.79788456080287; else w1.R = 0;
+	x = 2 * Radius.R;
+	if (x < 1)	w2.R = exp(-2 * x * x) * 0.79788456080287; else w2.R = 0;
+	x = 3 * Radius.R;
+	if (x < 1)	w3.R = exp(-2 * x * x) * 0.79788456080287; else w3.R = 0;
+	x = 4 * Radius.R;
+	if (x < 1)	w4.R = exp(-2 * x * x) * 0.79788456080287; else w4.R = 0;
+
+	invSum.R = 1 / (1 + 2 * w1.R + 2 * w2.R + 2 * w3.R + 2 * w4.R);
+
+	x = Radius.G;
+	if (x < 1)	w1.G = exp(-2 * x * x) * 0.79788456080287; else w1.G = 0;
+	x = 2 * Radius.G;
+	if (x < 1)	w2.G = exp(-2 * x * x) * 0.79788456080287; else w2.G = 0;
+	x = 3 * Radius.G;
+	if (x < 1)	w3.G = exp(-2 * x * x) * 0.79788456080287; else w3.G = 0;
+	x = 4 * Radius.G;
+	if (x < 1)	w4.G = exp(-2 * x * x) * 0.79788456080287; else w4.G = 0;
+
+	invSum.G = 1 / (1 + 2 * w1.G + 2 * w2.G + 2 * w3.G + 2 * w4.G);
+
+	x = Radius.B;
+	if (x < 1)	w1.B = exp(-2 * x * x) * 0.79788456080287; else w1.B = 0;
+	x = 2 * Radius.B;
+	if (x < 1)	w2.B = exp(-2 * x * x) * 0.79788456080287; else w2.B = 0;
+	x = 3 * Radius.B;
+	if (x < 1)	w3.B = exp(-2 * x * x) * 0.79788456080287; else w3.B = 0;
+	x = 4 * Radius.B;
+	if (x < 1)	w4.B = exp(-2 * x * x) * 0.79788456080287; else w4.B = 0;
+
+	invSum.B = 1 / (1 + 2 * w1.B + 2 * w2.B + 2 * w3.B + 2 * w4.B);
+
+	x = Radius.A;
+	if (x < 1)	w1.A = exp(-2 * x * x) * 0.79788456080287; else w1.A = 0;
+	x = 2 * Radius.A;
+	if (x < 1)	w2.A = exp(-2 * x * x) * 0.79788456080287; else w2.A = 0;
+	x = 3 * Radius.A;
+	if (x < 1)	w3.A = exp(-2 * x * x) * 0.79788456080287; else w3.A = 0;
+	x = 4 * Radius.A;
+	if (x < 1)	w4.A = exp(-2 * x * x) * 0.79788456080287; else w4.A = 0;
+
+	invSum.A = 1 / (1 + 2 * w1.A + 2 * w2.A + 2 * w3.A + 2 * w4.A);
+
+	middleHLS.x = middleHLS.x / 360;
+	rangeHLS.x = rangeHLS.x / 360;
+	toleranceHLS.x = toleranceHLS.x / 360;
+	
+	oneOverToleranceHLS.x = 0;
+	oneOverToleranceHLS.y = 0;
+	oneOverToleranceHLS.z = 0;
+	
+	if (rangeHLS.x > 1e-9)
+	{
+		if (toleranceHLS.x > 0.0001)
+			oneOverToleranceHLS.x = 1 / toleranceHLS.x;
+		else
+			oneOverToleranceHLS.x = 10000;
+	
+		toleranceHLS.x = rangeHLS.x + toleranceHLS.x;
+	}
+	
+	if (rangeHLS.y > 1e-9)
+	{
+		if (toleranceHLS.y > 0.0001)
+			oneOverToleranceHLS.y = 1 / toleranceHLS.y;
+		else
+			oneOverToleranceHLS.y = 10000;
+	
+		toleranceHLS.y = rangeHLS.y + toleranceHLS.y;
+	}
+	
+	if (rangeHLS.z > 1e-9)
+	{
+		if (toleranceHLS.z > 0.0001)
+			oneOverToleranceHLS.z = 1 / toleranceHLS.z;
+		else
+			oneOverToleranceHLS.z = 10000;
+	
+		toleranceHLS.z = rangeHLS.z + toleranceHLS.z;
+	}
+
+//================
+// Range blurring
+//================
+
+side.r 		= Blur.R;
+corner.r 	= side.r / 2;
+center.r	= 1;
+invSumRange.r	= 1 / (6 * Blur.R + 1);
+
+side.g 		= Blur.G;
+corner.g 	= side.g / 2;
+center.g	= 1;
+invSumRange.g	= 1.0 / (6.0 * Blur.G + 1);
+
+side.b 		= Blur.B;
+corner.b 	= side.b / 2;
+center.b	= 1;
+invSumRange.b	= 1 / (6 * Blur.B + 1);
+
+side.a 		= 1.0;
+corner.a 	= 1.0;
+center.a	= 1.0;
+invSumRange.a	= 1.0;
+	
+</IRIDAScript>

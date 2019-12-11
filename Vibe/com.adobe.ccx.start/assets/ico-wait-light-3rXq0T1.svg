@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 20.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="S_Search_24_N" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve">
+    <defs>
+        <style>
+            #loader_circle_blue,
+            #loader_bg {
+                fill-rule: evenodd;
+                fill: transparent;
+                stroke-linecap: round;
+                transform-origin: center center;
+            }
+
+            #loader_bg {
+                stroke: rgb(197, 197, 197);
+                stroke-width: 1.8;
+            }
+
+            #loader_circle_blue {
+                stroke: rgb(0, 100, 220);
+                stroke-width: 2;
+                stroke-dashoffset: 70;
+                -webkit-stroke-dashoffset: 70;
+                stroke-dasharray: 80;
+                -webkit-stroke-dasharray: 80;
+                animation: dashed 1s linear infinite;
+                -webkit-animation: dashed 1s linear infinite;
+                transform: rotate(-85deg);
+            }
+
+            #loader_circle_group {
+                transform: rotate(0deg);
+                animation: spinner 1s linear infinite;
+                -webkit-animation: spinner 1s linear infinite;
+                transform-origin: center center;
+
+            }
+
+            @keyframes dashed {
+                0% {
+                    stroke-dashoffset: 70;
+                    -webkit-stroke-dashoffset: 70;
+                    transform: rotate(-85deg);
+                }
+                60% {
+                    stroke-dashoffset: 25;
+                    -webkit-stroke-dashoffset: 25;
+                    transform: rotate(-85deg);
+                }
+                100% {
+                    stroke-dashoffset: 70;
+                    -webkit-stroke-dashoffset: 70;
+                    transform: rotate(-85deg);
+                }
+            }
+            @-webkit-keyframes spinner {
+                0% {
+                    transform: rotate(0deg);
+                }
+                60% {
+                    transform: rotate(110deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+        </style>
+    </defs>
+  <g id="ico-search"><circle id="loader_bg" cx="12" cy="12 " r="11"/>
+    <g id="loader_circle_group">
+      <circle id="loader_circle_blue" cx="12" cy="12 " r="11"/>
+    </g>
+  </g>
+</svg>

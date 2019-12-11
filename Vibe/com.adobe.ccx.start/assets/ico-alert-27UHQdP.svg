@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" data-name="S_Alert_18_N@2x" height="36" id="S_Alert_18_N_2x" viewBox="0 0 36 36" width="36">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #C4A600;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <title>S_Alert_18_N@2x</title>
+  <rect id="Canvas" fill="#ff13dc" opacity="0" width="36" height="36" /><path class="cls-1" d="M17.127,2.579.4,32.512A1,1,0,0,0,1.272,34H34.728a1,1,0,0,0,.873-1.488L18.873,2.579A1,1,0,0,0,17.127,2.579ZM20,29.5a.5.5,0,0,1-.5.5h-3a.5.5,0,0,1-.5-.5v-3a.5.5,0,0,1,.5-.5h3a.5.5,0,0,1,.5.5Zm0-6a.5.5,0,0,1-.5.5h-3a.5.5,0,0,1-.5-.5v-12a.5.5,0,0,1,.5-.5h3a.5.5,0,0,1,.5.5Z" />
+  </svg>

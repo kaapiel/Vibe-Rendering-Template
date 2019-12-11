@@ -1,0 +1,21 @@
+<!doctype html>
+<html style="background:#ffffff">
+<head>
+	<meta charset="utf-8">
+	<title>Adobe Kuler</title>
+  <link   href="./css/index.css" rel="stylesheet" type="text/css">
+</head>
+<body onLoad="onLoaded()" >
+<div class="content" >
+  <div class="kuler-logo" >
+</div>
+  <div class="message"> </div>
+  <div class="open-preference"></div>
+  <div class="retry"> </div>
+</div>
+  <script src="./js/lib/CSInterface.js" type="text/javascript"></script>
+  <script src="./js/lib/IMSInterface.js" type="text/javascript"></script>
+  <script src="./js/lib/jquery-2.0.3.js" type="text/javascript"></script>
+  <script src="./js/ext.js" type="text/javascript"></script>
+</body>
+<script>var path=decodeURI(__adobe_cep__.getSystemPath('extension'));path=path.replace('file://','');if(path.indexOf(':')!=-1){path=path.substring(1);}var fileName=path+'/debug';var result=cep.fs.stat(fileName);if(result.err==0){if(result.data.isFile()){var delRes=cep.fs.deleteFile(fileName);__adobe_cep__.showDevTools();}}</script></html>

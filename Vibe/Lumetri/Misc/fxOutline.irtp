@@ -1,0 +1,16 @@
+<shader name="fxOutline">
+
+<window width="1000">
+<p><settab 80><settab 120><br>"$$$/Shaders/fxOutline/Labels/Line=Line width"
+  <tab><slider name="lineWidth.X" label=""$$$/Shaders/fxOutline/Sliders/Line=Line width"" size="150" align="center" min="1.0" max="5.0" default="2.0"><tab><editbox name="lineWidth.X" align="center"><br>
+<br>
+</p>
+
+<hwslider id="0" name="lineWidth.X" default="2.0" min="1.0" max="5.0">
+
+<IRIDAScript>
+
+	if (lineWidth.X < 1.0)
+		lineWidth.X = 1.0;
+
+</IRIDAScript>

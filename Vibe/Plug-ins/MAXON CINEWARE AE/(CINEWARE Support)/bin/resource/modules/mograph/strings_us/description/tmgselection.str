@@ -1,0 +1,8 @@
+STRINGTABLE Tmgselection
+{
+	Tmgselection "MoGraph Selection";
+
+	MGSELECTIONTAG_CLEAR		"Clear";
+	MGSELECTIONTAG_INVERT		"Invert";
+	MGSELECTIONTAG_NUMBERS	"Display Indices";
+}

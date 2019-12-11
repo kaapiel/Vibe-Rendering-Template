@@ -1,0 +1,23 @@
+<shader name="fxCopperplate">
+
+<p>
+<settab 10><settab 190><settab 370><settab 560><settab 680>
+<tab><colorselector name="ambient" label=""$$$/Shaders/fxCopperplate/ColorWheels/Ambient=Ambient"" size="100" align="top" elevation="5" min="-1,-1,-1" negative="true" default="0.26, 0.26, 0.26">
+<tab><colorselector name="diffuse" label=""$$$/Shaders/fxCopperplate/ColorWheels/Diffuse=Diffuse"" size="100" align="top" elevation="5" min="-1,-1,-1" negative="true" default="0.3, 0.11, 0">
+<tab><colorselector name="specular" label=""$$$/Shaders/fxCopperplate/ColorWheels/Specular=Specular"" size="100" align="top" elevation="5" min="-1,-1,-1" negative="true" default="0.75, 0.33, 0">
+<tab>"$$$/Shaders/fxCopperplate/Labels/Emboss=Emboss level"<tab><slider name="embossLevel.R" label=""$$$/Shaders/fxCopperplate/Sliders/Red=Red"" size="150" align="center" min="-3" max="3" default="0.299"><editbox name="embossLevel.R" align="center"><br>
+<tab><tab><tab><tab><tab><slider name="embossLevel.G" label=""$$$/Shaders/fxCopperplate/Sliders/Green=Green"" size="150" align="center" min="-3" max="3" default="0.587"><editbox name="embossLevel.G" align="center"><br>
+<tab><tab><tab><tab><tab><slider name="embossLevel.B" label=""$$$/Shaders/fxCopperplate/Sliders/Blue=Blue"" size="150" align="center" min="-3" max="3" default="0.114"><editbox name="embossLevel.B" align="center"><br>
+<br>
+<tab><tab><tab><slider name="exponent.X" label=""$$$/Shaders/fxCopperplate/Sliders/Exponent=Exponent"" size="100" align="center" min="0.0" max="40.0" default="10.0"><editbox name="exponent.X" align="center"
+<br><br><br>
+</p>
+
+<hwcolor id="0" name="ambient" min="-1,-1,-1">
+<hwcolor id="1" name="diffuse" min="-1,-1,-1">
+<hwcolor id="2" name="specular" min="-1,-1,-1">
+
+<hwslider id="0" name="embossLevel.R" min="-3" max="3" default="0.299">
+<hwslider id="1" name="embossLevel.G" min="-3" max="3" default="0.587">
+<hwslider id="2" name="embossLevel.B" min="-3" max="3" default="0.114">
+<hwslider id="3" name="exponent.X" max="40.0" default="10.0">

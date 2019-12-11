@@ -1,0 +1,18 @@
+<shader name="HDRLayer">
+<window width="1000">
+<p>
+  <tab><slider name="gain.x" label=""$$$/Shaders/HDRLayer/Sliders/Gain=Gain"" size="150" align="center" min="-5.0" max="5.0" default="1.0"><tab><editbox name="gain.x" align="center"><br>
+  <tab><slider name="newAlpha.x" label=""$$$/Shaders/HDRLayers/Sliders/Alpha=Alpha"" size="150" align="center" default="0.5"><tab><editbox name="newAlpha.x" align="center"><br>
+</p>
+
+<hwslider id="0" min="-5" max="5" name="gain.x">
+<hwslider id="1" name="newAlpha.x">
+
+<IRIDAScript>
+
+	gain.x = pow(2.0, gain.x);
+	gain.y = gain.x;
+	gain.z = gain.x;
+	gain.w = 1.0;
+
+</IRIDAScript>

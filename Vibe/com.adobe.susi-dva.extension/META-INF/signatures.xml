@@ -1,0 +1,39 @@
+<signatures>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="PackageSignature">
+<SignedInfo>
+<CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+<SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+<Reference Type="http://www.w3.org/2000/09/xmldsig#Manifest" URI="#PackageContents">
+<Transforms>
+<Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+</Transforms>
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+<DigestValue>XB1leAjWrNQ/3nHUOMpLZnzJN2xAmEQgWnZuEZmbcRo=</DigestValue>
+</Reference>
+</SignedInfo>
+<SignatureValue Id="PackageSignatureValue">gfHuBpjAkSJ+myuDedZq23Mf4l4fwavc9WxJ32Xfc7gjTwPy76zeFFe5DvdOoSRc
+mejOJycJlrhX9WhPg5s3V0j62VJkTrLBkKfXoDTfOhfmX6SLznRXqGckov06DBgA
+n+yzj8RbHTE3jYXK6q7S3oEz1Anxnpf4zJVYAhlesDM=</SignatureValue>
+
+<KeyInfo>
+<X509Data>
+<X509Certificate>MIIB/TCCAWYCCQC61Ct2VAq5vTANBgkqhkiG9w0BAQUFADBDMQswCQYDVQQGEwJV
+UzETMBEGA1UECBMKQ2FsaWZvcm5pYTEOMAwGA1UEChMFQWRvYmUxDzANBgNVBAMT
+Bk5pa2hpbDAeFw0xNzA4MzEyMTUwMTRaFw0yODExMTcyMTUwMTRaMEMxCzAJBgNV
+BAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMQ4wDAYDVQQKEwVBZG9iZTEPMA0G
+A1UEAxMGTmlraGlsMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC9B/yocUfe
+3g3yauQc2WSCS5wrRPnke9aTGP+8M79paXqsZwvnj99NGYQrly/ogWBs/a4r8Lj+
+h1si7iThaW1oqmsZjANA1ml1NkJqxrEFEggx0KHntyxHR+PjemjxYwN8JhTtkdrA
+PaIjTWn8VPwrl3mpCEmoAXrG7sRw7GmDpQIDAQABMA0GCSqGSIb3DQEBBQUAA4GB
+AJVN2/vZJc1SGCbCM23NQIOGdjXzrNg6Ge5RHX57uJyG5LjVjIcKSBgPHxPIZXmU
+x+cT3j5zEFYJOsfq+Zzw5Q7m99IFwc4w47vY4nXJFBHB0/uBGB9Mwy0KNQWPHSsD
+5EClakv45gQW/TP7zgpnj88t1plZTyT9TS8ikMtWQHfH
+</X509Certificate>
+</X509Data>
+</KeyInfo>
+<Object>
+<Manifest Id="PackageContents">
+<Reference URI="mimetype"><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><DigestValue>b07Onu9cTlGK1WpvgtFOlfk+Tl0HscuNIt6GZtesPX8=</DigestValue></Reference><Reference URI="CSXS/manifest.xml"><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><DigestValue>i+XxwUexvY2pFtLCSfqcEN7rSFtsufuC0aruJGDjm4M=</DigestValue></Reference><Reference URI="index.html"><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><DigestValue>L9dql2jqa+8V3t2ooJMHtOEJzPFjsCAYFEq9YWG5pF0=</DigestValue></Reference><Reference URI="js/CSInterface.js"><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><DigestValue>zq5vyqaagrS/x2sNv6eaXNtzhL2GlscNToLCKIIjel0=</DigestValue></Reference><Reference URI="js/jquery.js"><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/><DigestValue>CmxMTbFxZjubHFM6TdaTjiLLTVuWB9DKkqIME1QBi0k=</DigestValue></Reference></Manifest>
+</Object>
+</Signature>
+</signatures>

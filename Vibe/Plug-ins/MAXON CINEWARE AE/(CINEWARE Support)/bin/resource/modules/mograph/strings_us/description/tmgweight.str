@@ -1,0 +1,7 @@
+STRINGTABLE Tmgweight
+{
+	Tmgweight "MoGraph Weightmap";
+
+	MGWEIGHTTAG_CLEAR		"Clear";
+	MGWEIGHTTAG_INVERT		"Invert";
+}

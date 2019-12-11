@@ -1,0 +1,22 @@
+﻿var _strings = {
+    STR_TITLE:          { en: "Cinema 4D camera",
+                                  de: "Cinema 4D Kamera" ,
+                                  es:"Cámara Cinema 4D",
+                                  fr:"Cinema 4D Camera",
+                                  it:"Cinema 4D Camera"},  
+    STR_HEADER:         { en: "Select a camera...",
+                                  de: "Selektieren Sie eine Kamera..."  ,
+                                  es:"Seleccionar una Cámara..." ,
+                                  fr:"Sélectionner une Caméra..",
+                                  it:"Seleziona una camera..."},   
+    BTN_OK:             { en: "OK" ,
+                                  de: "OK", 
+                                  es:"OK" ,
+                                  fr:"OK",
+                                  it:"OK"},  
+    BTN_CANCEL:         { en: "Cancel" ,
+                                  de: "Abbrechen" ,
+                                  es:"Cancelar",
+                                  fr:"Annuler" ,
+                                  it:"Cancella"}
+};

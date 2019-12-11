@@ -1,0 +1,13 @@
+<slider name="ColorRes" label=""$$$/Shaders/fxLegalizePAL/Sliders/Border=Border colors resolution"" align="center" size="200" default="0.5">
+<editbox name="ColorRes" align="center"><br>
+
+<hwcolor id="0" name="ColorRes">
+
+<IRIDAScript>
+
+  clampScale.x = 0.333333333;
+  clampScale.y = 0.333333333;
+  clampScale.z = 0.333333333;
+  clampScale.w = -(1 - ColorRes);
+
+</IRIDAScript>

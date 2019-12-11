@@ -1,0 +1,108 @@
+html{
+  height : 100%;
+}
+
+body {
+  margin : 0;
+  display: flex;
+  display: -webkit-flex;
+  height : 100%;
+  font-family: 'Lucida Grande', Tahoma, Verdana, Arial, sans-serif;
+  overflow-y : hidden;
+}
+
+.kuler-logo{
+    display: block;
+    height: 30px;
+    width: 30px;
+    background: url('../icons/kuler_icon_msg_D.png');
+    margin: 0 auto 0;
+}
+
+.content{
+  margin: auto;
+}
+
+.message{
+  margin: 0;
+  color: #888;
+  font-size: 11px;
+  font-weight: 300;
+  text-align: center;
+}
+
+.open-preference,
+.retry{
+  display: none;
+
+  margin-left:auto;
+  margin-right: auto;
+  background: none;
+
+  border-width: 3px;
+  font-size: 10px;
+  width:70px;
+  color: #ccc;
+  text-align: center;
+  height: 20px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+html.light1 {
+  background: #FFFFFF !important;
+}
+
+html.light2 {
+  background: #DFDFDF !important;
+}
+
+html.dark1 {
+  background: #343434 !important;
+}
+
+html.dark2 {
+  background: #252525 !important;
+}
+
+html.light1 .open-preference,
+html.light1 .retry{
+  border-image: url('../icons/P_PushButton_L1_N.png') 3 fill stretch;
+  color: #000;
+}
+
+html.light2 .open-preference,
+html.light2 .retry{
+  border-image: url('../icons/P_PushButton_L2_N.png') 3 fill stretch;
+  color: #000;
+}
+
+html.dark1 .open-preference,
+html.dark1 .retry{
+  border-image: url('../icons/P_PushButton_D1_N.png') 3 fill stretch;
+}
+
+html.dark2 .open-preference,
+html.dark2 .retry{
+  border-image: url('../icons/P_PushButton_D2_N.png') 3 fill stretch;
+}
+
+html.light1 .open-preference.selected,
+html.light1 .retry.selected{
+  border-image: url('../icons/P_PushButton_L1_S.png') 3 fill stretch;
+}
+
+html.light2 .open-preference.selected,
+html.light2 .retry.selected{
+  border-image: url('../icons/P_PushButton_L2_S.png') 3 fill stretch;
+}
+
+html.dark1 .open-preference.selected,
+html.dark1 .retry.selected{
+  border-image: url('../icons/P_PushButton_D1_S.png') 3 fill stretch;
+}
+
+html.dark2 .open-preference.selected,
+html.dark2 .retry.selected{
+  border-image: url('../icons/P_PushButton_D2_S.png') 3 fill stretch;
+}

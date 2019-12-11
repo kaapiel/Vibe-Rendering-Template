@@ -1,0 +1,2 @@
+<shader name="IRIDAS.LUT.Adaptive">
+<p>"$$$/Shaders/LUT/Labels/Lookup=Lookup table" <texturelist name="LUT" size="275" align="center" unit="1" default=""><br></p>

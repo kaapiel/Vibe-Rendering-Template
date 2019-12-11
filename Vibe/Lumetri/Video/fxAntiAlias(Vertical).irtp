@@ -1,0 +1,26 @@
+<shader name="fxAntiAliasV" secondpass="fxAntiAliasComposerV" minPixelSize="1.0">
+<window width="1000">
+<slider name="Radius.R" label=""$$$/Shaders/fxAntiAliasVertical/Sliders/Strength=Strength"" size="120" align="center" default="0" gang="gang">
+<editbox name="Radius.R" align="center"><br>
+
+<hwslider id="0" name="Radius.R" default="0">
+
+<IRIDAScript>
+
+	w1;
+	invSum;
+	
+	x = 1 / (Radius.R + 1);
+	if (x < 1)	w1.R = exp(-2 * x * x) * 0.79788456080287; else w1.R = 0;
+	
+	invSum.R = 1 / (1 + 2 * w1.R);
+	
+	w1.G = w1.R;
+	w1.B = w1.R;
+	w1.A = w1.R;
+
+	invSum.G = invSum.R;
+	invSum.B = invSum.R;
+	invSum.A = invSum.R;
+
+</IRIDAScript>

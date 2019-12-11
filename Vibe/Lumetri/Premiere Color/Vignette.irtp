@@ -1,0 +1,82 @@
+<shader name="PrColor.BasicCorrection">
+<lut name="lut1" unit=2>
+<lookup lut="lut1" function="Exposure" swizzle="0r,0g,0b,0a" variables="HDR,Slope,Power,ExpSat,Contrast,Shadows,Highlights,ShadowMask,HighlightMask,ShadowGain,HighlightGain,Blacks,Whites,BlackKnee,WhiteKnee,BlackGain,WhiteGain">
+
+<checkbox name="HDR" reload=1 default=0 align=center> "$$$/Shaders/BasicCorrection/Labels/HDR=HDR"<br>
+
+<slider name="Vignette" label=""$$$/Shaders/Vignette/Sliders/Vignette=Vignette"" size=160 align=center min=-3 max=3 default=0 forcemin=1 forcemax=1><br>
+
+<IRIDAScript>
+
+lumaCoeff.x = 0.2126;
+lumaCoeff.y = 0.7152;
+lumaCoeff.z = 0.0722;
+
+HDRExp 			= pow(2, Vignette);
+
+Vignette 		= Vignette / 5;
+
+DiffWhite	 	= 100;
+Specular		= 1;
+prePostScale.x	= 1;
+prePostScale.y	= 1;
+
+//calculate exposure parameters (same as in BasicCorrection.irtp)
+Slope;
+Power;
+ExpSat;
+
+if (Vignette < 0)
+{
+	Vignette	= -Vignette;
+
+	Slope 		= pow(2, -4.05 * pow(Vignette, 2));
+	Power 		= pow(2, 1.4 * pow(Vignette, 0.5));
+	ExpSat 		= 1.5 * pow(Vignette, 0.8) + 1;
+}
+else
+{
+	Slope 		= pow(2, 1.55 * pow(Vignette, 0.5));
+	Power 		= pow(2, -1.5 * pow(Vignette, 1.2));
+	ExpSat 		= -0.75 * pow(Vignette, 0.7) + 1;
+}
+
+ExposureMin.x	= 1;
+ExposureMin.y	= 0;
+ExposureMin.z	= 1;
+ExposureMin.w	= 0;
+
+ExposureMax.x	= 1;
+ExposureMax.y	= 0;
+ExposureMax.z	= 1;
+ExposureMax.w	= 0;
+
+//unused parameters -- default values will disable the respective shader sections
+
+tempTint.x 		= 1;
+tempTint.y 		= 1;
+tempTint.z 		= 1;
+
+Contrast 		= 0;
+
+Shadows			= 1;
+ShadowGain;
+ShadowMask;
+
+Highlights		= 1;
+HighlightGain;
+HighlightMask;
+
+Blacks			= 1;
+BlackBase;
+BlackKnee;
+BlackGain;
+
+Whites			= 1;
+WhiteBase;
+WhiteKnee;
+WhiteGain;
+
+Saturation 		= 1;
+
+</IRIDAScript>

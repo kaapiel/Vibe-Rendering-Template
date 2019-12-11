@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="5.0" ExtensionBundleId="KulerPanelHTMLBundle" ExtensionBundleVersion="6.0.0.20140903-m-59" ExtensionBundleName="panel">
+  <ExtensionList>
+    <Extension Id="KLR" Version="6.1"/>
+  </ExtensionList>
+  <ExecutionEnvironment>
+    <HostList>
+      <Host Name="PHSP" Version="15.0"/>
+      <Host Name="PHXS" Version="15.0"/>
+      <Host Name="AEFT" Version="13.0"/>
+      <Host Name="IDSN" Version="10.1"/>
+    </HostList>
+    <LocaleList>
+      <Locale Code="All"/>
+    </LocaleList>
+    <RequiredRuntimeList>
+      <RequiredRuntime Name="CSXS" Version="5.0"/>
+    </RequiredRuntimeList>
+  </ExecutionEnvironment>
+  <DispatchInfoList>
+    <Extension Id="KLR">
+      <DispatchInfo Host="PHXS">
+        <Resources>
+          <CEFCommandLine>
+            <Parameter>--user-agent=Photoshop</Parameter>
+          </CEFCommandLine>
+        </Resources>
+      </DispatchInfo>
+      <DispatchInfo Host="PHSP">
+        <Resources>
+          <CEFCommandLine>
+            <Parameter>--user-agent=Photoshop</Parameter>
+          </CEFCommandLine>
+        </Resources>
+      </DispatchInfo>
+      <DispatchInfo Host="IDSN">
+        <Resources>
+          <CEFCommandLine>
+            <Parameter>--user-agent=Indesign</Parameter>
+          </CEFCommandLine>
+        </Resources>
+      </DispatchInfo>
+      <DispatchInfo Host="AEFT">
+        <Resources>
+          <CEFCommandLine>
+            <Parameter>--user-agent=After Effects</Parameter>
+          </CEFCommandLine>
+        </Resources>
+      </DispatchInfo>
+      <DispatchInfo>
+        <Resources>
+          <MainPath>./index.html</MainPath>
+        </Resources>
+        <Lifecycle>
+          <AutoVisible>true</AutoVisible>
+        </Lifecycle>
+        <UI>
+          <Type>Panel</Type>
+          <Menu> %adobecolorthemes </Menu>
+          <Geometry>
+            <Size>
+              <Height>560</Height>
+              <Width>215</Width>
+            </Size>
+            <MaxSize>
+              <Height>800</Height>
+              <Width>215</Width>
+            </MaxSize>
+            <MinSize>
+              <Height>455</Height>
+              <Width>215</Width>
+            </MinSize>
+          </Geometry>
+          <Icons>
+            <Icon Type="Normal">./icons/kuler_icon_msg_D.png</Icon>
+            <Icon Type="DarkNormal">./icons/kuler_icon_msg_D.png</Icon>
+            <Icon Type="RollOver">./icons/kuler_icon_msg_D.png</Icon>
+            <Icon Type="DarkRollOver">./icons/kuler_icon_msg_D.png</Icon>
+          </Icons>
+        </UI>
+      </DispatchInfo>
+    </Extension>
+  </DispatchInfoList>
+</ExtensionManifest>

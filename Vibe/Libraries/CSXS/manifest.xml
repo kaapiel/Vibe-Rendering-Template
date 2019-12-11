@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtensionManifest Version="5.0" ExtensionBundleId="com.adobe.DesignLibraries.angular.2015.1" ExtensionBundleVersion="2.11.27" ExtensionBundleName="DesignLibrary" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" DevBundleVersion="2.11.0">
+  <ExtensionList>
+    <Extension Id="com.adobe.DesignLibraries.angular" Version="2.11.27"/>
+    <Extension Id="com.adobe.inapp.purchase" Version="2.11.27"/>
+  </ExtensionList>
+  <ExecutionEnvironment>
+    <HostList>
+      <Host Name="ILST" Version="[22.0,99.9]"/>
+      <Host Name="PHXS" Version="[19.0,99.9]"/>
+      <Host Name="PHSP" Version="[19.0,99.9]"/>
+      <Host Name="PPRO" Version="[12.0,99.9]"/>
+      <Host Name="IDSN" Version="[13.0,99.9]"/>
+      <Host Name="AEFT" Version="[15.0,99.9]"/>
+      <Host Name="FLPR" Version="[18.0,99.9]"/>
+      <Host Name="MUSE" Version="[2018.0,2099.9]"/>
+      <Host Name="DRWV" Version="[18.0,99.9]"/>
+      <Host Name="ESHR" Version="[1.0,99.9]"/>
+    </HostList>
+    <LocaleList>
+      <Locale Code="All"/>
+    </LocaleList>
+    <RequiredRuntimeList>
+      <RequiredRuntime Name="CSXS" Version="5.0"/>
+    </RequiredRuntimeList>
+  </ExecutionEnvironment>
+  <DispatchInfoList>
+    <Extension Id="com.adobe.DesignLibraries.angular">
+      <DispatchInfo>
+        <Resources>
+          <MainPath>./index.html</MainPath>
+          <CEFCommandLine>
+            <Parameter>--high-dpi-support=1</Parameter>
+            <Parameter>--enable-nodejs</Parameter>
+            <Parameter>--disable-accelerated-video-decode</Parameter>
+          </CEFCommandLine>
+          <ScriptPath>./jsx/core.jsx</ScriptPath>
+        </Resources>
+        <Lifecycle>
+          <AutoVisible>true</AutoVisible>
+        </Lifecycle>
+        <UI>
+          <Type>Panel</Type>
+          <Menu>%DL_LIBRARIES_PANEL_NAME</Menu>
+          <Geometry>
+            <Size>
+              <Height>300</Height>
+              <Width>239</Width>
+            </Size>
+            <MinSize>
+              <Height>165</Height>
+              <Width>239</Width>
+            </MinSize>
+            <MaxSize>
+              <Height>7680</Height>
+              <Width>7680</Width>
+            </MaxSize>
+          </Geometry>
+          <Icons>
+            <Icon Type="Normal">./images/IconLight.png</Icon>
+            <Icon Type="RollOver">./images/IconLight.png</Icon>
+            <Icon Type="DarkNormal">./images/IconDark.png</Icon>
+            <Icon Type="DarkRollOver">./images/IconDark.png</Icon>
+          </Icons>
+        </UI>
+      </DispatchInfo>
+      <DispatchInfo Host="MUSE">
+        <UI>
+          <Menu>%DL_LIBRARIES_PANEL_NAME_CC</Menu>
+        </UI>
+      </DispatchInfo>
+      <DispatchInfo Host="IDSN">
+        <UI>
+          <Menu>%DL_LIBRARIES_PANEL_NAME_CC</Menu>
+        </UI>
+      </DispatchInfo>
+      <DispatchInfo Host="DRWV">
+        <UI>
+          <Menu>%DL_LIBRARIES_PANEL_NAME_CC</Menu>
+        </UI>
+      </DispatchInfo>
+      <DispatchInfo Host="FLPR">
+        <UI>
+          <Menu>%DL_LIBRARIES_PANEL_NAME_CC</Menu>
+        </UI>
+        <Resources>
+          <ScriptPath>./applications/FLPR/jsx/core.jsx</ScriptPath>
+        </Resources>
+      </DispatchInfo>
+    </Extension>
+    <Extension Id="com.adobe.inapp.purchase">
+      <DispatchInfo>
+        <Resources>
+          <MainPath>./purchase.html</MainPath>
+          <CEFCommandLine>
+            <Parameter>--high-dpi-support=1</Parameter>
+            <Parameter>--enable-nodejs</Parameter>
+          </CEFCommandLine>
+          <ScriptPath>./jsx/core.jsx</ScriptPath>
+        </Resources>
+        <Lifecycle>
+          <AutoVisible>true</AutoVisible>
+        </Lifecycle>
+        <UI>
+          <Type>ModalDialog</Type>
+          <Menu/>
+          <Geometry>
+            <Size>
+              <Width>360</Width>
+              <Height>140</Height>
+            </Size>
+            <MinSize>
+              <Width>360</Width>
+              <Height>140</Height>
+            </MinSize>
+            <MaxSize>
+              <Width>600</Width>
+              <Height>740</Height>
+            </MaxSize>
+          </Geometry>
+          <Icons>
+            <Icon Type="Normal">./images/IconLight.png</Icon>
+            <Icon Type="RollOver">./images/IconLight.png</Icon>
+            <Icon Type="DarkNormal">./images/IconDark.png</Icon>
+            <Icon Type="DarkRollOver">./images/IconDark.png</Icon>
+          </Icons>
+        </UI>
+      </DispatchInfo>
+      <DispatchInfo Host="FLPR">
+        <Resources>
+          <ScriptPath>./applications/FLPR/jsx/core.jsx</ScriptPath>
+        </Resources>
+      </DispatchInfo>
+    </Extension>
+  </DispatchInfoList>
+</ExtensionManifest>

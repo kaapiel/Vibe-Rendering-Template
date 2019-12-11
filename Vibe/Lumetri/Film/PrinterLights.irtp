@@ -1,0 +1,15 @@
+<shader name="Gain">
+<p>
+<settab 80>
+<tab><colorselector name="Lights" label=""$$$/Shaders/PrinterLights/ColorWheels/PrinterLight=Printer Lights"" size="100" align="top" elevation="5" min="-7.2,-7.2,-7.2" max="7.2,7.2,7.2" negative="true" default="0,0,0" mode="offset">
+<br>
+</p>   
+
+<hwcolor id="0" name="Lights">
+
+<IRIDAScript>
+	gain.x = pow(2, Lights.x / 7.2);
+	gain.y = pow(2, Lights.y / 7.2);
+	gain.z = pow(2, Lights.z / 7.2);
+	gain.w = 1.0;
+</IRIDAScript>

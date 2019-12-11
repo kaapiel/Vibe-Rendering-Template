@@ -1,0 +1,36 @@
+STRINGTABLE Oalembicgenerator
+{
+	Oalembicgenerator									"Alembic";
+
+	ALEMBIC_START_DELAY								"Start of Animation";
+	ALEMBIC_START_DELAY_RESET					"Reset";
+
+	ALEMBIC_UNIT_SCALE								"Scale";
+
+	ALEMBIC_PATH											"Path to Alembic File";
+	ALEMBIC_IDENTIFIER								"Object Identifier";
+
+	ALEMBIC_STR_RENDERING							"Rendering";
+
+	ALEMBIC_OVERRIDE_FOR_RENDERING		"Override Object for Rendering";
+	ALEMBIC_USE_ORIGINAL_PATH					"Use Original Path";
+	ALEMBIC_PATH_FOR_RENDERING				"Path to Alembic File";
+	ALEMBIC_IDENTIFIER_FOR_RENDERING	"Object Identifier";
+
+	ALEMBIC_STR_UPDATE								"Streaming";
+
+	ALEMBIC_UPDATE_XFORM							"Update PSR";
+	ALEMBIC_UPDATE_GEOMETRY						"Update Geometry";
+
+	ALEMBIC_USE_VISIBILITY						"Visibility";
+	ALEMBIC_USE_NORMALS								"Normals";
+	ALEMBIC_USE_UVS										"UV Set";
+	ALEMBIC_USE_FACESETS							"Face Sets";
+	ALEMBIC_USE_COLORMAPS							"Color Maps";
+	ALEMBIC_USE_SDSWEIGHTS						"Creases and Corners";
+
+	ALEMBIC_SDS_WEIGHT_SCALE					"SDS Weight Scale";
+	ALEMBIC_INTERPOLATION							"Interpolation";
+
+	ALEMBIC_USE_OTHERATTR							"Other Attributes";
+}

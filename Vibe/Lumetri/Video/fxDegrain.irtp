@@ -1,0 +1,28 @@
+<shader name="fxDegrainPass1" secondpass="fxDegrainPass2" minPixelSize="1.0">
+
+<window width="1000">
+<slider name="StrengthS.R" label=""$$$/Shaders/fxDegrain/Sliders/Strength=Strength"" size="140" align="center" default="0" gang="gang"><editbox name="StrengthS.R" align="center"><br>
+<slider name="Sensitivity.R" label=""$$$/Shaders/fxDegrain/Sliders/Sensitivity=Sensitivity"" size="140" align="center" default="0.5" gang="gang"><editbox name="Sensitivity.R" align="center"><br>
+
+<hwslider id="0" name="StrengthS.R" default="0">
+<hwslider id="1" name="Sensitivity.R" default="0.5">
+
+
+<IRIDAScript>
+
+maxDiff3.X = Sensitivity.R * 0.3;
+maxDiff3.y = maxDiff3.x * 0.6666666666;
+maxDiff3.z = 0;
+maxDiff3.w = 0;
+
+maxDiff5.X = Sensitivity.R * 0.5;
+maxDiff5.y = maxDiff5.X * 0.6;
+maxDiff5.z = 0;
+maxDiff5.w = 0;
+
+strength.x = StrengthS.R;
+strength.y = StrengthS.R;
+strength.z = StrengthS.R;
+strength.w = StrengthS.R;
+
+</IRIDAScript>

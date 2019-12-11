@@ -1,0 +1,10 @@
+<IRIDAScript>
+
+out	= pow(in, pow(3, 0.3));
+
+red = out;
+green = out;
+blue = out;
+alpha = in;	//we don't change alpha
+
+</IRIDAScript>

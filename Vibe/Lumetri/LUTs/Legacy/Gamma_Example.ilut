@@ -1,0 +1,14 @@
+<IRIDAScript>
+
+//Gamma conversion LUT script
+
+SourceGamma = 2.2;	//Gamma of the source material
+TargetGamma = 1.0;	//Gamma of the display device
+
+out 	= pow(in, SourceGamma / TargetGamma);	//common value for all output channels
+
+red		= out;
+green 	= out;
+blue 	= out;
+
+</IRIDAScript>

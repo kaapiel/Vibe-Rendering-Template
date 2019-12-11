@@ -1,0 +1,12 @@
+﻿<IRIDAScript>
+
+//This LUT clips an image to 0 .. 1.0 range
+//Useful for intentionally clipping an image
+
+in 			= in;
+
+red = in;
+green = in;
+blue = in;
+
+</IRIDAScript>

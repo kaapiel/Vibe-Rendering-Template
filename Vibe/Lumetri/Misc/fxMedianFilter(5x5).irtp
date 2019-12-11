@@ -1,0 +1,1 @@
+<shader name="fxMedianFilter(5x5)H" secondpass="fxMedianFilter(5x5)V">

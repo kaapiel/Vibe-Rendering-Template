@@ -1,0 +1,141 @@
+<shader name="PrColor.BasicCorrection">
+<lut name="lut1" unit=2>
+<lookup lut="lut1" function="Exposure" swizzle="0r,0g,0b,0a" variables="HDR,Slope,Power,ExpSat,Contrast,Shadows,Highlights,ShadowMask,HighlightMask,ShadowGain,HighlightGain,Blacks,Whites,BlackKnee,WhiteKnee,BlackGain,WhiteGain">
+<lookup lut="lut1" function="SoftKnee" swizzle="1r" variables="Saturation,SaturationKnee">
+
+<checkbox name="HDR" default=0 align=center> "$$$/Shaders/BasicCorrection/Labels/HDR=HDR"<br>
+
+<slider name="DiffWhite" noop=1 label=""$$$/Shaders/BasicCorrection/Sliders/DiffWhite=DiffWhite"" size=160 align=center min=100 max=1000 default=100 forcemin=1 forcemax=1><br>
+
+"$$$/Shaders/BasicCorrection/Labels/WB=WB"<br>
+<slider name="Temp" label=""$$$/Shaders/BasicCorrection/Sliders/Temp=Temp"" size=160 align=center min=-100 max=100 default=0 mincolor="0080FF" maxcolor="FF8000" forcemin=1 forcemax=1><br>
+<slider name="Tint" label=""$$$/Shaders/BasicCorrection/Sliders/Tint=Tint"" size=160 align=center min=-100 max=100 default=0 mincolor=green maxcolor=magenta forcemin=1 forcemax=1><br>
+<br>
+"$$$/Shaders/BasicCorrection/Labels/Tone=Tone"<br>
+<slider name="Exposure" label=""$$$/Shaders/BasicCorrection/Sliders/Exposure=Exposure"" size=160 align=center min=-5 max=5 default=0 forcemin=1 forcemax=1><br>
+<slider name="Contrast" label=""$$$/Shaders/BasicCorrection/Sliders/Contrast=Contrast"" size=160 align=center min=-100 max=100 default=0 forcemin=1 forcemax=1><br>
+<slider name="Highlights" label=""$$$/Shaders/BasicCorrection/Sliders/Highlights=Highlights"" size=160 align=center min=-100 max=100 default=0 forcemin=1 forcemax=1><br>
+<slider name="Shadows" label=""$$$/Shaders/BasicCorrection/Sliders/Shadows=Shadows"" size=160 align=center min=-100 max=100 default=0 forcemin=1 forcemax=1><br>
+<slider name="Whites" label=""$$$/Shaders/BasicCorrection/Sliders/Whites=Whites"" size=160 align=center min=-100 max=100 default=0 forcemin=1 forcemax=1><br>
+<slider name="Blacks" label=""$$$/Shaders/BasicCorrection/Sliders/Blacks=Blacks"" size=160 align=center min=-100 max=100 default=0 forcemin=1 forcemax=1><br>
+<slider name="Specular" label=""$$$/Shaders/BasicCorrection/Sliders/Specular=Specular"" size=160 align=center min=-100 max=100 default=0 forcemin=1 forcemax=1><br>
+<br>
+"$$$/Shaders/BasicCorrection/Labels/Presence=Presence"<br>
+<slider name="Saturation" label=""$$$/Shaders/BasicCorrection/Sliders/Saturation=Saturation"" size=160 align=center min=0 max=200 default=100 forcemin=1 forcemax=1><br>
+
+<IRIDAScript>
+
+lumaCoeff.x = 0.2126;
+lumaCoeff.y = 0.7152;
+lumaCoeff.z = 0.0722;
+
+//------------------------
+// HDR
+//------------------------
+
+HDRExp = pow(2, Exposure);
+
+prePostScale.x = 1;
+prePostScale.y = 1;
+
+if (HDR)
+{
+	prePostScale.x = 100 / DiffWhite;
+	prePostScale.y = DiffWhite / 100;
+}
+
+Specular = pow(2, Specular * 0.02);
+
+//------------------------
+// 1st Stage: Temp + Tint
+//------------------------
+
+Temp 		= Temp * 0.01;			//+/-100 to +/-1
+Tint 		= Tint * 0.01;			//+/-100 to +/-1
+
+tempTint.x 	= pow(2, Temp + Tint * 0.5);
+tempTint.y 	= pow(2, -Tint);
+tempTint.z 	= pow(2, -Temp + Tint * 0.5);
+
+//normalize tempTint to counteract luma gain / loss
+oneOverDot	= 1 / (tempTint.x * lumaCoeff.x + tempTint.y * lumaCoeff.y + tempTint.z * lumaCoeff.z);
+
+tempTint.x	= tempTint.x * oneOverDot;
+tempTint.y	= tempTint.y * oneOverDot;
+tempTint.z	= tempTint.z * oneOverDot;
+
+//---------------------
+// 2nd Stage: Exposure
+//---------------------
+
+//scale exposure to internal range
+Exposure 	= Exposure / 5;
+
+//calculate exposure parameters
+Slope;
+Power;
+ExpSat;
+
+if (Exposure < 0)
+{
+	Exposure	= -Exposure;
+
+	Slope 		= pow(2, -4.05 * pow(Exposure, 2));
+	Power 		= pow(2, 1.4 * pow(Exposure, 0.5));
+	ExpSat 		= 1.5 * pow(Exposure, 0.8) + 1;
+}
+else
+{
+	Slope 		= pow(2, 1.55 * pow(Exposure, 0.5));
+	Power 		= pow(2, -1.5 * pow(Exposure, 1.2));
+	ExpSat 		= -0.75 * pow(Exposure, 0.7) + 1;
+}
+
+//contrast
+
+Contrast 			= Contrast * 0.006;			//-0.6 to 0.6
+ContrastSat			= 1 + Contrast * 0.5;		//0.7 to 1.3
+
+//shadows, highlights, blacks and whites
+
+Shadows			= Shadows * -0.01;				//-100...+100 to +1...-1 (reverse range)
+ShadowGain		= 0.7 + Shadows * 0.1;			//0.6...0.8
+Shadows			= pow(2, Shadows);				//convert +/- to slope
+ShadowMask		= 8;
+
+Highlights		= Highlights * 0.01;			//-100...+100 to -1...+1
+HighlightGain	= 0.7 - Highlights * 0.2;		//0.5...0.9
+Highlights 		= pow(2, Highlights);			//convert +/- to slope
+HighlightMask	= 8;
+
+Blacks			= Blacks * -0.01;				//-100...+100 to +1...-1 (reverse range)
+BlackBase		= 1.3 + Blacks * 0.1;			//1.2...1.4
+Blacks			= pow(BlackBase, Blacks);		//convert +/- to slope
+BlackKnee		= 0.9;
+BlackGain		= 0.7;
+
+Whites			= Whites * 0.01;				//-100...+100 to -1...+1
+WhiteBase		= 1.3 + Whites * 0.1;			//1.2...1.4
+Whites 			= pow(WhiteBase, Whites);		//convert +/- to slope
+WhiteKnee		= 0.9;
+WhiteGain		= 0.7;
+
+ExposureMin.x	= 1;
+ExposureMin.y	= 0;
+ExposureMin.z	= 1;
+ExposureMin.w	= 0;
+
+ExposureMax.x	= 1;
+ExposureMax.y	= 0;
+ExposureMax.z	= 1;
+ExposureMax.w	= 0;
+
+//-----------------------
+// 3rd Stage: Saturation
+//-----------------------
+
+//scale to internal range + add interaction with other controls
+Saturation 			= (Saturation * 0.01) * ContrastSat;
+SaturationKnee		= 0.5;
+
+</IRIDAScript>

@@ -1,0 +1,43 @@
+GeForce GTX 285
+GeForce GTX 470
+GeForce GTX 570
+GeForce GTX 580
+GeForce GTX 590
+GeForce GTX 670
+GeForce GTX 675MX
+GeForce GTX 680
+GeForce GTX 680MX
+GeForce GTX 690
+GeForce GTX 760
+GeForce GTX 770
+GeForce GTX 780
+GeForce GTX TITAN
+GeForce GT 650M
+Quadro CX
+Quadro FX 3700M
+Quadro FX 3800
+Quadro FX 3800M
+Quadro FX 4800
+Quadro FX 5800
+Quadro 2000
+Quadro 2000D
+Quadro 2000M
+Quadro 3000M
+Quadro 4000
+Quadro 4000M
+Quadro 5000
+Quadro 5000M
+Quadro 5010M
+Quadro 6000
+Quadro K2000
+Quadro K2100M
+Quadro K3000M
+Quadro K3100M
+Quadro K4000
+Quadro K4000M
+Quadro K4100M
+Quadro K5000
+Quadro K5000M
+Quadro K5100M
+Quadro K6000
+Tesla C2075

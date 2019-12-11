@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+
+    <link rel="dns-prefetch" href="//127.0.0.1">
+    <link rel="stylesheet" href="PHXS/css/dark/main.css">
+
+    <!-- AdobePatentID="P5086-US" -->
+    <!-- AdobePatentID="P5087-US" -->
+
+    <title></title>
+</head>
+
+<body ng-controller="mainCtrl" ng-class="cssClasses" lang="{{lang}}">
+
+    <div id="content">
+        <edgecc-design-library></edgecc-design-library>
+    </div>
+
+    <!-- rename require before loading requireJS, so we can access node modules -->
+    <script type="text/javascript">window.nodeRequire = window.require || function () {}; window.nodeModule = window.module; delete window.module; window.nodeGlobal = window.global; delete window.global;</script>
+
+    <script src="js/main.js"></script>
+
+</body>
+</html>

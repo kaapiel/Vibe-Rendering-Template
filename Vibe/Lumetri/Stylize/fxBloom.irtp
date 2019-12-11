@@ -1,0 +1,93 @@
+<shader name="fxBloomH" secondpass="fxBloomV">
+<window width="1600">
+<p><settab 70><settab 320><settab 590><settab 830>
+<tab>"$$$/Shaders/fxBloom/Labels/Intensity=Intensity"<tab>"$$$/Shaders/fxBloom/Labels/Radius=Radius"<tab>"$$$/Shaders/fxBloom/Labels/Threshold=Threshold"<tab>"$$$/Shaders/fxBloom/Labels/Blend=Blend"<br>
+<tab><slider name="intensity.x" label=""$$$/Shaders/fxBloom/Sliders/Red=Red"" size="100" align="center" default="0" max="20" gang="gangI"><editbox name="intensity.x" align="center" gang="gangI"><tab><slider name="Radius.R" label=""$$$/Shaders/fxBloom/Sliders/Red=Red"" size="100" align="center" default="8" max="8" gang="gangR"><editbox name="Radius.R" align="center" gang="gangR"><tab><slider name="threshold.x" label=""$$$/Shaders/fxBloom/Sliders/Red=Red"" size="100" align="center" default="0.25" gang="gangT"><editbox name="threshold.x" align="center" gang="gangT"><tab><slider name="blend.x" label=""$$$/Shaders/fxBloom/Sliders/Red=Red"" size="100" align="center" default="0.25" gang="gangB"><editbox name="blend.x" align="center" gang="gangB"><br>
+<tab><slider name="intensity.y" label=""$$$/Shaders/fxBloom/Sliders/Green=Green"" size="100" align="center" default="0" max="20" gang="gangI"><editbox name="intensity.y" align="center" gang="gangI"><tab><slider name="Radius.G" label=""$$$/Shaders/fxBloom/Sliders/Green=Green"" size="100" align="center" default="8" max="8" gang="gangR"><editbox name="Radius.G" align="center" gang="gangR"><tab><slider name="threshold.y" label=""$$$/Shaders/fxBloom/Sliders/Green=Green"" size="100" align="center" default="0.25" gang="gangT"><editbox name="threshold.y" align="center" gang="gangT"><tab><slider name="blend.y" label=""$$$/Shaders/fxBloom/Sliders/Green=Green"" size="100" align="center" default="0.25" gang="gangB"><editbox name="blend.y" align="center" gang="gangB"><br>
+<tab><slider name="intensity.z" label=""$$$/Shaders/fxBloom/Sliders/Blue=Blue"" size="100" align="center" default="0" max="20" gang="gangI"><editbox name="intensity.z" align="center" gang="gangI"><tab><slider name="Radius.B" label=""$$$/Shaders/fxBloom/Sliders/Blue=Blue"" size="100" align="center" default="8" max="8" gang="gangR"><editbox name="Radius.B" align="center" gang="gangR"><tab><slider name="threshold.z" label=""$$$/Shaders/fxBloom/Sliders/Blue=Blue"" size="100" align="center" default="0.25" gang="gangT"><editbox name="threshold.z" align="center" gang="gangT"><tab><slider name="blend.z" label=""$$$/Shaders/fxBloom/Sliders/Blue=Blue"" size="100" align="center" default="0.25" gang="gangB"><editbox name="blend.z" align="center" gang="gangB"><br><br>
+<tab><gang name="gangI" default="on" align="center">"$$$/Shaders/fxBloom/Labels/Gang=gang"<tab><gang name="gangR" default="on" align="center">"$$$/Shaders/fxBloom/Labels/Gang=gang"<tab><gang name="gangT" default="on" align="center">"$$$/Shaders/fxBloom/Labels/Gang=gang"<tab><gang name="gangB" default="on" align="center">"$$$/Shaders/fxBloom/Labels/Gang=gang"<br>
+</p>
+
+<hwslider id="0" name="intensity.x" default="0" max="20">
+<hwslider id="1" name="intensity.y" default="0" max="20">
+<hwslider id="2" name="intensity.z" default="0" max="20">
+
+<hwslider id="3" name="Radius.R" default="8" max="8">
+<hwslider id="4" name="Radius.G" default="8" max="8">
+<hwslider id="5" name="Radius.B" default="8" max="8">
+
+<hwslider id="6" name="threshold.x" default="0.25">
+<hwslider id="7" name="threshold.y" default="0.25">
+<hwslider id="8" name="threshold.z" default="0.25">
+
+<hwslider id="9" name="blend.x" default="0.25">
+<hwslider id="10" name="blend.y" default="0.25">
+<hwslider id="11" name="blend.z" default="0.25">
+
+<IRIDAScript>
+	w1;w2;w3;w4;w5;w6;w7;
+	invSum;
+
+	Radius.R = 1 / max((Radius.R + 1) * __PixelSize, 1);
+	Radius.G = 1 / max((Radius.G + 1) * __PixelSize, 1);
+	Radius.B = 1 / max((Radius.B + 1) * __PixelSize, 1);
+
+	x = Radius.R;
+	if (x < 1)	w1.R = exp(-2 * x * x) * 0.79788456080287; else w1.R = 0;
+	x = 2 * Radius.R;
+	if (x < 1)	w2.R = exp(-2 * x * x) * 0.79788456080287; else w2.R = 0;
+	x = 3 * Radius.R;
+	if (x < 1)	w3.R = exp(-2 * x * x) * 0.79788456080287; else w3.R = 0;
+	x = 4 * Radius.R;
+	if (x < 1)	w4.R = exp(-2 * x * x) * 0.79788456080287; else w4.R = 0;
+	x = 5 * Radius.R;
+	if (x < 1)	w5.R = exp(-2 * x * x) * 0.79788456080287; else w5.R = 0;
+	x = 6 * Radius.R;
+	if (x < 1)	w6.R = exp(-2 * x * x) * 0.79788456080287; else w6.R = 0;
+	x = 7 * Radius.R;
+	if (x < 1)	w7.R = exp(-2 * x * x) * 0.79788456080287; else w7.R = 0;
+	
+	invSum.R = 1 / (1 + 2 * w1.R + 2 * w2.R + 2 * w3.R + 2 * w4.R + 2 * w5.R + 2 * w6.R + 2 * w7.R);
+
+	x = Radius.G;
+	if (x < 1)	w1.G = exp(-2 * x * x) * 0.79788456080287; else w1.G = 0;
+	x = 2 * Radius.G;
+	if (x < 1)	w2.G = exp(-2 * x * x) * 0.79788456080287; else w2.G = 0;
+	x = 3 * Radius.G;
+	if (x < 1)	w3.G = exp(-2 * x * x) * 0.79788456080287; else w3.G = 0;
+	x = 4 * Radius.G;
+	if (x < 1)	w4.G = exp(-2 * x * x) * 0.79788456080287; else w4.G = 0;
+	x = 5 * Radius.G;
+	if (x < 1)	w5.G = exp(-2 * x * x) * 0.79788456080287; else w5.G = 0;
+	x = 6 * Radius.G;
+	if (x < 1)	w6.G = exp(-2 * x * x) * 0.79788456080287; else w6.G = 0;
+	x = 7 * Radius.G;
+	if (x < 1)	w7.G = exp(-2 * x * x) * 0.79788456080287; else w7.G = 0;
+	
+	invSum.G = 1 / (1 + 2 * w1.G + 2 * w2.G + 2 * w3.G + 2 * w4.G + 2 * w5.G + 2 * w6.G + 2 * w7.G);
+
+	x = Radius.B;
+	if (x < 1)	w1.B = exp(-2 * x * x) * 0.79788456080287; else w1.B = 0;
+	x = 2 * Radius.B;
+	if (x < 1)	w2.B = exp(-2 * x * x) * 0.79788456080287; else w2.B = 0;
+	x = 3 * Radius.B;
+	if (x < 1)	w3.B = exp(-2 * x * x) * 0.79788456080287; else w3.B = 0;
+	x = 4 * Radius.B;
+	if (x < 1)	w4.B = exp(-2 * x * x) * 0.79788456080287; else w4.B = 0;
+	x = 5 * Radius.B;
+	if (x < 1)	w5.B = exp(-2 * x * x) * 0.79788456080287; else w5.B = 0;
+	x = 6 * Radius.B;
+	if (x < 1)	w6.B = exp(-2 * x * x) * 0.79788456080287; else w6.B = 0;
+	x = 7 * Radius.B;
+	if (x < 1)	w7.B = exp(-2 * x * x) * 0.79788456080287; else w7.B = 0;
+	
+	invSum.B = 1 / (1 + 2 * w1.B + 2 * w2.B + 2 * w3.B + 2 * w4.B + 2 * w5.B + 2 * w6.B + 2 * w7.B);
+
+
+	negThreshold.x = -threshold.x;
+	negThreshold.y = -threshold.y;
+	negThreshold.z = -threshold.z;
+
+	blend.w = 0;
+
+</IRIDAScript>

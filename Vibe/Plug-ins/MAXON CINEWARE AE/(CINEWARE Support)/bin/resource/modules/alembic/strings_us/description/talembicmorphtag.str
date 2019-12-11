@@ -1,0 +1,21 @@
+STRINGTABLE Talembicmorphtag
+{
+	Talembicmorphtag										"Alembic Morph";
+
+	ALEMBIC_MT_START_DELAY							"Start of Animation";
+	ALEMBIC_MT_START_DELAY_RESET				"Reset";
+
+	ALEMBIC_MT_UNIT_SCALE								"Scale";
+
+	ALEMBIC_MT_PATH											"Path to Alembic File";
+	ALEMBIC_MT_IDENTIFIER								"Object Identifier";
+
+	ALEMBIC_MT_STR_RENDERING						"Rendering";
+
+	ALEMBIC_MT_STR_UPDATE								"Streaming";
+
+	ALEMBIC_MT_UPDATE_XFORM							"Update PSR";
+	ALEMBIC_MT_UPDATE_GEOMETRY					"Update Geometry";
+
+	ALEMBIC_MT_INTERPOLATION						"Interpolation";
+}

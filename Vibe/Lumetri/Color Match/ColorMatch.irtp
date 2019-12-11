@@ -1,0 +1,60 @@
+<p><settab 420>"$$$/Shaders/ColorMatch/Labels/Image=Pick these colors from the image you're about to modify":<tab>"$$$/Shaders/ColorMatch/Labels/Reference=Pick these colors from a reference image":<resettabs></p>
+<p><settab 360>
+<colorselector name="black" label=""$$$/Shaders/ColorMatch/ColorWheels/Black=Black"" default="0,0,0" align="center" picker="true" size="100"><colorselector name="gray" label=""$$$/Shaders/ColorMatch/ColorWheels/Gray=Gray"" default="0.5, 0.5, 0.5" align="center" picker="true" size="100"><colorselector name="white" label=""$$$/Shaders/ColorMatch/ColorWheels/White=White"" default="1,1,1" align="center" picker="true" size="100">
+<tab>
+<colorselector name="refBlack" label=""$$$/Shaders/ColorMatch/ColorWheels/Black=Black"" default="0,0,0" align="center" picker="true" size="100"><colorselector name="refGray" label=""$$$/Shaders/ColorMatch/ColorWheels/Gray=Gray"" default="0.5, 0.5, 0.5" align="center" picker="true" size="100"><colorselector name="refWhite" label=""$$$/Shaders/ColorMatch/ColorWheels/White=White"" default="1,1,1" align="center" picker="true" size="100">
+</p>
+
+<hwcolor id="0" name="black">
+<hwcolor id="1" name="gray">
+<hwcolor id="2" name="white">
+<hwcolor id="3" name="refBlack">
+<hwcolor id="4" name="refGray">
+<hwcolor id="5" name="refWhite">
+
+<IRIDAScript>
+
+refBlack.a = 0;
+
+// calculate scales
+
+inScale.r = white.r - black.r;
+if (inScale.r > 0.0001)
+	inScale.r = 1 / inScale.r;
+else
+	inScale.r = 10000;
+
+inScale.g = white.g - black.g;
+if (inScale.g > 0.0001)
+	inScale.g = 1 / inScale.g;
+else
+	inScale.g = 10000;
+
+inScale.b = white.b - black.b;
+if (inScale.b > 0.0001)
+	inScale.b = 1 / inScale.b;
+else
+	inScale.b = 10000;
+
+outScale.r = refWhite.r - refBlack.r;
+outScale.g = refWhite.g - refBlack.g;
+outScale.b = refWhite.b - refBlack.b;
+outScale.a = 1;
+
+// normalize both grays
+
+gray.r = (gray.r - black.r) * inScale.r;
+gray.g = (gray.g - black.g) * inScale.g;
+gray.b = (gray.b - black.b) * inScale.b;
+
+refGray.r = (refGray.r - refBlack.r) / outScale.r;
+refGray.g = (refGray.g - refBlack.g) / outScale.g;
+refGray.b = (refGray.b - refBlack.b) / outScale.b;
+
+//calculate exponent
+
+exponent.r = log(refGray.r) / log(gray.r);
+exponent.g = log(refGray.g) / log(gray.g);
+exponent.b = log(refGray.b) / log(gray.b);
+
+</IRIDAScript>

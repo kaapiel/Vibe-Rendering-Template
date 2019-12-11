@@ -1,0 +1,69 @@
+<shader passes="Sharpness < 0 ? ConvolveH,ConvolveV : Convolve">
+<tab><slider name="Sharpness" label=""$$$/Shaders/Sharpness/Sliders/Sharpness=Sharpness"" size="200" align="center" default="0" min="-100" max="100" forcerange=1>
+</p>
+
+<IRIDAScript>
+
+	w1;w2;w3;w4;			//G-blur only
+	invSum;					//used in both shaders
+	side;corner;center;		//sharpen only
+	
+	if (Sharpness < 0)
+	{
+		Radius.R = 1 / max((Sharpness * -0.05 + 1) * __PixelSize, 1);
+		Radius.G = Radius.R;
+		Radius.B = Radius.R;
+		Radius.A = Radius.R;
+
+		x = Radius.R;
+		if (x < 1)	w1.R = exp(-2 * x * x) * 0.79788456080287; else w1.R = 0;
+		x = 2 * Radius.R;
+		if (x < 1)	w2.R = exp(-2 * x * x) * 0.79788456080287; else w2.R = 0;
+		x = 3 * Radius.R;
+		if (x < 1)	w3.R = exp(-2 * x * x) * 0.79788456080287; else w3.R = 0;
+		x = 4 * Radius.R;
+		if (x < 1)	w4.R = exp(-2 * x * x) * 0.79788456080287; else w4.R = 0;
+
+		w1.G = w1.R;
+		w1.B = w1.R;
+		w1.A = w1.R;
+
+		w2.G = w2.R;
+		w2.B = w2.R;
+		w2.A = w2.R;
+		
+		w3.G = w3.R;
+		w3.B = w3.R;
+		w3.A = w3.R;
+
+		w4.G = w4.R;
+		w4.B = w4.R;
+		w4.A = w4.R;
+
+		invSum.R = 1 / (1 + 2 * w1.R + 2 * w2.R + 2 * w3.R + 2 * w4.R);
+	}
+	else
+	{
+		side.r 	 = Sharpness * -0.004;	//max 40% sharpening
+		corner.r = side.r / 2;
+		center.r = -side.r * 6 + 1;
+		invSum.r = 1;
+
+		side.g 	 = side.r;
+		corner.g = corner.r;
+		center.g = center.r;
+
+		side.b 	 = side.r;
+		corner.b = corner.r;
+		center.b = center.r;
+		
+		side.a 	 = side.r;
+		corner.a = corner.r;
+		center.a = center.r;
+	}
+
+	invSum.G = invSum.R;
+	invSum.B = invSum.R;
+	invSum.A = invSum.R;
+
+</IRIDAScript>

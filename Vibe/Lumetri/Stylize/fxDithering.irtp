@@ -1,0 +1,24 @@
+<shader name="fxDithering">
+<window width="1000">
+<p><settab 120><settab 160><br>"$$$/Shaders/fxDithering/Labels/Color=Color bits"
+<tab><slider name="Bits.R" label=""$$$/Shaders/fxDithering/Sliders/Red=Red"" size="100" align="center" min="1" max="10" step="1" default="8" gang="gang"><editbox name="Bits.R" align="center" gang="gang"><br>
+<tab><slider name="Bits.G" label=""$$$/Shaders/fxDithering/Sliders/Green=Green"" size="100" align="center" min="1" max="10" step="1" default="8" gang="gang"><editbox name="Bits.G" align="center" gang="gang"><br>
+<tab><slider name="Bits.B" label=""$$$/Shaders/fxDithering/Sliders/Blue=Blue"" size="100" align="center" min="1" max="10" step="1" default="8" gang="gang"><editbox name="Bits.B" align="center" gang="gang"><br><br>
+<tab><gang name="gang" default="on" align="center">"$$$/Shaders/fxDithering/Labels/Gang=gang"
+<br>
+</p>
+
+<hwslider id="0" name="Bits.R" default="8">
+<hwslider id="1" name="Bits.G" default="8">
+<hwslider id="2" name="Bits.B" default="8">
+
+<IRIDAScript>
+	numOfColors.x    = pow(2, Bits.R) - 1;
+	invNumOfColors.x = 1 / numOfColors.x;
+
+	numOfColors.y    = pow(2, Bits.G) - 1;
+	invNumOfColors.y = 1 / numOfColors.y;
+
+	numOfColors.z    = pow(2, Bits.B) - 1;
+	invNumOfColors.z = 1 / numOfColors.z;
+</IRIDAScript>

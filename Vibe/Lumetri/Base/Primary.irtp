@@ -1,0 +1,325 @@
+<shader name="IRIDAS.Primary" noopwhendefault=1>
+<lut name="lut1" unit=2>
+<lookup lut="lut1" function="LowMidHigh" swizzle="0r,0g,0b" variables="lowMid,midHigh">
+<extern name="TabOverall" noop=1 default=1>
+<extern name="TabShadows" noop=1>
+<extern name="TabMidtones" noop=1>
+<extern name="TabHighlights" noop=1>
+<tabbar name="Pages" tabs=""$$$/GradingPanel/EditorLabels/Overall=Overall","$$$/GradingPanel/EditorLabels/Shadows=Shadows","$$$/GradingPanel/EditorLabels/Midtones=Midtones","$$$/GradingPanel/EditorLabels/Highlights=Highlights"" variables="TabOverall,TabShadows,TabMidtones,TabHighlights" size=400>
+
+<if condition="TabOverall">
+
+<p><settab 10><settab 180><settab 350><settab 520><settab 690><settab 860><settab 1030>
+<tab><slider name="Saturation" label=""$$$/Shaders/Primary/Sliders/InputSaturation=Input Saturation"" size=160 align=center max=2 default=1 forcemin=1>
+<tab><slider name="Pivot" label=""$$$/Shaders/Primary/Sliders/Pivot=Pivot"" noop=1 size=160 align=center default=0.5>
+<tab><slider name="Contrast" label=""$$$/Shaders/Primary/Sliders/Contrast=Contrast"" size=160 align=center min=-1 default=0>
+<tab><slider name="Temperature" label=""$$$/Shaders/Primary/Sliders/Temperature=Temperature"" size=160 align=center min=-1 default=0 mincolor="0080FF" maxcolor="FF8000">
+<tab><slider name="Magenta" label=""$$$/Shaders/Primary/Sliders/Magenta=Magenta"" size=160 align=center min=-1 default=0 mincolor=green maxcolor=magenta>
+<tab><slider name="PostSat" label=""$$$/Shaders/Primary/Sliders/FinalSaturation=Final Saturation"" size=160 align=center max=2 default=1 forcemin=1>
+</p>
+
+<p><resettabs><settab 75><settab 205><settab 435><settab 665><settab 925>
+<tab><slider name="placeholder" label="placeholder" size=110 align=center orientation=vertical visible=0>
+<tab><colorselector name="offset" label=""$$$/Shaders/Primary/ColorWheels/Offset=Offset"" size=100 align=center min="-1,-1,-1" negative=true default="0,0,0" mode="offset">
+<tab><colorselector name="gamma" label=""$$$/Shaders/Primary/ColorWheels/Gamma=Gamma"" size=100 align=center min="1,1,1" max="-1,-1,-1" negative=true default="0,0,0" mode="offset">
+<tab><colorselector name="gain" label=""$$$/Shaders/Primary/ColorWheels/Gain=Gain"" size=100 align=center min="-1,-1,-1" default="0,0,0" mode="offset">
+<tab><slider name="placeholder" label="placeholder" size=110 align=center orientation=vertical visible=0>
+</p>
+
+<hwvalue id=0 name="Saturation" max=2 forcemin=1>
+<hwvalue id=1 name="Pivot">
+<hwvalue id=2 name="Contrast">
+<hwvalue id=3 name="Temperature">
+<hwvalue id=4 name="Magenta">
+<hwvalue id=5 name="PostSat" max=2 forcemin=1>
+
+<hwcolor id=0 name="offset" min="-1,-1,-1">
+<hwcolor id=1 name="gamma" min="1,1,1" max="-1,-1,-1">
+<hwcolor id=2 name="gain" min="-1,-1,-1">
+
+<else>
+
+<extern name="Saturation" default="1,1,1">
+<extern name="gamma" default="0,0,0">
+<extern name="Pivot" noop=1 default=0.5>
+<extern name="Contrast" default=0>
+<extern name="offset" default="0,0,0">
+<extern name="Temperature" default=0>
+<extern name="Magenta" default=0>
+<extern name="gain" default="0,0,0">
+<extern name="PostSat" default="1,1,1">
+
+</if>
+
+<if condition="TabShadows">
+
+<p><settab 10><settab 180><settab 350><settab 520><settab 690><settab 860><settab 1030>
+<tab><slider name="saturationLMH.x" label=""$$$/Shaders/Primary/Sliders/InputSaturation=Input Saturation"" size=160 align=center max=2 default=1 forcemin=1>
+<tab><slider name="PivotLow" label=""$$$/Shaders/Primary/Sliders/Pivot=Pivot"" noop=1 size=160 align=center default=0.5>
+<tab><slider name="ContrastLow" label=""$$$/Shaders/Primary/Sliders/Contrast=Contrast"" size=160 align=center min=-1 default=0>
+<tab><slider name="TemperatureLow" label=""$$$/Shaders/Primary/Sliders/Temperature=Temperature"" size=160 align=center min=-1 default=0 mincolor="0080FF" maxcolor="FF8000">
+<tab><slider name="MagentaLow" label=""$$$/Shaders/Primary/Sliders/Magenta=Magenta"" size=160 align=center min=-1 default=0 mincolor=green maxcolor=magenta>
+<tab><slider name="postSaturationLMH.x" label=""$$$/Shaders/Primary/Sliders/FinalSaturation=Final Saturation"" size=160 align=center max=2 default=1 forcemin=1>
+</p>
+
+<p><resettabs><settab 75><settab 205><settab 435><settab 665><settab 925>
+<tab><slider name="placeholder" label="placeholder" size=110 align=center orientation=vertical visible=0>
+<tab><colorselector name="offsetLow" label=""$$$/Shaders/Primary/ColorWheels/Offset=Offset"" size=100 align=center min="-1,-1,-1" negative=true default="0,0,0" mode="offset">
+<tab><colorselector name="gammaLow" label=""$$$/Shaders/Primary/ColorWheels/Gamma=Gamma"" size=100 align=center min="1,1,1" max="-1,-1,-1" negative=true default="0,0,0" mode="offset">
+<tab><printerlights name="gainLow" label=""$$$/Shaders/Primary/ColorWheels/Gain=Gain"" size=100 align=center colorselector=1>
+<tab><slider name="lowMid" label=""$$$/Shaders/Primary/Sliders/LowMid=S/M"" size=110 align=center orientation=vertical default=0.5 forcerange=1>
+</p>
+
+<hwvalue id=0 name="saturationLMH.x" max=2 forcemin=1>
+<hwvalue id=1 name="PivotLow">
+<hwvalue id=2 name="ContrastLow">
+<hwvalue id=3 name="TemperatureLow">
+<hwvalue id=4 name="MagentaLow">
+<hwvalue id=5 name="postSaturationLMH.x" max=2 forcemin=1>
+
+<hwvalue id=7 name="midHigh" noop=1 default=0.5>
+
+<hwcolor id=0 name="offsetLow" min="-1,-1,-1">
+<hwcolor id=1 name="gammaLow" min="1,1,1" max="-1,-1,-1">
+<hwcolor id=2 name="gainLow" min="-1,-1,-1">
+
+<else>
+
+<extern name="saturationLMH.x" default=1>
+<extern name="gammaLow" default="0,0,0">
+<extern name="PivotLow" noop=1 default=0.5>
+<extern name="ContrastLow" default=0>
+<extern name="offsetLow" default="0,0,0">
+<extern name="TemperatureLow" default=0>
+<extern name="MagentaLow" default=0>
+<extern name="gainLow" default="0,0,0">
+<extern name="postSaturationLMH.x" default=1>
+
+<extern name="midHigh" noop=1 default=0.5>
+
+</if>
+
+<if condition="TabMidtones">
+
+<p><settab 10><settab 180><settab 350><settab 520><settab 690><settab 860><settab 1030>
+<tab><slider name="saturationLMH.y" label=""$$$/Shaders/Primary/Sliders/InputSaturation=Input Saturation"" size=160 align=center max=2 default=1 forcemin=1>
+<tab><slider name="PivotMid" label=""$$$/Shaders/Primary/Sliders/Pivot=Pivot"" noop=1 size=160 align=center default=0.5>
+<tab><slider name="ContrastMid" label=""$$$/Shaders/Primary/Sliders/Contrast=Contrast"" size=160 align=center min=-1 default=0>
+<tab><slider name="TemperatureMid" label=""$$$/Shaders/Primary/Sliders/Temperature=Temperature"" size=160 align=center min=-1 default=0 mincolor="0080FF" maxcolor="FF8000">
+<tab><slider name="MagentaMid" label=""$$$/Shaders/Primary/Sliders/Magenta=Magenta"" size=160 align=center min=-1 default=0 mincolor=green maxcolor=magenta>
+<tab><slider name="postSaturationLMH.y" label=""$$$/Shaders/Primary/Sliders/FinalSaturation=Final Saturation"" size=160 align=center max=2 default=1 forcemin=1>
+</p>
+
+<p><resettabs><settab 75><settab 205><settab 435><settab 665><settab 925>
+<tab><slider name="midHigh" label=""$$$/Shaders/Primary/Sliders/MidHigh=M/H"" size=110 align=center orientation=vertical default=0.5 forcerange=1>
+<tab><colorselector name="offsetMid" label=""$$$/Shaders/Primary/ColorWheels/Offset=Offset"" size=100 align=center min="-1,-1,-1" negative=true default="0,0,0" mode="offset">
+<tab><colorselector name="gammaMid" label=""$$$/Shaders/Primary/ColorWheels/Gamma=Gamma"" size=100 align=center min="1,1,1" max="-1,-1,-1" negative=true default="0,0,0" mode="offset">
+<tab><printerlights name="gainMid" label=""$$$/Shaders/Primary/ColorWheels/Gain=Gain"" size=100 align=center colorselector=1>
+<tab><slider name="lowMid" label=""$$$/Shaders/Primary/Sliders/LowMid=S/M"" size=110 align=center orientation=vertical default=0.5 forcerange=1>
+</p>
+
+<hwvalue id=0 name="saturationLMH.y" max=2 forcemin=1>
+<hwvalue id=1 name="PivotMid">
+<hwvalue id=2 name="ContrastMid">
+<hwvalue id=3 name="TemperatureMid">
+<hwvalue id=4 name="MagentaMid">
+<hwvalue id=5 name="postSaturationLMH.y" max=2 forcemin=1>
+
+<hwvalue id=6 name="lowMid" noop=1 default=0.5>
+<hwvalue id=7 name="midHigh" noop=1 default=0.5>
+
+<hwcolor id=0 name="offsetMid" min="-1,-1,-1">
+<hwcolor id=1 name="gammaMid" min="1,1,1" max="-1,-1,-1">
+<hwcolor id=2 name="gainMid" min="-1,-1,-1">
+
+<else>
+
+<extern name="saturationLMH.y" default=1>
+<extern name="gammaMid" default="0,0,0">
+<extern name="PivotMid" noop=1 default=0.5>
+<extern name="ContrastMid" default=0>
+<extern name="offsetMid" default="0,0,0">
+<extern name="TemperatureMid" default=0>
+<extern name="MagentaMid" default=0>
+<extern name="gainMid" default="0,0,0">
+<extern name="postSaturationLMH.y" default=1>
+
+<extern name="lowMid" noop=1 default=0.5>
+<extern name="midHigh" noop=1 default=0.5>
+
+</if>
+
+<if condition="TabHighlights">
+
+<p><settab 10><settab 180><settab 350><settab 520><settab 690><settab 860><settab 1030>
+<tab><slider name="saturationLMH.z" label=""$$$/Shaders/Primary/Sliders/InputSaturation=Input Saturation"" size=160 align=center max=2 default=1 forcemin=1>
+<tab><slider name="PivotHigh" label=""$$$/Shaders/Primary/Sliders/Pivot=Pivot"" noop=1 size=160 align=center default=0.5>
+<tab><slider name="ContrastHigh" label=""$$$/Shaders/Primary/Sliders/Contrast=Contrast"" size=160 align=center min=-1 default=0>
+<tab><slider name="TemperatureHigh" label=""$$$/Shaders/Primary/Sliders/Temperature=Temperature"" size=160 align=center min=-1 default=0 mincolor="0080FF" maxcolor="FF8000">
+<tab><slider name="MagentaHigh" label=""$$$/Shaders/Primary/Sliders/Magenta=Magenta"" size=160 align=center min=-1 default=0 mincolor=green maxcolor=magenta>
+<tab><slider name="postSaturationLMH.z" label=""$$$/Shaders/Primary/Sliders/FinalSaturation=Final Saturation"" size=160 align=center max=2 default=1 forcemin=1>
+</p>
+
+<p><resettabs><settab 75><settab 205><settab 435><settab 665><settab 925>
+<tab><slider name="midHigh" label=""$$$/Shaders/Primary/Sliders/MidHigh=M/H"" size=110 align=center orientation=vertical default=0.5 forcerange=1>
+<tab><colorselector name="offsetHigh" label=""$$$/Shaders/Primary/ColorWheels/Offset=Offset"" size=100 align=center min="-1,-1,-1" negative=true default="0,0,0" mode="offset">
+<tab><colorselector name="gammaHigh" label=""$$$/Shaders/Primary/ColorWheels/Gamma=Gamma"" size=100 align=center min="1,1,1" max="-1,-1,-1" negative=true default="0,0,0" mode="offset">
+<tab><printerlights name="gainHigh" label=""$$$/Shaders/Primary/ColorWheels/Gain=Gain"" size=100 align=center colorselector=1>
+<tab><slider name="placeholder" label="placeholder" size=110 align=center orientation=vertical visible=0>
+</p>
+
+<hwvalue id=0 name="saturationLMH.z" max=2 forcemin=1>
+<hwvalue id=1 name="PivotHigh">
+<hwvalue id=2 name="ContrastHigh">
+<hwvalue id=3 name="TemperatureHigh">
+<hwvalue id=4 name="MagentaHigh">
+<hwvalue id=5 name="postSaturationLMH.z" max=2 forcemin=1>
+
+<hwvalue id=7 name="midHigh" noop=1 default=0.5>
+
+<hwcolor id=0 name="offsetHigh" min="-1,-1,-1">
+<hwcolor id=1 name="gammaHigh" min="1,1,1" max="-1,-1,-1">
+<hwcolor id=2 name="gainHigh" min="-1,-1,-1">
+
+<else>
+
+<extern name="saturationLMH.z" default=1>
+<extern name="gammaHigh" default="0,0,0">
+<extern name="PivotHigh" noop=1 default=0.5>
+<extern name="ContrastHigh" default=0>
+<extern name="offsetHigh" default="0,0,0">
+<extern name="TemperatureHigh" default=0>
+<extern name="MagentaHigh" default=0>
+<extern name="gainHigh" default="0,0,0">
+<extern name="postSaturationLMH.z" default=1>
+
+<extern name="midHigh" noop=1 default=0.5>
+
+</if>
+
+<extern name="luminance.x" noop=1 default=0.2126>
+<extern name="luminance.y" noop=1 default=0.7152>
+<extern name="luminance.z" noop=1 default=0.0722>
+
+<extern name="NeutralGray" noop=1 default=30>
+<extern name="GrayOut" default=0>
+
+<IRIDAScript>
+saturationLMH.x = saturationLMH.x * Saturation;
+saturationLMH.y = saturationLMH.y * Saturation;
+saturationLMH.z = saturationLMH.z * Saturation;
+
+postSaturationLMH.x = postSaturationLMH.x * PostSat;
+postSaturationLMH.y = postSaturationLMH.y * PostSat;
+postSaturationLMH.z = postSaturationLMH.z * PostSat;
+
+TempGain.x = pow(2, gain.x + (Temperature + Magenta * 0.5));
+TempGain.y = pow(2, gain.y + (-Magenta));
+TempGain.z = pow(2, gain.z + (-Temperature + Magenta * 0.5));
+Contrast = pow(2, Contrast);
+offset.x = TempGain.x * (offset.x + Pivot - Contrast * Pivot);
+offset.y = TempGain.y * (offset.y + Pivot - Contrast * Pivot);
+offset.z = TempGain.z * (offset.z + Pivot - Contrast * Pivot);
+gain.x = TempGain.x * Contrast;
+gain.y = TempGain.y * Contrast;
+gain.z = TempGain.z * Contrast;
+
+gammaLow.x = pow(3, gammaLow.x + gamma.x);
+gammaLow.y = pow(3, gammaLow.y + gamma.y);
+gammaLow.z = pow(3, gammaLow.z + gamma.z);
+TempGain.x = pow(2, gainLow.x + (TemperatureLow + MagentaLow * 0.5));
+TempGain.y = pow(2, gainLow.y + (-MagentaLow));
+TempGain.z = pow(2, gainLow.z + (-TemperatureLow + MagentaLow * 0.5));
+ContrastLow = pow(2, ContrastLow);
+offsetLow.x = TempGain.x * (offsetLow.x + PivotLow - ContrastLow * PivotLow) + offset.x;
+offsetLow.y = TempGain.y * (offsetLow.y + PivotLow - ContrastLow * PivotLow) + offset.y;
+offsetLow.z = TempGain.z * (offsetLow.z + PivotLow - ContrastLow * PivotLow) + offset.z;
+gainLow.x = TempGain.x * ContrastLow * gain.x;
+gainLow.y = TempGain.y * ContrastLow * gain.y;
+gainLow.z = TempGain.z * ContrastLow * gain.z;
+
+gammaMid.x = pow(3, gammaMid.x + gamma.x);
+gammaMid.y = pow(3, gammaMid.y + gamma.y);
+gammaMid.z = pow(3, gammaMid.z + gamma.z);
+TempGain.x = pow(2, gainMid.x + (TemperatureMid + MagentaMid * 0.5));
+TempGain.y = pow(2, gainMid.y + (-MagentaMid));
+TempGain.z = pow(2, gainMid.z + (-TemperatureMid + MagentaMid * 0.5));
+ContrastMid = pow(2, ContrastMid);
+offsetMid.x = TempGain.x * (offsetMid.x + PivotMid - ContrastMid * PivotMid) + offset.x;
+offsetMid.y = TempGain.y * (offsetMid.y + PivotMid - ContrastMid * PivotMid) + offset.y;
+offsetMid.z = TempGain.z * (offsetMid.z + PivotMid - ContrastMid * PivotMid) + offset.z;
+gainMid.x = TempGain.x * ContrastMid * gain.x;
+gainMid.y = TempGain.y * ContrastMid * gain.y;
+gainMid.z = TempGain.z * ContrastMid * gain.z;
+
+gammaHigh.x = pow(3, gammaHigh.x + gamma.x);
+gammaHigh.y = pow(3, gammaHigh.y + gamma.y);
+gammaHigh.z = pow(3, gammaHigh.z + gamma.z);
+TempGain.x = pow(2, gainHigh.x + (TemperatureHigh + MagentaHigh * 0.5));
+TempGain.y = pow(2, gainHigh.y + (-MagentaHigh));
+TempGain.z = pow(2, gainHigh.z + (-TemperatureHigh + MagentaHigh * 0.5));
+ContrastHigh = pow(2, ContrastHigh);
+offsetHigh.x = TempGain.x * (offsetHigh.x + PivotHigh - ContrastHigh * PivotHigh) + offset.x;
+offsetHigh.y = TempGain.y * (offsetHigh.y + PivotHigh - ContrastHigh * PivotHigh) + offset.y;
+offsetHigh.z = TempGain.z * (offsetHigh.z + PivotHigh - ContrastHigh * PivotHigh) + offset.z;
+gainHigh.x = TempGain.x * ContrastHigh * gain.x;
+gainHigh.y = TempGain.y * ContrastHigh * gain.y;
+gainHigh.z = TempGain.z * ContrastHigh * gain.z;
+
+if (GrayOut > 0.5 && !TabOverall)
+{
+	GrayOutOffset = 0;
+
+	if (GrayOut < 1.5)
+		GrayOutOffset = 1 - clamp(NeutralGray / 100, 0, 1);
+
+	if (TabShadows)
+	{
+		if (GrayOut > 2.5)
+		{
+			gammaLow.x = 1; gammaLow.y = 1; gammaLow.z = 1;
+			gainLow.x = 0; gainLow.y = 0; gainLow.z = 0;
+			offsetLow.x = 1; offsetLow.y = 1; offsetLow.z = 1;
+		}
+	}
+	else
+	{
+		gammaLow.x = 1; gammaLow.y = 1; gammaLow.z = 1;
+		gainLow.x = 0; gainLow.y = 0; gainLow.z = 0;
+		offsetLow.x = GrayOutOffset; offsetLow.y = GrayOutOffset; offsetLow.z = GrayOutOffset;
+	}
+
+	if (TabMidtones)
+	{
+		if (GrayOut > 2.5)
+		{
+			gammaMid.x = 1; gammaMid.y = 1; gammaMid.z = 1;
+			gainMid.x = 0; gainMid.y = 0; gainMid.z = 0;
+			offsetMid.x = 1; offsetMid.y = 1; offsetMid.z = 1;
+		}
+	}
+	else
+	{
+		gammaMid.x = 1; gammaMid.y = 1; gammaMid.z = 1;
+		gainMid.x = 0; gainMid.y = 0; gainMid.z = 0;
+		offsetMid.x = GrayOutOffset; offsetMid.y = GrayOutOffset; offsetMid.z = GrayOutOffset;
+	}
+
+	if (TabHighlights)
+	{
+		if (GrayOut > 2.5)
+		{
+			gammaHigh.x = 1; gammaHigh.y = 1; gammaHigh.z = 1;
+			gainHigh.x = 0; gainHigh.y = 0; gainHigh.z = 0;
+			offsetHigh.x = 1; offsetHigh.y = 1; offsetHigh.z = 1;
+		}
+	}
+	else
+	{
+		gammaHigh.x = 1; gammaHigh.y = 1; gammaHigh.z = 1;
+		gainHigh.x = 0; gainHigh.y = 0; gainHigh.z = 0;
+		offsetHigh.x = GrayOutOffset; offsetHigh.y = GrayOutOffset; offsetHigh.z = GrayOutOffset;
+	}
+}
+
+</IRIDAScript>

@@ -1,0 +1,21 @@
+<p><settab 40><settab 180><settab 320>
+<tab><colorselector name="slope" label=""$$$/Shaders/ASCCombined/ColorWheels/Slope=Slope"" size="100" align="top" elevation="5" max="3,3,3" default="1,1,1" mode="offset">
+<tab><colorselector name="offset" label=""$$$/Shaders/ASCCombined/ColorWheels/Offset=Offset"" size="100" align="top" elevation="5" min="-1,-1,-1" negative="true" default="0,0,0" mode="offset">
+<tab><colorselector name="power" label=""$$$/Shaders/ASCCombined/ColorWheels/Power=Power"" size="100" align="top" elevation="5" min="3,3,3" default="1,1,1" max="0,0,0" mode="offset">
+<br>
+</p>
+<br>
+<tab><slider name="saturation" label=""$$$/Shaders/ASC-Combined/Sliders/Saturation=Saturation"" size="100" align="center" min="0" max="1" forcemin="1" default="1"><editbox name="Saturation" align="center"><br>
+</p>   
+
+<hwcolor id="0" name="slope"	  min="0,0,0"		default="1,1,1"		max="3,3,3">
+<hwcolor id="1" name="offset" 	  min="-1,-1,-1"	default="0,0,0"		max="1,1,1">
+<hwcolor id="2" name="power"	  min="3,3,3"		default="1,1,1"		max="0,0,0">
+<hwcolor id="3" name="saturation" min="0,0,0"		default="1,1,1"		max="1,1,1">
+
+<IRIDAScript>
+	saturation.x = saturation;
+	saturation.y = saturation;
+	saturation.z = saturation;
+	saturation.w = 1;
+</IRIDAScript>

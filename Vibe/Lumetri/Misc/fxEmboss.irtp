@@ -1,0 +1,13 @@
+<shader name="fxEmboss">
+
+<window width="1000">
+<p><settab 20><settab 140><br><tab>"$$$/Shaders/fxEmboss/Labels/Emboss=Emboss level"
+<tab><tab><slider name="embossLevel.R" label=""$$$/Shaders/fxEmboss/Sliders/Red=Red"" size="150" align="center" min="-3" max="3" default="0.299"><editbox name="embossLevel.R" align="center"><br>
+<tab><tab><slider name="embossLevel.G" label=""$$$/Shaders/fxEmboss/Sliders/Green=Green"" size="150" align="center" min="-3" max="3" default="0.587"><editbox name="embossLevel.G" align="center"><br>
+<tab><tab><slider name="embossLevel.B" label=""$$$/Shaders/fxEmboss/Sliders/Blue=Blue"" size="150" align="center" min="-3" max="3" default="0.114"><editbox name="embossLevel.B" align="center"><br>
+<br>
+</p>
+
+<hwslider id="0" name="embossLevel.R" min="-3" max="3" default="0.299">
+<hwslider id="1" name="embossLevel.G" min="-3" max="3" default="0.587">
+<hwslider id="2" name="embossLevel.B" min="-3" max="3" default="0.114">

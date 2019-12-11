@@ -1,0 +1,20 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\Software\Imagineer Systems Ltd\mocha AE 2]
+"InstallDir"="C:\\Program Files\\Imagineer Systems Ltd\\mocha AE 2\\"
+"InstallDir32"="C:\\Program Files (x86)\\Imagineer Systems Ltd\\mocha AE 2\\MediaIOServer\\"
+
+[HKEY_LOCAL_MACHINE\Software\Classes\.mocha]
+@="MochaProjectFile"
+"Content Type"="application/x-mocha"
+
+[HKEY_LOCAL_MACHINE\Software\Classes\MochaProjectFile]
+@="Mocha Project File"
+
+[HKEY_LOCAL_MACHINE\Software\Classes\MochaProjectFile\shell]
+
+[HKEY_LOCAL_MACHINE\Software\Classes\MochaProjectFile\shell\open]
+@="Open"
+
+[HKEY_LOCAL_MACHINE\Software\Classes\MochaProjectFile\shell\open\command]
+@="\"C:\\Program Files\\Imagineer Systems Ltd\\mocha AE 2\\bin\\mocha4ae_adobe.exe\" \"%1\""

@@ -1,0 +1,351 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+/*************************************************************************
+*
+* ADOBE CONFIDENTIAL
+* ___________________
+*
+*  Copyright 2014, Adobe Systems Incorporated
+*  All Rights Reserved.
+*
+* NOTICE:  All information contained herein is, and remains
+* the property of Adobe Systems Incorporated and its suppliers,
+* if any.  The intellectual and technical concepts contained
+* herein are proprietary to Adobe Systems Incorporated and its
+* suppliers and are protected by trade secret or copyright law.
+* Dissemination of this information or reproduction of this material
+* is strictly forbidden unless prior written permission is obtained
+* from Adobe Systems Incorporated.
+**************************************************************************/
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<script src="js/jquery.js" type="text/javascript"></script>
+	<script src="js/CSInterface.js" type="text/javascript"></script>
+</head>
+<body ondragover="return false;" ondragstart="return false;" ondrop="return false;">
+</body>
+<script type="text/javascript">
+
+    var kAuthorizationTokenEvent = "com.adobe.susi.authorizationToken";
+    var kReadyForInitializationEvent = "com.adobe.susi.readyForInitialization";
+    var kInitializationEvent = "com.adobe.susi.initialization";
+
+	/*
+	** This extension supports setting the following values through an initialization event.
+	** When loading the extension please listen for a kReadyForInitializationEvent event
+	** and then send these parameters as a JSON payload with a kInitializationEvent event.
+	** {
+	**    'endpoint'     : 'prod',
+	**    'client_id'    : 'Premiere1',
+	**    'scope'        : 'openid,AdobeID,creative_cloud,whatever_else',
+	**    'locale'       : 'en_US',
+	**    'force_reauth' : true
+	** }
+	*/
+    var _endpoint = 'prod';
+    var _client_id = 'Premiere1';
+    var _scope = 'openid,AdobeID,creative_cloud';
+    var _locale = 'en_US';
+    var _redirect_uri = 'https://oobe.adobe.com';
+
+	var csInterface = new CSInterface();
+
+	/*
+	**
+	*/
+	window.onload = function()
+	{
+		dispatchReadyForInitializationEvent();
+	};
+
+	/*
+	**
+	*/
+	function dispatchReadyForInitializationEvent()
+	{
+		csInterface.addEventListener(kInitializationEvent, handleInitializationEvent);
+
+		console.log('Dispatching ready for initialization event');
+		var csEvent = new CSEvent(kReadyForInitializationEvent, 'APPLICATION');
+		csInterface.dispatchEvent(csEvent);
+	}
+
+	/*
+	**
+	*/
+	function handleInitializationEvent(event)
+	{
+		csInterface.removeEventListener(kInitializationEvent, handleInitializationEvent);
+		
+		_endpoint = event.data.endpoint;
+		_client_id = event.data.client_id;
+		_scope = event.data.scope;
+		_locale = event.data.locale;
+		force_reauth = event.data.force_reauth;
+
+		console.log('Initialization parameters received: ' + JSON.stringify(event.data));
+
+		if (window.location.hash == false)
+		{
+			console.log('No hash in URL');
+
+			var currLocation = window.location.search;
+			var cleanedLocation = currLocation;
+			
+			// console.log('Query param: ' + JSON.stringify(queryParameters));
+
+			if (currLocation.indexOf("delegation_start") !== -1)
+			{
+				cleanedLocation = cleanedLocation.replace('?delegation_start?', '');
+				var queryParameters = parseQueryParameters(cleanedLocation);
+
+				console.log('Start External URL: ' + queryParameters.external_url);
+				console.log('Start Internal URL: ' + queryParameters.internal_url);
+				csInterface.openURLInDefaultBrowser(queryParameters.external_url);
+				window.location = queryParameters.internal_url;
+			}
+			else if (currLocation.indexOf("delegation_end") !== -1)
+			{
+				cleanedLocation = cleanedLocation.replace('?delegation_end?', '');
+				var queryParameters = parseQueryParameters(cleanedLocation);
+
+				console.log('End Internal URL: ' + queryParameters.internal_url);
+				window.location = queryParameters.internal_url;
+			}
+			else if (currLocation.indexOf("delegation_error") !== -1)
+			{
+				cleanedLocation = cleanedLocation.replace('?delegation_error?', '');
+				var queryParameters = parseQueryParameters(cleanedLocation);
+
+				console.log('Error Internal URL: ' + queryParameters.internal_url);
+				window.location = queryParameters.internal_url;
+			}
+			else
+			{
+				var token = getCookie(_client_id + '_token');
+
+				if (force_reauth)
+				{
+					logoutThenAuthenticate(token);
+				}
+				else
+				{
+					if (token !== '')
+					{
+						retrieveProfileThenDispatchTokenEvent(token);
+					}
+					else
+					{
+						authenticate(false);
+					}
+				}
+			}
+		}
+		else
+		{
+			console.log('URL hash exists');
+			var hash = window.location.hash.substring(1);
+			var queryParameters = parseQueryParameters(hash);
+			var currentDate = new Date();
+			var tokenExpiration = new Date(currentDate.getTime() + Number(queryParameters.expires_in));
+
+			document.cookie = _client_id + '_token=' + queryParameters.access_token + ';expires=' + tokenExpiration.toUTCString();
+
+			retrieveProfileThenDispatchTokenEvent(queryParameters.access_token);
+		}
+	}
+
+	function onLogoutComplete(response)
+	{
+		authenticate(false);
+	}
+
+	/*
+	**
+	*/
+	function logoutThenAuthenticate(token)
+	{
+		// https://adobeid-na1-stg1.services.adobe.com/ims/logout/v1/token
+		var url = 'https://adobeid-na1';
+		if (_endpoint.toLowerCase().indexOf('prod') == -1)
+		{
+			url += '-' + _endpoint;
+		}
+		url += '.services.adobe.com';
+
+		var ims_url = url + '/ims/logout/v1/token?client_id=' + _client_id + '&callback=onLogoutComplete&access_token=' + token;
+
+		console.log('Logging out against endpoint ' + _endpoint + ' with url: ' + ims_url);
+
+		// This API uses JSONP to return control to this file. Load the API in a script tag, and the API response body will
+		// be javascript code that calls back into onLogoutComplete.
+		var script = document.createElement('script');
+		script.src = ims_url;
+		script.addEventListener('load', function() { document.head.removeChild(script); });
+		script.addEventListener('error', function() {
+			document.head.removeChild(script);
+			// Fall back to authenticate if logout fails, but as a backup pass
+			// the reauth parameter to ensure the user will see the SUSI form.
+			authenticate(true);
+		});
+		document.head.appendChild(script);
+	}
+
+	/*
+	**
+	*/
+	function retrieveProfileThenDispatchTokenEvent(token)
+	{
+		// https://ims-na1-stg1.adobelogin.com/ims/profile/v1
+		var url = 'https://ims-na1';
+		if (_endpoint.toLowerCase().indexOf('prod') == -1)
+		{
+			url += '-' + _endpoint;
+		}
+		url += '.adobelogin.com';
+
+		// Create a callback function name with 'onProfileComplete_<random number>'
+		var randomKey = Math.random().toString();
+		randomKey = randomKey.substring(randomKey.indexOf(".") + 1);
+		var callbackName = 'onProfileComplete_' + randomKey;
+
+		var ims_url = url + '/ims/profile/v1?bearer_token=' + token + '&client_id=' + _client_id + '&callback=' + callbackName;
+
+		console.log('Fetching user profile against endpoint ' + _endpoint + ' with url: ' + ims_url);
+
+		// Creating this here (compared to globally, like onLogoutComplete) allows it to capture token from this scope
+		window[callbackName] = function(profile)
+		{
+			dispatchTokenEvent(token, profile);
+		}
+
+		// This API uses JSONP to return control to this file. Load the API in a script tag, and the API response body will
+		// be javascript code that calls back into onProfileComplete.
+		var script = document.createElement('script');
+		script.src = ims_url;
+		script.addEventListener('load', function() { document.head.removeChild(script); });
+		script.addEventListener('error', function() {
+			document.head.removeChild(script);
+			// Fall back to dispatch the token event without profile
+			// (let the host determine what to do with empty profile fields)
+			dispatchTokenEvent(token, {});
+		});
+		document.head.appendChild(script);
+	}
+
+	/*
+	**
+	*/
+	function dispatchTokenEvent(token, profile)
+	{
+		var email = profile.hasOwnProperty('email') ? profile.email : '';
+		var userID = profile.hasOwnProperty('userId') ? profile.userId : '';
+
+		var eventPayloadObject = {
+			'token': token,
+			'userID': userID,
+			'email': email
+		};
+		var eventPayload = JSON.stringify(eventPayloadObject);
+
+		console.log('Dispatching token event for "' + email + '": ' + token);
+		var csEvent = new CSEvent(kAuthorizationTokenEvent, 'APPLICATION');
+		csEvent.data = eventPayload;
+		csInterface.dispatchEvent(csEvent);
+	}
+
+	/*
+	**
+	*/
+	function authenticate(reauth)
+	{
+		var url = 'https://ims-na1';
+		if (_endpoint.toLowerCase().indexOf('prod') == -1)
+		{
+			url += '-' + _endpoint;
+		}
+		url += '.adobelogin.com';
+
+		var ims_url = url + '/ims/authorize/v1?locale=' + _locale + '&client_id=' + _client_id + '&response_type=token&redirect_uri=' + encodeURIComponent(_redirect_uri) + '&scope=' + _scope;
+
+		if (reauth)
+		{
+			ims_url += '&reauth=force';
+		}
+
+		console.log('Authenticating against endpoint ' + _endpoint + ' with url: ' + ims_url);
+
+		window.location = ims_url;
+	}
+
+	/*
+	**
+	*/
+	function getCookie(cookieName)
+	{
+		var result = '';
+		var cookieKey = cookieName + '=';
+		var cookieList = document.cookie.split(';');
+		for (var index = 0; index < cookieList.length; ++index)
+		{
+			var cookie = cookieList[index];
+			while (cookie.charAt(0) == ' ')
+			{
+				cookie = cookie.substring(1);
+			}
+			if (cookie.indexOf(cookieKey) == 0)
+			{
+				result = cookie.substring(cookieKey.length, cookie.length);
+				break;
+			}
+		}
+		return result;
+	}
+
+	/*
+	**
+	*/
+	function parseQueryParameters(queryString)
+	{
+		var result = {};
+
+		// Note: Do not cleanup the raw queryString, because there could be %-encoded control
+		// characters ('&', '=') which will change the way the query is parsed. Instead, each
+		// key and value will pass through cleanup individually.
+		var cleanup = function(inString)
+		{
+			// Replace '+' with ' '
+			var plusRegex = /\+/g;
+			var s = inString.replace(plusRegex, ' ');
+
+			// Decode %-encoding 
+			s = decodeURIComponent(s);
+
+			return s;
+		}
+
+		var keyValuePairs = queryString.split('&');
+
+		for (var i = 0; i < keyValuePairs.length; ++i)
+		{
+			// Avoid the degenerate case of an empty string for key-value pair. This may happen
+			// when two '&' characters happen in a row, e.g. index.html?foo=bar&&baz=99
+			if (keyValuePairs[i].length > 0)
+			{
+				var keyValuePair = keyValuePairs[i].split('=');
+	
+				var key = cleanup(keyValuePair[0])
+
+				// A query parameter may be present without a value, e.g. index.html?baz&foo=bar
+				// If a parameter has no value, insert it into the result object with an empty value string.
+				var value = (keyValuePair.length > 1) ? cleanup(keyValuePair[1]) : '';
+
+				result[key] = value;
+			}
+		}
+
+		return result;
+	}
+</script>
+</html>

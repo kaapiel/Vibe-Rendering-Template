@@ -1,0 +1,49 @@
+IMAGINEER SYSTEMS LTD: END-USER LICENCE AGREEMENT
+PRODUCT: mocha shape for After Effects
+IMPORTANT - READ CAREFULLY: This IMAGINEER SYSTEMS LTD End-User Licence Agreement ("EULA") is a legal agreement between you (either as an individual or company) and IMAGINEER SYSTEMS LTD, for the product, which includes computer software and may include associated media, printed materials, and electronic documentation ("Software Product"). By installing, copying, downloading, accessing, or otherwise using the Software Product, you agree to be bound by the terms of this EULA. If you do not agree to the terms of this EULA, do not install or use the Software Product; you may return it to your place of purchase for a full refund.
+SOFTWARE PRODUCT LICENCE
+The Software Product is protected by copyright laws and international copyright treaties, as well as other intellectual property laws and treaties. The Software Product is licensed and not sold.
+
+1. GRANT OF LICENCE:
+- Software Installation and Use.
+You may install and use one copy only of the Software Product on a single computer, workstation, or other digital electronic device unless authorised in writing by IMAGINEER SYSTEMS LTD.
+- Additional Licences.
+The installation of the Software Product on a file server for distribution to other workstations or computers shall not constitute use of the Software Product with a single computer and the use of the Software Product in such circumstances is permitted only if a licence fee has been paid calculated by reference to the total number of workstations or computers having access to the file server, or the number of IP connections to be scanned, which for the purpose of calculating such licence fee shall be deemed to be individual computers. A licence for the Software Product may not be shared or used concurrently on different computers.
+- Back-up Copy.
+You may make a single back-up copy of the Software Product. You may use the back-up copy solely for archival purposes.
+
+2. DESCRIPTION OF OTHER RIGHTS AND LIMITATIONS:
+- Limitations on Reverse Engineering, Decompilation and Disassembly.
+You may not reverse engineer, decompile, or disassemble the Software Product, except and only to the extent that such activity is expressly permitted by applicable law not withstanding this limitation.
+- Separation of Components.
+The Software Product is licensed as a single product. Its component parts may not be separated for use on more than one computer.
+- Transfer.
+You may not transfer the Software Product and Documentation and your Licence without the written permission of IMAGINEER SYSTEMS LTD, a transfer charge may apply. With permission granted in writing you may transfer the Software Product and your license on a permanent basis to another person only if that person agrees to accept the terms of this Agreement and you either transfer all copies (including the most recent update and all prior versions) to that person or destroy any copies not transferred. If you transfer possession of any copy of the Software to another person, your Licence is automatically terminated.
+- Product Support.
+IMAGINEER SYSTEMS LTD may provide you with support services related to the Software Product, as provided for by IMAGINEER SYSTEMS LTD's policies and programs published in on-line documentation for the Software Product.
+- Termination.
+Without prejudice to any other rights, IMAGINEER SYSTEMS LTD may terminate this licence if you fail to comply with these terms and conditions. In such event, you must destroy all copies of the Software Product and all of its component parts.
+The Software Product may include a mechanism that can detect the installation or use of illegal copies of the Software Product, and collect and transmit data about those illegal copies.
+Data collected will not include any customer data created with the Software Product. By using the Software Product, you consent to such detection and collection of data, as well as its transmission and use if an illegal copy is detected.
+
+3. LEARNING EDITION RESTRICTIONS
+Unlicensed components of the software will operate in evaluation mode, and the output of these modules is watermarked. Such modules are licensed to you as Learning Edition modules and the use of the output for commercial use is strictly prohibited.
+
+4. EXPORT RESTRICTIONS
+You agree that you will not export or re-export the Software Product to any country or entity subject to UK export restrictions. You specifically agree not to export or re-export the Software Product: to any country to which the UK or its allies has embargoed or restricted the exports of goods to any national of any such country, wherever located, who intends to transmit or transport the Software Product back to such country.
+
+5. LIMITED WARRANTY
+IMAGINEER SYSTEMS LTD warrants only to you, as the original licensee, that:
+- the Software Product when used properly will provide the functions and facilities and will perform substantially as described in the Documentation for a period of ninety (90) days from the date of receipt; and
+- the media on which the Software Product is recorded will be free from defects in material and workmanship under normal use for a period of ninety (90) days from receipt.
+IMAGINEER SYSTEMS LTD's entire liability and your sole and exclusive remedy under the warranties given in this section 5 will be, at the option of IMAGINEER SYSTEMS LTD, either to:
+- repair or replace the Software Product or media which does not conform with the warranty; or
+- refund the price paid for the Software Product and terminate the Licence.
+This remedy is subject to the return of the Software Product to your supplier or IMAGINEER SYSTEMS LTD not later than five (5) days after the end of a period of thirty (30) days from the date of your receipt of the Software Product.
+
+6. NO LIABILITY FOR CONSEQUENTIAL DAMAGES
+To the maximum extent permitted by applicable law, in no event shall IMAGINEER SYSTEMS LTD or its suppliers be liable for any direct, consequential, incidental, or special damage or loss of any kind (including without limitation loss of profits, loss of contracts, business interruptions, loss of or corruption to data) however caused and whether arising under contract, tort, including negligence, or otherwise. In any case, IMAGINEER SYSTEMS LTD's and its suppliers' entire liability under any provision of this EULA shall be limited to the amount actually paid by you for the Software Product.
+
+7. JURISDICTION
+This Agreement shall be governed by the laws of England and Wales.
+If Purchased outside of England and Wales then Local laws may apply at IMAGINEER SYSTEMS LTD's Sole discretion.

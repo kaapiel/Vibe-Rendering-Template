@@ -1,0 +1,6 @@
+Source Footage Gamma Encoding <editbox name="Gamma" type=float default="1.0" min=0.1 max=4 align=center><br>
+<br>
+<b>Common Values</b><br>
+sRGB: 2.2<br>
+Apple RGB: 1.8<br>
+Log footage: depends on LUT used

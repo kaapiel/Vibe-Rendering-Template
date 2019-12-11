@@ -1,0 +1,8 @@
+<window width="1000">
+<p>
+  <settab 40>
+  <tab><colorselector name="colorTone" label=""$$$/Shaders/fxNight/ColorWheels/Color=Color"" size="100" align="top" elevation="8" default="0.0806, 0.078, 0.13"><br>
+</p>
+<br>
+
+<hwcolor id="0" name="colorTone">

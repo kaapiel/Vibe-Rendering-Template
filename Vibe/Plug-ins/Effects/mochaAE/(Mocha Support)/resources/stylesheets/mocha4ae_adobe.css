@@ -1,0 +1,89 @@
+QWidget, QWidget * {
+   font-family: "Frutiger 55 Roman";
+}
+frmMainGLWidget, frmMainGLWidget * {
+   font-size: 17pt; /* Inherited from QGLWidget */
+   qproperty-textFont: "Frutiger 55 Roman"; /* Here we can add only font-family, and can't control size */
+   qproperty-textFontSize: 20; /* In Points; This property must be after qproperty-textFont */
+   color: yellow; /* Canvas messages color */
+}
+QAbstractButton, QComboBox, QLineEdit {
+    border-radius: 0;
+}
+QPushButton, QToolButton, QComboBox {
+    border: 1px solid #222222;
+}
+#centralWidget *,
+QToolBar QPushButton,
+QToolBar QToolButton {
+    border-width: 0;
+}
+QToolButton {
+    toolbutton-popup-delay: 200;
+}
+QToolButton::menu-indicator {
+    image: url(:/Resources/ToolButtonArrow.png);
+    padding-right: 1px;
+    padding-bottom: 1px;
+}
+QToolButton::menu-indicator:disabled {
+    image: url(:/Resources/ToolButtonArrowDisabled.png);
+}
+QToolButton, QPushButton {
+    background-color: #484949;
+}
+QToolButton:enabled:on, QPushButton:enabled:on {
+    background-color: #678cb2;
+}
+QToolButton:hover, QPushButton:hover {
+    background-color: #636464;
+}
+QComboBox::drop-down {
+    border: none;
+}
+QComboBox::down-arrow {
+    image: url(:/Resources/ComboDownArrow.png);
+}
+QComboBox::down-arrow:disabled {
+    image: url(:/Resources/ComboDownArrowDisabled.png);
+}
+QToolBar QToolButton {
+    margin: 0;
+    padding-left: 1px;
+    padding-top: 1px;
+}
+WelcomeScreen, WelcomeScreen * {
+    color: white;
+}
+WelcomeScreen * {
+    background-color: transparent;
+}
+WelcomeScreen QPushButton:hover {
+    border: none; /* Otherwise the colour doesn't show on hover */
+    background-color: #00b6cf;
+}
+.QPushButton, GhostableButton[compact="false"], ISLPushButton[compact="false"] {
+    padding: 5px;
+    min-width: 70px;
+    border: 1px solid #222222;
+}
+QLineEdit {
+    /* ISLLineEdit needs space for the value indicator */
+    /* Add it to all line edits for consistency */
+    padding-bottom: 3px;
+    border: 1px solid #222222;
+}
+#lblTrack, #lblKey {
+    margin-right: 4px;
+}
+QGroupBox[flat="false"] {
+    border-radius: 0;
+    border: 1px solid #222222;
+}
+QToolBar::separator {
+    border: none;
+    width: 8px;
+}
+#nudgeGroup .ISLPushButton {
+    min-width: 50px;
+}

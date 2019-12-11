@@ -1,0 +1,91 @@
+<shader name="IRIDAS.SimplePrimary" noopwhendefault=1>
+<window width=1000>
+
+<p><settab 150><settab 330><settab 510><settab 690>
+<tab><slider name="presaturation" label=""$$$/Shaders/LogPrimary/Sliders/InputSaturation=Input Saturation"" size=160 align=center max=2 default=1 forcemin=1>
+<tab><slider name="Temperature" label=""$$$/Shaders/LogPrimary/Sliders/Temperature=Temperature"" size=160 align=center min=-1 default=0 mincolor="0080FF" maxcolor="FF8000">
+<tab><slider name="Magenta" label=""$$$/Shaders/LogPrimary/Sliders/Magenta=Magenta"" size=160 align=center min=-1 default=0 mincolor=green maxcolor=magenta>
+<tab><slider name="postsaturation" label=""$$$/Shaders/LogPrimary/Sliders/FinalSaturation=Final Saturation"" size=160 align=center max=2 default=1 forcemin=1>
+</p>
+
+<p><resettabs><settab 278><settab 598>
+<tab><colorselector name="LogOffset" label=""$$$/Shaders/LogPrimary/ColorWheels/LogOffset=Log Offset"" size=100 align=center min="-1,-1,-1" negative=true default="0,0,0" mode="offset">
+<tab><colorselector name="LogGain" label=""$$$/Shaders/LogPrimary/ColorWheels/LogGain=Log Gain"" size=100 align=center min="-1,-1,-1" negative=true default="0,0,0" mode="offset">
+</p>
+
+<extern name="luminance" noop=1 default="0.2126,0.7152,0.0722">
+
+<IRIDAScript>
+
+presaturation.y 	= presaturation.x;
+presaturation.z 	= presaturation.x;
+presaturation.w 	= 1;
+
+postsaturation.y 	= postsaturation.x;
+postsaturation.z 	= postsaturation.x;
+postsaturation.w 	= 1;
+
+refblack		= 0.09286412512218963831867057673509;	//95 / 1023
+refwhite		= 0.66959921798631476050830889540567;	//625 / 1023
+quantization 		= 3.41;									//0.002 / 0.6 * 1023
+curvegain		= 1.010915615730752902717704798013;		//1 / pow(10, 1 - (refblack - refwhite) * quantization)
+curveoffset		= curvegain - 1;
+
+//offset
+
+pregain.x		= pow(10, LogOffset.x * quantization) * curvegain;
+pregain.y		= pow(10, LogOffset.y * quantization) * curvegain;
+pregain.z		= pow(10, LogOffset.z * quantization) * curvegain;
+pregain.w		= 1;
+
+preoffset.x		= curveoffset * (pregain.x - 1);
+preoffset.y		= curveoffset * (pregain.y - 1);
+preoffset.z		= curveoffset * (pregain.z - 1);
+preoffset.z		= 0;
+
+//temperature & magenta
+
+pregain.x		= pregain.x * pow(2, Temperature + Magenta * 0.5);
+pregain.y		= pregain.y * pow(2, -Magenta);
+pregain.z		= pregain.z * pow(2, -Temperature + Magenta * 0.5);
+
+//gain
+
+gamma.x			= 1;
+gamma.y			= 1;
+gamma.z			= 1;
+
+postoffset.x		= 0;
+postoffset.y		= 0;
+postoffset.z		= 0;
+postoffset.w   	 	= 0;
+
+postgain.x		= 1;
+postgain.y		= 1;
+postgain.z		= 1;
+postgain.w		= 1;
+
+if (LogGain.x != 0 || LogGain.y != 0 || LogGain.z != 0)
+{
+	preoffset.x		= preoffset.x + curveoffset; 
+	preoffset.y		= preoffset.y + curveoffset; 
+	preoffset.z		= preoffset.z + curveoffset; 
+
+	gamma.x			= pow(2, LogGain.x);
+	gamma.y			= pow(2, LogGain.y);
+	gamma.z			= pow(2, LogGain.z);
+
+	LogGain.x		= gamma.x - 1;
+	LogGain.y		= gamma.y - 1;
+	LogGain.z		= gamma.z - 1;
+
+	postgain.x		= pow(1 / curvegain, -LogGain.x) * pow(10, refwhite * LogGain.x * quantization);
+	postgain.y		= pow(1 / curvegain, -LogGain.y) * pow(10, refwhite * LogGain.y * quantization);
+	postgain.z		= pow(1 / curvegain, -LogGain.z) * pow(10, refwhite * LogGain.z * quantization);
+
+	postoffset.x		= -curveoffset;
+	postoffset.y		= -curveoffset;
+	postoffset.z		= -curveoffset;
+}
+
+</IRIDAScript>

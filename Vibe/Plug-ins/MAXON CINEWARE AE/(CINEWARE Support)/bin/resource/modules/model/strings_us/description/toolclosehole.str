@@ -1,0 +1,5 @@
+STRINGTABLE ToolCloseHole
+{
+   ToolCloseHole	     "Close Polygon Hole";
+	 MDATA_CLOSEHOLE_TRI  "Create Tri-/Quadrangle";
+}

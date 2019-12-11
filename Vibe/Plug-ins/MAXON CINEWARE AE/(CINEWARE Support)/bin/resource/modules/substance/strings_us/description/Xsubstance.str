@@ -1,0 +1,6 @@
+STRINGTABLE Xsubstance
+{
+	Xsubstance								"Substance Shader";
+	SUBSTANCESHADER_ASSET			"Asset";
+	SUBSTANCESHADER_CHANNEL		"Channel";
+}

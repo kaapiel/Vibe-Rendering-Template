@@ -1,0 +1,13 @@
+<shader passes="Linearize">
+
+Gamma <editbox name="Gamma" type=float default=1 min=0.1 max=4 align=center>
+
+<IRIDAScript>
+
+lumaCoeff.x = 0.2126;
+lumaCoeff.y = 0.7152;
+lumaCoeff.z = 0.0722;
+
+Gamma = 1 / Gamma;
+
+</IRIDAScript>

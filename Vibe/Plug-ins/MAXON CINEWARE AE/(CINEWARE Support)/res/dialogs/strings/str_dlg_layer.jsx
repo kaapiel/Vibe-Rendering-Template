@@ -1,0 +1,22 @@
+﻿var _strings = {
+    STR_TITLE:          { en: "Cinema 4D layers",
+                                  de: "Cinema 4D Ebenen" , 
+                                  es:"Capas Cinema 4D",
+                                  fr:"Calques Cinema 4D",
+                                  it:"Cinema 4D layers"},  
+    STR_HEADER:         { en: "Select one or more layers..." ,
+                                  de: "Selektieren Sie eine oder mehrere Ebenen..." , 
+                                  es:"Seleccionar una o más capas...",
+                                  fr:"Sélectionner un ou plusieurs calques...",
+                                  it:"Seleziona uno o pi layers..."},  
+    BTN_OK:             { en: "OK" ,
+                                  de: "OK" , 
+                                  es:"OK",
+                                  fr:"OK",
+                                  it:"OK"},   
+    BTN_CANCEL:         { en: "Cancel" ,
+                                  de: "Abbrechen",  
+                                  es:"Cancelar",
+                                  fr:"Annuler" ,
+                                  it:"Cancella"}
+};

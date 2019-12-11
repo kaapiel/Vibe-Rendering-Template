@@ -1,0 +1,62 @@
+<shader name="fxDay2NiteH" secondpass="fxDay2NiteV">
+<window width="1000">
+<p>
+  <settab 40><settab 230>
+  <colorselector name="colorTone" label=""$$$/Shaders/fxDay2Nite/ColorWheels/Ambient=Ambient Color"" size="100" align="top" elevation="-8" default="0.0806, 0.078, 0.13"><br>
+  <tab><tab><slider name="bleachBypass" label=""$$$/Shaders/fxDay2Nite/Sliders/Bleach=Bleach Bypass"" size="140" default="0" align="center"><editbox name="bleachBypass" align="center"><br>
+  <tab><tab><slider name="Sigma" label=""$$$/Shaders/fxDay2Nite/Sliders/Loss=Loss of Acuity"" size="140" default="0" align="center"><editbox name="Sigma" align="center"><br><br><br><br>
+  <tab>"$$$/Shaders/fxDay2Nite/Labels/Desaturation=Desaturation" 
+  <tab><tab><slider name="desat.R" label=""$$$/Shaders/fxDay2Nite/Sliders/Red=Red"" size="140" default="0" align="center" gang="gang"><editbox name="desat.R" align="center" gang="gang"><br>
+  <tab><tab><slider name="desat.G" label=""$$$/Shaders/fxDay2Nite/Sliders/Green=Green"" size="140" default="0" align="center" gang="gang"><editbox name="desat.G" align="center" gang="gang"><br>
+  <tab><tab><slider name="desat.B" label=""$$$/Shaders/fxDay2Nite/Sliders/Blue=Blue"" size="140" default="0" align="center" gang="gang"><editbox name="desat.B" align="center" gang="gang"><br><br>
+  <tab><tab><gang name="gang" default="on" align="center">"$$$/Shaders/fxDay2Nite/Labels/Gang=gang"<br>
+</p>
+
+<hwcolor id="0" name="colorTone">
+<hwslider id="1" name="bleachBypass">
+<hwslider id="2" name="Sigma">
+<hwslider id="3" name="desat">
+
+<IRIDAScript>
+
+	w1;w2;w3;w4;
+	invSum;
+
+	t1 = 2 * (Sigma + 0.6) * (Sigma + 0.6);
+	t2 = 2.56 * t1;
+	
+	invSum.x = 1 / sqrt(t1 * pi) + t1 * 0.00025;
+	invSum.y = 1 / sqrt(t2 * pi) + t2 * 0.001;
+	invSum.z = 0;
+	invSum.w = 0;
+
+	w1.x = exp(-1 / t1);
+	w2.x = exp(-4 / t1);
+	w3.x = exp(-9 / t1);
+	w4.x = exp(-16 / t1);
+	
+	w1.y = exp(-1 / t2);
+	w2.y = exp(-4 / t2);
+	w3.y = exp(-9 / t2);
+	w4.y = exp(-16 / t2);
+
+	w1.z = w1.x; 
+	w2.z = w2.x; 
+	w3.z = w3.x; 
+	w4.z = w4.x; 
+
+	w1.w = w1.y; 
+	w2.w = w2.y; 
+	w3.w = w3.y; 
+	w4.w = w4.y;
+
+	colorTone.w = 1;
+
+	bleachBypass.y = bleachBypass.x; 
+	bleachBypass.z = bleachBypass.x;
+
+	desat.R = (1 - desat.R) * 2 - 1;
+	desat.G = (1 - desat.G) * 2 - 1;
+	desat.B = (1 - desat.B) * 2 - 1;
+
+</IRIDAScript>

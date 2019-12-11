@@ -1,0 +1,58 @@
+<shader name="PrColor.LookAdjustments">
+
+<lut name="lut1" unit=2>
+<lookup lut="lut1" function="SplitToning" swizzle="0r,0g,0b" variables="LoHiSplit,ShadowTint,HighlightTint,ShadowKnee,HighlightKnee,ShadowSat,HighlightSat">
+<lookup lut="lut1" function="Fade" swizzle="1r,1g" variables="FadeBlack,FadeWhite,KneeBlack,KneeWhite">
+<lookup lut="lut1" function="SoftKnee" swizzle="1b" variables="Saturation,SaturationKnee,SaturationMinSlope">
+
+<slider name="Fade" label=""$$$/Shaders/LookAdjustments/Sliders/Fade=Fade"" size=160 align=center max=100 default=0 forcemin=1 forcemax=1><br>
+<slider name="Vibrance" label=""$$$/Shaders/LookAdjustments/Sliders/Vibrance=Vibrance"" size=160 align=center min=-100 max=100 default=0 forcemin=1 forcemax=1><br>
+<slider name="Saturation" label=""$$$/Shaders/LookAdjustments/Sliders/Saturation=Saturation"" size=160 align=center min=0 max=200 default=100 forcemin=1 forcemax=1><br>
+<colorselector name="HighlightTint" label=""$$$/Shaders/LookAdjustments/ColorWheels/HighlightTint=Highlight Tint"" size="100" align="top" elevation="5" mode="tint" default="1,1,1"><br>
+<colorselector name="ShadowTint" label=""$$$/Shaders/LookAdjustments/ColorWheels/Shadow Tint=Shadow Tint"" size="100" align="top" elevation="5" mode="tint" default="1,1,1">
+<slider name="LoHiSplit" label=""$$$/Shaders/LookAdjustments/Sliders/LoHiSplit=Highlight/Shadow Split"" size=160 align=center min=-100 max=100 default=0 noop=1 forcemin=1 forcemax=1><br>
+
+<IRIDAScript>
+
+lumaCoeff.x	= 0.2126;
+lumaCoeff.y = 0.7152;
+lumaCoeff.z = 0.0722;
+
+//-----------------------------------------------
+// 1st Stage: Fade
+//-----------------------------------------------
+
+//calculate fade factors from slider position
+FadeBlack = Fade * 0.0025;
+FadeWhite = max(Fade - 50, 0) * 0.005;
+
+KneeBlack = 0.5;
+KneeWhite = 0.5;
+
+//------------------------------------------
+// 2nd Stage: Vibrance, Saturation
+//------------------------------------------
+
+//scale parameters to internal range
+Vibrance 		= Vibrance * 0.0125;
+Saturation 		= Saturation * 0.01;
+SaturationKnee	= 0.5;
+
+SaturationMinSlope = 0;
+
+if (__AlgorithmVersion > 1.5)
+{
+	SaturationMinSlope = 1.0 / 8.0;
+}
+
+//------------------------------------------
+// 3rd Stage: Split Toning
+//------------------------------------------
+
+ShadowKnee  	= 0.1;
+HighlightKnee	= 0.9;
+ShadowSat		= 1;
+HighlightSat	= 0.9;
+LoHiSplit 		= pow(4, LoHiSplit * 0.01);
+
+</IRIDAScript>

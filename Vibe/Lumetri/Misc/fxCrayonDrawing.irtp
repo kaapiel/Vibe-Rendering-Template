@@ -1,0 +1,13 @@
+<shader name="fxCrayonDrawing">
+
+<window width="1000">
+<p><settab 160><settab 200><br>"$$$/Shaders/fxCrayonDrawing/Labels/Desaturation=Desaturation coefficients"
+<tab><slider name="desatCoeffs.R" label=""$$$/Shaders/fxCrayonDrawing/Sliders/Red=Red"" size="150" align="center" max="10" default="0.299"><editbox name="desatCoeffs.R" align="center"><br>
+<tab><slider name="desatCoeffs.G" label=""$$$/Shaders/fxCrayonDrawing/Sliders/Green=Green"" size="150" align="center" max="10" default="0.587"><editbox name="desatCoeffs.G" align="center"><br>
+<tab><slider name="desatCoeffs.B" label=""$$$/Shaders/fxCrayonDrawing/Sliders/Blue=Blue"" size="150" align="center" max="10" default="0.114"><editbox name="desatCoeffs.B" align="center"><br>
+<br>
+</p>
+
+<hwslider id="0" name="desatCoeffs.R" max="10" default="0.299">
+<hwslider id="1" name="desatCoeffs.G" max="10" default="0.587">
+<hwslider id="2" name="desatCoeffs.B" max="10" default="0.114">

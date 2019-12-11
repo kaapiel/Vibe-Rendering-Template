@@ -1,0 +1,68 @@
+<!--HEADER-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+		<title>$(PRODNAME) Log for $(SEQUNAME)</title>
+		<style>
+		body      { background-color: white; margin: 0; font-size: 11px; font-family: Verdana, Arial, Helvetica, Geneva  }
+		p         { color: #666; font-size: 11px; font-family: Verdana, Arial, Helvetica, Geneva }
+		.copyright { color: black; font-size: 0.68em; font-family: Arial; }
+
+		</style>
+	</head>
+
+	<body bgcolor="#ffffff">
+		<table width="100%" border="1" cellspacing="2" cellpadding="0">
+			<tr>
+				<td colspan="4">
+				 $(INTROFILE)
+				 $(INTROTIME)
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><b>Composition Frame number of Event</b></td>
+				<td><b>Layer #</b></td>
+				<td><b>Layer Name Associated with Info/Warning/Error</b></td>
+				<td><b>Info/Warning/Error Message</b></td>
+			</tr>
+<!--BODY-->
+			<tr>
+				<td>$(FRAMENUM)</td>
+				<td>$(TRACK)</td>
+				<td>$(CLIPNAME)</td>
+				<td>$(EVENTSTR)</td>
+			</tr>
+<!--/BODY-->
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td colspan="4"><!--FOOTER CELLS BEGIN HERE--><a name="footnotes"></a>Notes:<br/>
+					<i>* Unsupported effects are not imported and are therefore lost.</i><br/>
+					<i>** Unsupported transition effects are converted to dissolves to preserve the transition location and duration.</i><br/>
+					<i>*** Unsupported effects are sometimes unnamed.</i><br/>
+				</td>
+			</tr>
+		</table>
+		<p></p>
+	</body>
+
+</html>

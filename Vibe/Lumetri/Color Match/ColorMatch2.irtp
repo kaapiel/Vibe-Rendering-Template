@@ -1,0 +1,58 @@
+<p><settab 420>"$$$/Shaders/ColorMatch2/Labels/Image=Pick these colors from the image you're about to modify":<tab>"$$$/Shaders/ColorMatch2/Labels/Reference=Pick these colors from a reference image":<resettabs></p>
+<p><settab 360>
+<colorselector name="black" label=""$$$/Shaders/ColorMatch2/ColorWheels/Black=Black"" default="0,0,0" align="center" picker="true" size="100"><colorselector name="gray" label=""$$$/Shaders/ColorMatch2/ColorWheels/Gray=Gray"" default="0.5, 0.5, 0.5" align="center" picker="true" size="100"><colorselector name="white" label=""$$$/Shaders/ColorMatch2/ColorWheels/White=White"" default="1,1,1" align="center" picker="true" size="100">
+<tab>
+<colorselector name="refBlack" label=""$$$/Shaders/ColorMatch2/ColorWheels/Black=Black"" default="0,0,0" align="center" picker="true" size="100"><colorselector name="refGray" label=""$$$/Shaders/ColorMatch2/ColorWheels/Gray=Gray"" default="0.5, 0.5, 0.5" align="center" picker="true" size="100"><colorselector name="refWhite" label=""$$$/Shaders/ColorMatch2/ColorWheels/White=White"" default="1,1,1" align="center" picker="true" size="100">
+</p>
+<p><br>"$$$/Shaders/ColorMatch2/Labels/TheColors=The colors do not need to be black/gray/white, just roughly in that order.<br>In other words, \"Black\" should be the darkest from the three, \"White\" the brightest and \"Gray\" somewhere in the middle."<br></p>
+
+<hwcolor id="0" name="black">
+<hwcolor id="1" name="gray">
+<hwcolor id="2" name="white">
+<hwcolor id="3" name="refBlack">
+<hwcolor id="4" name="refGray">
+<hwcolor id="5" name="refWhite">
+
+<IRIDAScript>
+
+refBlack.a = 0;
+
+//calculate exponent
+
+exponent.r = log(refGray.r) / log(gray.r);
+exponent.g = log(refGray.g) / log(gray.g);
+exponent.b = log(refGray.b) / log(gray.b);
+
+//transform incoming values
+white.r = pow(white.r, exponent.r);
+white.g = pow(white.g, exponent.g);
+white.b = pow(white.b, exponent.b);
+
+black.r = pow(black.r, exponent.r);
+black.g = pow(black.g, exponent.g);
+black.b = pow(black.b, exponent.b);
+black.a = 0;
+
+//calculate scales
+
+scale.r = white.r - black.r;
+if (scale.r > 0.0001)
+	scale.r = (refWhite.r - refBlack.r) / scale.r;
+else
+	scale.r = 10000;
+
+scale.g = white.g - black.g;
+if (scale.g > 0.0001)
+	scale.g = (refWhite.g - refBlack.g) / scale.g;
+else
+	scale.g = 10000;
+
+scale.b = white.b - black.b;
+if (scale.b > 0.0001)
+	scale.b = (refWhite.b - refBlack.b) / scale.b;
+else
+	scale.b = 10000;
+
+scale.a = 1;
+
+</IRIDAScript>

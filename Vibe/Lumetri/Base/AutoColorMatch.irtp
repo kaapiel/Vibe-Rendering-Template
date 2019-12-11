@@ -1,0 +1,51 @@
+<shader name="IRIDAS.AutoColorMatch" noopwhendefault=1>
+
+"$$$/Shaders/AutoColorMatch/Message=This shader does not expose any controls. It was created by the automatic shot matching function."
+
+<extern name="offset" default="0,0,0">
+<extern name="gain" default="0,0,0">
+<extern name="offsetLow" default="0,0,0">
+<extern name="gainLow" default="0,0,0">
+<extern name="offsetMid" default="0,0,0">
+<extern name="gainMid" default="0,0,0">
+<extern name="offsetHigh" default="0,0,0">
+<extern name="gainHigh" default="0,0,0">
+
+<IRIDAScript>
+gain.x = pow(2, gain.x);
+gain.y = pow(2, gain.y);
+gain.z = pow(2, gain.z);
+offset.x = gain.x * offset.x;
+offset.y = gain.y * offset.y;
+offset.z = gain.z * offset.z;
+
+gainLow.x = pow(2, gainLow.x);
+gainLow.y = pow(2, gainLow.y);
+gainLow.z = pow(2, gainLow.z);
+offsetLow.x = gainLow.x * offsetLow.x + offset.x;
+offsetLow.y = gainLow.y * offsetLow.y + offset.y;
+offsetLow.z = gainLow.z * offsetLow.z + offset.z;
+gainLow.x = gainLow.x * gain.x;
+gainLow.y = gainLow.y * gain.y;
+gainLow.z = gainLow.z * gain.z;
+
+gainMid.x = pow(2, gainMid.x);
+gainMid.y = pow(2, gainMid.y);
+gainMid.z = pow(2, gainMid.z);
+offsetMid.x = gainMid.x * offsetMid.x + offset.x;
+offsetMid.y = gainMid.y * offsetMid.y + offset.y;
+offsetMid.z = gainMid.z * offsetMid.z + offset.z;
+gainMid.x = gainMid.x * gain.x;
+gainMid.y = gainMid.y * gain.y;
+gainMid.z = gainMid.z * gain.z;
+
+gainHigh.x = pow(2, gainHigh.x);
+gainHigh.y = pow(2, gainHigh.y);
+gainHigh.z = pow(2, gainHigh.z);
+offsetHigh.x = gainHigh.x * offsetHigh.x + offset.x;
+offsetHigh.y = gainHigh.y * offsetHigh.y + offset.y;
+offsetHigh.z = gainHigh.z * offsetHigh.z + offset.z;
+gainHigh.x = gainHigh.x * gain.x;
+gainHigh.y = gainHigh.y * gain.y;
+gainHigh.z = gainHigh.z * gain.z;
+</IRIDAScript>

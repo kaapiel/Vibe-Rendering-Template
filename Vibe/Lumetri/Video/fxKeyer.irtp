@@ -1,0 +1,25 @@
+<shader name="fxKeyer">
+<p><settab 40><settab 80><settab 120><settab 160><br>"$$$/Shaders/fxKeyer/Labels/Screen=Screen color"
+  <tab><dropdown name="screenColor" align="center" size="100" items=""$$$/Shaders/fxKeyer/Dropdowns/ScreenColor/Green=Green","$$$/Shaders/fxKeyer/Dropdowns/ScreenColor/Blue=Blue"" values="-1.0,1.0" default="-1.0"><br><br>
+  <slider name="scaleToOne" label=""$$$/Shaders/fxKeyer/Sliders/Threshold=Threshold"" align="center" size="140" default="1"><tab><editbox name="scaleToOne" align="center"><tab><checkbox name="showRange" size="170" label=""$$$/Shaders/fxKeyer/Checkboxes/Show=Show"" align="center" default="off"><br><br>
+<checkbox name="remap" size="200" label=""$$$/Shaders/fxKeyer/Checkboxes/Remap=Remap alpha to color"" align="center" default="off"><br><br>
+</p>
+
+<hwvalue id="0" name="scaleToOne">
+
+<IRIDAScript>
+
+	if (scaleToOne.x < 0.001)
+		scaleToOne.x = 0.001;
+
+	scaleToOne.x = 1 / scaleToOne.x;
+
+	remap.y = remap.x;
+	remap.z = remap.x;
+	remap.w = remap.x;
+
+	showRange.y = showRange.x;
+	showRange.z = showRange.x;
+	showRange.w = showRange.x;
+
+</IRIDAScript>

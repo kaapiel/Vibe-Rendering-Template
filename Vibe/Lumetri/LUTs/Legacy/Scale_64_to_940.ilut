@@ -1,0 +1,15 @@
+<IRIDAScript>
+
+//"parameters"
+range_min	= 64 / 1023;
+range_max	= 940 / 1023;
+
+//scale 0...1 down to the specified range
+out 		= in * (range_max - range_min) + range_min;
+
+red = out;
+green = out;
+blue = out;
+alpha = in;	//we don't change alpha
+
+</IRIDAScript>

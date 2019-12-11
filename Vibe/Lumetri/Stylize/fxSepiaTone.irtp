@@ -1,0 +1,11 @@
+<window width="1000">
+<p><settab 120><settab 150><settab 190><br>"$$$/Shaders/fxSepiaTone/Labels/Color=Color components"
+  <tab><slider name="Color.X" label=""$$$/Shaders/fxSepiaTone/Sliders/IChannel=I-channel"" size="150" align="center" default="0.2"><tab><editbox name="Color.X" align="center"><br>
+  <tab><slider name="Color.Y" label=""$$$/Shaders/fxSepiaTone/Sliders/QChannel=Q-Channel"" size="150" align="center" default="0"><tab><editbox name="Color.Y" align="center"><br>
+</p>
+
+
+<IRIDAScript>
+	IQMask.y = Color.X;
+	IQMask.z = Color.Y;
+</IRIDAScript>

@@ -1,0 +1,46 @@
+<!-- Automatic Duck, Inc. Copyright 2001-2010 All Rights reserved -->
+<!-- AEFontTable.xml $Revision: 3 $ -->
+<AutomaticDuckFontTable>
+	<table id="ae">
+		<font family="Courier">
+			<name style="0">Courier</name>
+			<name style="1">Courier-Bold</name>
+			<name style="2">Courier-Oblique</name>
+			<name style="3">Courier-BoldOblique</name>
+		</font>
+		<font family="Futura">
+			<name style="0">Futura-CondensedMedium</name>
+			<name style="1">Futura-Medium</name>
+			<name style="2">Futura-MediumItalic</name>
+			<name style="3">Futura-MediumItalic</name>
+		</font>
+		<font family="Helvetica">
+			<name>Helvetica</name>
+		</font>
+		<font family="LucidaGrande">
+			<name style="0">LucidaGrande</name>
+			<name style="1">LucidaGrande-Bold</name>
+		</font>
+		<font family="MarkerFelt">
+			<name>MarkerFelt-Wide</name>
+		</font>
+		<font family="Times">
+			<name style="0">Times-Roman</name>
+			<name style="1">Times-Bold</name>
+			<name style="2">Times-Italic</name>
+			<name style="3">Times-BoldItalic</name>
+		</font>
+		<font family="TimesNewRoman">
+			<name style="0">TimesNewRomanPSMT</name>
+			<name style="1">TimesNewRomanPS-BoldMT</name>
+			<name style="2">TimesNewRomanPS-ItalicMT</name>
+			<name style="3">TimesNewRomanPS-BoldItalicMT</name>
+		</font>
+		<font family="Verdana">
+			<name style="0">Verdana</name>
+			<name style="1">Verdana-Bold</name>
+			<name style="2">Verdana-Italic</name>
+			<name style="3">Verdana-BoldItalic</name>
+		</font>
+	</table>
+</AutomaticDuckFontTable>

@@ -1,0 +1,74 @@
+<shader name="PrColor.Wheels">
+
+<lut name="lut1" unit=2>
+<lookup lut="lut1" function="Wheels" swizzle="0r,0g,0b" variables="HDR,Shadows,Midtones,Highlights,LowKnee,HighKnee,KeepBW,Specular">
+
+<checkbox name="HDR" default=0 align=center> "$$$/Shaders/BasicCorrection/Labels/HDR=HDR"<br>
+
+<slider name="DiffWhite" noop=1 label=""$$$/Shaders/BasicCorrection/Sliders/DiffWhite=DiffWhite"" size=160 align=center min=100 max=1000 default=100 forcemin=1 forcemax=1><br>
+
+<colorselector name="Shadows" label=""$$$/Shaders/Wheels/ColorWheels/Shadows=Shadows"" size="100" align="center" min="-1,-1,-1" default="0,0,0" mode="offset">
+<colorselector name="Midtones" label=""$$$/Shaders/Wheels/ColorWheels/Midtones=Midtones"" size="100" align="center" min="-1,-1,-1" default="0,0,0" mode="offset">
+<colorselector name="Highlights" label=""$$$/Shaders/Wheels/ColorWheels/Highlights=Highlights"" size="100" align="center" min="-1,-1,-1" default="0,0,0" mode="offset"><br>
+<colorselector name="Specular" label=""$$$/Shaders/Wheels/ColorWheels/Specular=Specular"" size="100" align="center" min="-1,-1,-1" default="0,0,0" mode="offset">
+
+<IRIDAScript>
+
+Shadows.x 		= Shadows.x * 0.25;
+Shadows.y 		= Shadows.y * 0.25;
+Shadows.z 		= Shadows.z * 0.25;
+
+Midtones.x 		= Midtones.x * 0.5;
+Midtones.y 		= Midtones.y * 0.5;
+Midtones.z 		= Midtones.z * 0.5;
+
+Highlights.x	= Highlights.x * 0.25;
+Highlights.y	= Highlights.y * 0.25;
+Highlights.z	= Highlights.z * 0.25;
+
+LowKnee 		= 0.9;
+HighKnee 		= 0.9;
+KeepBW 			= false;
+
+WheelsMinGain.x = 1;
+WheelsMinGain.y = 1;
+WheelsMinGain.z = 1;
+WheelsMinGain.w = 1;
+
+WheelsMinOffset.x = 0;
+WheelsMinOffset.y = 0;
+WheelsMinOffset.z = 0;
+WheelsMinOffset.w = 0;
+
+WheelsMaxGain.x = 1;
+WheelsMaxGain.y = 1;
+WheelsMaxGain.z = 1;
+WheelsMaxGain.w = 1;
+
+WheelsMaxOffset.x = 0;
+WheelsMaxOffset.y = 0;
+WheelsMaxOffset.z = 0;
+WheelsMaxOffset.w = 0;
+
+//------------------------
+// HDR
+//------------------------
+
+prePostScale.x = 1;
+prePostScale.y = 1;
+
+if (HDR)
+{
+	prePostScale.x = 100 / DiffWhite;
+	prePostScale.y = DiffWhite / 100;
+}
+
+Specular.x = pow(2, Specular.x * 2);
+Specular.y = pow(2, Specular.y * 2);
+Specular.z = pow(2, Specular.z * 2);
+
+specOffset.x = pow(Highlights.x + 1, 2.4);
+specOffset.y = pow(Highlights.y + 1, 2.4);
+specOffset.z = pow(Highlights.z + 1, 2.4);
+
+</IRIDAScript>

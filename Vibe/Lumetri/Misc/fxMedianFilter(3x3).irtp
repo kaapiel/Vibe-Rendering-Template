@@ -1,0 +1,1 @@
+<shader name="fxMedianFilter(3x3)H" secondpass="fxMedianFilter(3x3)V">

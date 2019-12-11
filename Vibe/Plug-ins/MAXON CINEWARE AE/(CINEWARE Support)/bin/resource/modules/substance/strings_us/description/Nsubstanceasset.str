@@ -1,0 +1,10 @@
+STRINGTABLE Nsubstanceasset
+{
+	Nsubstanceasset											"Substance Asset";
+	SUBSTANCEASSET_PROPERTIES						"Asset";
+	SUBSTANCEASSET_STATUS								"Status";
+	SUBSTANCEASSET_FILENAME							"Filename";
+	SUBSTANCEASSET_ENABLED							"Enabled";
+	SUBSTANCEASSET_NO_LEGACY_GAMMA			"Disable Legacy";
+	SUBSTANCEASSET_LEGACY_GAMMA_HIDDEN	"";
+}

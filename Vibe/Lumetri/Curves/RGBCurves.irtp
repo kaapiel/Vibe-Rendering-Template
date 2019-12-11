@@ -1,0 +1,15 @@
+<shader name="PrimaryRGBCurves">
+<lut name="PrimaryRGBCurves" unit=2>
+<lookup lut="PrimaryRGBCurves" function="PrimaryRGBCurves" variables="PrimaryRGBCurvesLuminance,PrimaryRGBCurvesRed,PrimaryRGBCurvesGreen,PrimaryRGBCurvesBlue" swizzle="0r,0g,0b,0a">
+<p>
+<settab 20><settab 270><settab 520><settab 770>
+<br><br>
+<tab><curveeditor name="PrimaryRGBCurvesLuminance" label=""$$$/Shaders/RGBCurves/CurveEditors/LuminanceCurve=LuminanceCurve"" size="216" color="white" mode="standard" shape="inclined">
+<tab><curveeditor name="PrimaryRGBCurvesRed" label=""$$$/Shaders/RGBCurves/CurveEditors/RedCurve=RedCurve"" size="216" color="red" mode="standard" shape="inclined">
+<tab><curveeditor name="PrimaryRGBCurvesGreen" label=""$$$/Shaders/RGBCurves/CurveEditors/GreenCurve=GreenCurve"" size="216" color="green" mode="standard" shape="inclined">
+<tab><curveeditor name="PrimaryRGBCurvesBlue" label=""$$$/Shaders/RGBCurves/CurveEditors/BlueCurve=BlueCurve"" size="216" color="blue" mode="standard" shape="inclined">
+</p>
+
+<extern name="luminance.x" noop=1 default=0.2126>
+<extern name="luminance.y" noop=1 default=0.7152>
+<extern name="luminance.z" noop=1 default=0.0722>

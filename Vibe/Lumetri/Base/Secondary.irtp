@@ -1,0 +1,133 @@
+<shader passes="SecondaryPass1;SecondaryPass2;SecondaryPass3;SecondaryPass4">
+
+<lut name="lutCS" unit=2>
+<lookup lut="lutCS" function="HLSRange" swizzle="0r,0g,0b" variables="enableHLS,middleHLS,rangeHLS,toleranceHLS">
+
+<p><settab 10><settab 190><settab 370><settab 550><settab 730><settab 910><settab 1090>
+<tab><slider name="saturation" label=""$$$/Shaders/Secondary/Sliders/InputSaturation=Input Saturation"" size=160 align=center max=2 default=1 forcemin=1>
+<tab><slider name="Pivot" label=""$$$/Shaders/Secondary/Sliders/Pivot=Pivot"" noop=1 size=160 align=center default=0.5>
+<tab><slider name="Contrast" label=""$$$/Shaders/Secondary/Sliders/Contrast=Contrast"" size=160 align=center min=-1 default=0>
+<tab><slider name="Temperature" label=""$$$/Shaders/Secondary/Sliders/Temperature=Temperature"" size=160 align=center min=-1 default=0 mincolor="0080FF" maxcolor="FF8000">
+<tab><slider name="Magenta" label=""$$$/Shaders/Secondary/Sliders/Magenta=Magenta"" size=160 align=center min=-1 default=0 mincolor=green maxcolor=magenta>
+<tab><slider name="postSaturation" label=""$$$/Shaders/Secondary/Sliders/FinalSaturation=Final Saturation"" size=160 align=center max=2 default=1 forcemin=1>
+</p>
+
+<p>
+<resettabs>
+<settab 10><settab 340><settab 520><settab 700><settab 910>
+<br><br>
+<tab><rangecontrol enable="enableHLS" name="middleHLS" range="rangeHLS" tolerance="toleranceHLS" invert="invert" noop=1 align="top" elevation="5">
+<tab><colorselector name="offset" label=""$$$/Shaders/Secondary/ColorWheels/Offset=Offset"" size=100 align="top" min="-1,-1,-1" negative="true" default="0,0,0" elevation="20" mode="offset">
+<tab><colorselector name="gamma" label=""$$$/Shaders/Secondary/ColorWheels/Gamma=Gamma"" size=100 align="top" min="1,1,1" max="-1,-1,-1" negative="true" default="0,0,0" elevation="20" mode="offset">
+<tab><colorselector name="gain" label=""$$$/Shaders/Secondary/ColorWheels/Gain=Gain"" size=100 align="top" min="-1,-1,-1" negative="true" default="0,0,0" elevation="20" mode="offset">
+<tab><slider name="StrengthS.R" label=""$$$/Shaders/Secondary/Sliders/Denoise=Denoise"" size="160" align="center" default="0" gang="gang" forcerange=1><br><br><br>
+<resettabs><settab 910>
+<tab><slider name="blur" label=""$$$/Shaders/Secondary/Sliders/Blur=Blur"" size="160" align="center" default="0" max="5" forcerange=1>
+</p>
+<br>
+
+<hwvalue id=0 name="saturation" max=2 forcemin=1>
+<hwvalue id=1 name="Pivot">
+<hwvalue id=2 name="Contrast">
+<hwvalue id=3 name="Temperature">
+<hwvalue id=4 name="Magenta">
+<hwvalue id=5 name="postSaturation" max=2 forcemin=1>
+
+<hwcolor id="0" name="offset" min="-1,-1,-1">
+<hwcolor id="1" name="gamma" min="1,1,1" max="-1,-1,-1">
+<hwcolor id="2" name="gain" min="-1,-1,-1">
+<hwvalue id="6" name="blur" max="5" default="0">
+<hwvalue id="7" name="StrengthS.R" default="0">
+
+<extern name="luminance.x" noop=1 default=0.2126>
+<extern name="luminance.y" noop=1 default=0.7152>
+<extern name="luminance.z" noop=1 default=0.0722>
+
+<extern name="NeutralGray" noop=1 default=30>
+<extern name="GrayOut" default=0>
+
+<IRIDAScript>
+
+	Sensitivity;
+	weights;
+	invSum;
+	TempGain;
+	
+	x = 1 / (Blur + 1);
+	if (x < 1)	weights.r = exp(-2 * x * x) * 0.79788456080287; else weights.r = 0;
+	x = 2 / (Blur + 1);
+	if (x < 1)	weights.g = exp(-2 * x * x) * 0.79788456080287; else weights.g = 0;
+	x = 3 / (Blur + 1);
+	if (x < 1)	weights.b = exp(-2 * x * x) * 0.79788456080287; else weights.b = 0;
+	x = 4 / (Blur + 1);
+	if (x < 1)	weights.a = exp(-2 * x * x) * 0.79788456080287; else weights.a = 0;
+	
+	invSum.a = 1 / (1 + 2 * weights.r + 2 * weights.g + 2 * weights.b + 2 * weights.a);
+
+	gamma.x = pow(3, gamma.x);
+	gamma.y = pow(3, gamma.y);
+	gamma.z = pow(3, gamma.z);
+	TempGain.x = pow(2, gain.x + (Temperature + Magenta * 0.5));
+	TempGain.y = pow(2, gain.y + (-Magenta));
+	TempGain.z = pow(2, gain.z + (-Temperature + Magenta * 0.5));
+	Contrast = pow(2, Contrast);
+	offset.x = TempGain.x * (offset.x + Pivot - Contrast * Pivot);
+	offset.y = TempGain.y * (offset.y + Pivot - Contrast * Pivot);
+	offset.z = TempGain.z * (offset.z + Pivot - Contrast * Pivot);
+	gain.x = TempGain.x * Contrast;
+	gain.y = TempGain.y * Contrast;
+	gain.z = TempGain.z * Contrast;
+
+	Sensitivity.R = StrengthS.R / 2.0;
+
+	maxDiff3.X = Sensitivity.R * 0.3;
+	maxDiff3.y = maxDiff3.x * 0.6666666666;
+	maxDiff3.z = 0;
+	maxDiff3.w = 0;
+
+	maxDiff5.X = Sensitivity.R * 0.5;
+	maxDiff5.y = maxDiff5.X * 0.6;
+	maxDiff5.z = 0;
+	maxDiff5.w = 0;
+
+	strength.x = StrengthS.R;
+	strength.y = StrengthS.R;
+	strength.z = StrengthS.R;
+	strength.w = StrengthS.R;
+
+	outsideA.x = 1;
+	outsideB.x = 0;
+
+	invert.y = invert.x;
+	invert.z = invert.x;
+	invert.w = invert.x;
+
+	saturation.y = saturation.x;
+	saturation.z = saturation.x;
+	saturation.w = 1;
+
+	postSaturation.y = postSaturation.x;
+	postSaturation.z = postSaturation.x;
+	postSaturation.w = 1;
+
+	if (GrayOut > 0.5)
+	{
+		outsideA.x = 0;
+
+		if (GrayOut < 1.5)
+			outsideB.x = 1 - clamp(NeutralGray / 100, 0, 1);
+
+		if (GrayOut > 2.5)
+		{
+			gain.x = 0; gain.y = 0; gain.z = 0;
+			offset.x = 1; offset.y = 1; offset.z = 1;
+		}
+	}
+	
+	outsideA.y = outsideA.x;
+	outsideA.z = outsideA.x;
+
+	outsideB.y = outsideB.x;
+	outsideB.z = outsideB.x;
+
+</IRIDAScript>

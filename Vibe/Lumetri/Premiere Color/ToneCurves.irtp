@@ -1,0 +1,31 @@
+<shader name="PrColor.ToneCurves">
+<lut name="ToneCurves" unit=2>
+<lookup lut="ToneCurves" function="ToneCurves" variables="ToneCurvesLuma,ToneCurvesRed,ToneCurvesGreen,ToneCurvesBlue" swizzle="0r,0g,0b,0a">
+<p>
+<settab 20><settab 270><settab 520><settab 770>
+<br>
+<checkbox name="HDR" reload=1 default=0 align=center> "$$$/Shaders/ToneCurves/Labels/HDR=HDR"<br>
+<slider name="Range" label=""$$$/Shaders/ToneCurves/Sliders/DiffWhite=Range"" size=160 align=center min=100 max=10000 default=100 forcemin=1 forcemax=1><br>
+<br>
+<tab><curveeditor name="ToneCurvesLuma" label=""$$$/Shaders/ToneCurves/CurveEditors/LumaCurve=LumaCurve"" size="216" color="white" mode="standard" shape="inclined">
+<tab><curveeditor name="ToneCurvesRed" label=""$$$/Shaders/ToneCurves/CurveEditors/RedCurve=RedCurve"" size="216" color="red" mode="standard" shape="inclined">
+<tab><curveeditor name="ToneCurvesGreen" label=""$$$/Shaders/ToneCurves/CurveEditors/GreenCurve=GreenCurve"" size="216" color="green" mode="standard" shape="inclined">
+<tab><curveeditor name="ToneCurvesBlue" label=""$$$/Shaders/ToneCurves/CurveEditors/BlueCurve=BlueCurve"" size="216" color="blue" mode="standard" shape="inclined">
+</p>
+
+<IRIDAScript>
+
+//------------------------
+// HDR
+//------------------------
+
+prePostScale.x = 1;
+prePostScale.y = 1;
+
+if (HDR)
+{
+	prePostScale.x = 100 / Range;
+	prePostScale.y = Range / 100;
+}
+
+</IRIDAScript>

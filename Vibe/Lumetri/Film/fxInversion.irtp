@@ -1,0 +1,6 @@
+<window width="1000">
+<p><settab 50><br><tab>"$$$/Shaders/fxInversion/Labels/Inverse=Inverse"<br><br>
+  <tab><checkbox name="inverse.r" size="70" label=""$$$/Shaders/fxInversion/Checkboxes/Red=Red"" align="center" default="off"><tab><checkbox name="inverse.a" size="90" label=""$$$/Shaders/fxInversion/Checkboxes/Alpha=Alpha"" align="center" default="off"><br><br>
+  <tab><checkbox name="inverse.g" size="70" label=""$$$/Shaders/fxInversion/Checkboxes/Green=Green"" align="center" default="off"><br><br>
+  <tab><checkbox name="inverse.b" size="70" label=""$$$/Shaders/fxInversion/Checkboxes/Blue=Blue"" align="center" default="off"><br><br>
+</p>

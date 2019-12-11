@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest version="2.0">
+ <versioninfo>
+  <build build="20170831.v8_0_0.55" compilertarget="Release" datetime="2017/08/31:06:48:06" format="Folder" lang="mul" licensemodel="None" platform="win32" product="CEP" subproduct="CEPHtmlEngine" version="8.0.0">
+   <metadata>
+    <item key="ADOBEIPNumber" value="0000672"/>
+   </metadata>
+   <repository authority="ssl:sahara.corp.adobe.com:40010" path="//csxs/v8_0_0/resources/third_party/libxml2-2.9.3/..." query="@429445" scheme="p4"/>
+   <repository authority="ssl:sahara.corp.adobe.com:40010" path="//csxs/v8_0_0/resources/third_party/cef3/..." query="@429445" scheme="p4"/>
+   <repository authority="ssl:sahara.corp.adobe.com:40010" path="//csxs/v8_0_0/resources/third_party/libb64/..." query="@429445" scheme="p4"/>
+   <repository authority="ssl:sahara.corp.adobe.com:40010" path="//csxs/v8_0_0/projects/native/Foundation/..." query="@429445" scheme="p4"/>
+   <repository authority="ssl:sahara.corp.adobe.com:40010" path="//csxs/v8_0_0/projects/native/macosx-config/..." query="@429445" scheme="p4"/>
+   <repository authority="ssl:sahara.corp.adobe.com:40010" path="//csxs/v8_0_0/projects/native/PlugPlug/..." query="@429445" scheme="p4"/>
+   <repository authority="ssl:sahara.corp.adobe.com:40010" path="//csxs/v8_0_0/projects/native/ToolKit/..." query="@429445" scheme="p4"/>
+   <repository authority="ssl:sahara.corp.adobe.com:40010" path="//csxs/v8_0_0/projects/html/..." query="@429445" scheme="p4"/>
+   <repository authority="ssl:sahara.corp.adobe.com:40010" path="//csxs/v8_0_0/projects/javascript/JSLibrary/..." query="@429445" scheme="p4"/>
+   <repository authority="ssl:sahara.corp.adobe.com:40010" path="//csxs/v8_0_0/projects/native/CEPHtmlEngine/..." query="@429445" scheme="p4"/>
+   <repository authority="ssl:sahara.corp.adobe.com:40010" path="//csxs/v8_0_0/projects/native/csi-version/..." query="@429445" scheme="p4"/>
+   <repository authority="ssl:sahara.corp.adobe.com:40010" path="//csxs/v8_0_0/resources/adobe/boost_libraries/..." query="@429445" scheme="p4"/>
+   <repository authority="ssl:sahara.corp.adobe.com:40010" path="//csxs/v8_0_0/resources/adobe/ct-security/..." query="@429445" scheme="p4"/>
+  </build>
+ </versioninfo>
+</manifest>

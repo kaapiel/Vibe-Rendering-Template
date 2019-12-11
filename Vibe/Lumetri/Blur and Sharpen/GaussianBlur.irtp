@@ -1,0 +1,71 @@
+<shader name="ConvolveH" secondpass="ConvolveV">
+<window width="1000">
+<p><settab 40><settab 150>
+<tab>"$$$/Shaders/GaussianBlur/Labels/Blur=Blur Radius"<br>
+<tab><slider name="Radius.R" label=""$$$/Shaders/GaussianBlur/Sliders/Red=Red"" size="100" align="center" default="0" max="5" gang="gang" forcerange=1><tab><editbox name="Radius.R" align="center" min="0" max="5" gang="gang"><br>
+<tab><slider name="Radius.G" label=""$$$/Shaders/GaussianBlur/Sliders/Green=Green"" size="100" align="center" default="0" max="5" gang="gang" forcerange=1><tab><editbox name="Radius.G" align="center" min="0" max="5" gang="gang"><br>
+<tab><slider name="Radius.B" label=""$$$/Shaders/GaussianBlur/Sliders/Blue=Blue"" size="100" align="center" default="0" max="5" gang="gang" forcerange=1><tab><editbox name="Radius.B" align="center" min="0" max="5" gang="gang"><br>
+<tab><slider name="Radius.A" label=""$$$/Shaders/GaussianBlur/Sliders/Alpha=Alpha"" size="100" align="center" default="0" max="5" gang="gang" forcerange=1><tab><editbox name="Radius.A" align="center" min="0" max="5" gang="gang"><br><br>
+<tab><gang name="gang" default="on" align="center">"$$$/Shaders/GaussianBlur/Labels/Gang=gang"
+<br>
+</p>
+
+<hwslider id="0" name="Radius.R" max="5" forcerange=1>
+<hwslider id="1" name="Radius.G" max="5" forcerange=1>
+<hwslider id="2" name="Radius.B" max="5" forcerange=1>
+<hwslider id="3" name="Radius.A" max="5" forcerange=1>
+
+<IRIDAScript>
+	w1;w2;w3;w4;
+	invSum;
+
+	Radius.R = 1 / max((Radius.R + 1) * __PixelSize, 1);
+	Radius.G = 1 / max((Radius.G + 1) * __PixelSize, 1);
+	Radius.B = 1 / max((Radius.B + 1) * __PixelSize, 1);
+	Radius.A = 1 / max((Radius.A + 1) * __PixelSize, 1);
+
+	x = Radius.R;
+	if (x < 1)	w1.R = exp(-2 * x * x) * 0.79788456080287; else w1.R = 0;
+	x = 2 * Radius.R;
+	if (x < 1)	w2.R = exp(-2 * x * x) * 0.79788456080287; else w2.R = 0;
+	x = 3 * Radius.R;
+	if (x < 1)	w3.R = exp(-2 * x * x) * 0.79788456080287; else w3.R = 0;
+	x = 4 * Radius.R;
+	if (x < 1)	w4.R = exp(-2 * x * x) * 0.79788456080287; else w4.R = 0;
+
+	invSum.R = 1 / (1 + 2 * w1.R + 2 * w2.R + 2 * w3.R + 2 * w4.R);
+
+	x = Radius.G;
+	if (x < 1)	w1.G = exp(-2 * x * x) * 0.79788456080287; else w1.G = 0;
+	x = 2 * Radius.G;
+	if (x < 1)	w2.G = exp(-2 * x * x) * 0.79788456080287; else w2.G = 0;
+	x = 3 * Radius.G;
+	if (x < 1)	w3.G = exp(-2 * x * x) * 0.79788456080287; else w3.G = 0;
+	x = 4 * Radius.G;
+	if (x < 1)	w4.G = exp(-2 * x * x) * 0.79788456080287; else w4.G = 0;
+
+	invSum.G = 1 / (1 + 2 * w1.G + 2 * w2.G + 2 * w3.G + 2 * w4.G);
+
+	x = Radius.B;
+	if (x < 1)	w1.B = exp(-2 * x * x) * 0.79788456080287; else w1.B = 0;
+	x = 2 * Radius.B;
+	if (x < 1)	w2.B = exp(-2 * x * x) * 0.79788456080287; else w2.B = 0;
+	x = 3 * Radius.B;
+	if (x < 1)	w3.B = exp(-2 * x * x) * 0.79788456080287; else w3.B = 0;
+	x = 4 * Radius.B;
+	if (x < 1)	w4.B = exp(-2 * x * x) * 0.79788456080287; else w4.B = 0;
+
+	invSum.B = 1 / (1 + 2 * w1.B + 2 * w2.B + 2 * w3.B + 2 * w4.B);
+
+	x = Radius.A;
+	if (x < 1)	w1.A = exp(-2 * x * x) * 0.79788456080287; else w1.A = 0;
+	x = 2 * Radius.A;
+	if (x < 1)	w2.A = exp(-2 * x * x) * 0.79788456080287; else w2.A = 0;
+	x = 3 * Radius.A;
+	if (x < 1)	w3.A = exp(-2 * x * x) * 0.79788456080287; else w3.A = 0;
+	x = 4 * Radius.A;
+	if (x < 1)	w4.A = exp(-2 * x * x) * 0.79788456080287; else w4.A = 0;
+
+	invSum.A = 1 / (1 + 2 * w1.A + 2 * w2.A + 2 * w3.A + 2 * w4.A);
+
+</IRIDAScript>

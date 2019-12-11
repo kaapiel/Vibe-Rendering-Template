@@ -1,0 +1,217 @@
+<shader passes="Sharpness < -0.01 ? PrColor.SecondaryLayer,ConvolveH,ConvolveV : Sharpness < 0.01 ? PrColor.SecondaryLayer : PrColor.SecondaryLayer,Convolve">
+
+<lut name="rangeLUT" unit=2>
+<lookup lut="rangeLUT" function="HLSRange" swizzle="0r,0g,0b" variables="enableHLS,middleHLS,rangeHLS,toleranceHLS">
+<lut name="wheelsLUT" unit=3>
+<lookup lut="wheelsLUT" function="Wheels" swizzle="0r,0g,0b" variables="HDR,Shadows,Midtones,Highlights,LowKnee,HighKnee,KeepBW,Specular">
+<lookup lut="wheelsLUT" function="Contrast" swizzle="0a" variables="HDR,Contrast">
+<lookup lut="wheelsLUT" function="SoftKnee" swizzle="1r" variables="Saturation,SaturationKnee,SaturationMinSlope">
+
+<rangecontrol enable="enableHLS" name="middleHLS" range="rangeHLS" tolerance="toleranceHLS" invert="invert" noop=1 align="top" elevation="5">
+<slider name="Denoise" label=""$$$/Shaders/Secondary/Sliders/Denoise=Denoise"" size="200" align="center" max=100 default=0 forcerange=1><br>
+<slider name="Blur" label=""$$$/Shaders/Secondary/Sliders/Blur=Blur"" size="200" align="center" max=20 default=0 forcerange=1><br>
+<dropdown name="ShowKey" label=""$$$/Shaders/Secondary/DropDowns/ShowKey=Show Key"" size="200" align="center" items="Off|Color/Gray|Color/Black/White/Black">
+
+<checkbox name="HDR" default=0 align=center> "$$$/Shaders/Secondary/Labels/HDR=HDR"<br>
+
+<slider name="DiffWhite" noop=1 label=""$$$/Shaders/Secondary/Sliders/DiffWhite=DiffWhite"" size=160 align=center min=100 max=1000 default=100 forcemin=1 forcemax=1><br>
+
+<colorselector name="Shadows" label=""$$$/Shaders/Secondary/ColorWheels/Shadows=Shadows"" size="100" align="center" min="-1,-1,-1" default="0,0,0" mode="offset"><br>
+<colorselector name="Midtones" label=""$$$/Shaders/Secondary/ColorWheels/Midtones=Midtones"" size="100" align="center" min="-1,-1,-1" default="0,0,0" mode="offset"><br>
+<colorselector name="Highlights" label=""$$$/Shaders/Secondary/ColorWheels/Highlights=Highlights"" size="100" align="center" min="-1,-1,-1" default="0,0,0" mode="offset"><br>
+<colorselector name="Specular" label=""$$$/Shaders/Secondary/ColorWheels/Specular=Specular"" size="100" align="center" min="-1,-1,-1" default="0,0,0" mode="offset"><br>
+
+<slider name="Temp" label=""$$$/Shaders/Secondary/Sliders/Temp=Temp"" size=200 align=center min=-100 max=100 default=0 mincolor="0080FF" maxcolor="FF8000" forcemin=1 forcemax=1><br>
+<slider name="Tint" label=""$$$/Shaders/Secondary/Sliders/Tint=Tint"" size=200 align=center min=-100 max=100 default=0 mincolor=green maxcolor=magenta forcemin=1 forcemax=1><br>
+<slider name="Contrast" label=""$$$/Shaders/Secondary/Sliders/Sharpness=Sharpness"" size=200 align=center default=0 min=-100 max=100 forcerange=1><br>
+<slider name="Sharpness" label=""$$$/Shaders/Secondary/Sliders/Sharpness=Sharpness"" size=200 align=center default=0 min=-100 max=100 forcerange=1><br>
+<slider name="Saturation" label=""$$$/Shaders/Secondary/Sliders/Sharpness=Sharpness"" size=200 align=center default=0 min=-100 max=100 forcerange=1><br>
+
+<IRIDAScript>
+
+lumaCoeff.x = 0.2126;
+lumaCoeff.y = 0.7152;
+lumaCoeff.z = 0.0722;
+
+//------------------------
+// HSL Range
+//------------------------
+
+invert.y		= invert.x;				//no per-channel invert
+invert.z		= invert.x;
+invert.w		= invert.x;
+
+Denoise 		= Denoise * 0.01;		//0...100 -> 0...1
+
+maxDiff5.x 		= Denoise * 0.25;
+maxDiff5.y 		= maxDiff5.x * 0.6;
+maxDiff5.z 		= 0;
+maxDiff5.w 		= 0;
+
+strength.x 		= Denoise;
+strength.y 		= Denoise;
+strength.z 		= Denoise;
+strength.w 		= Denoise;
+
+//------------------------
+// Wheels
+//------------------------
+
+Shadows.x 		= Shadows.x * 0.25;
+Shadows.y 		= Shadows.y * 0.25;
+Shadows.z 		= Shadows.z * 0.25;
+
+Midtones.x 		= Midtones.x * 0.5;
+Midtones.y 		= Midtones.y * 0.5;
+Midtones.z 		= Midtones.z * 0.5;
+
+Highlights.x	= Highlights.x * 0.25;
+Highlights.y	= Highlights.y * 0.25;
+Highlights.z	= Highlights.z * 0.25;
+
+LowKnee 		= 0.9;
+HighKnee 		= 0.9;
+KeepBW 			= false;
+
+WheelsMinGain.x = 1;
+WheelsMinGain.y = 1;
+WheelsMinGain.z = 1;
+WheelsMinGain.w = 1;
+
+WheelsMinOffset.x = 0;
+WheelsMinOffset.y = 0;
+WheelsMinOffset.z = 0;
+WheelsMinOffset.w = 0;
+
+WheelsMaxGain.x = 1;
+WheelsMaxGain.y = 1;
+WheelsMaxGain.z = 1;
+WheelsMaxGain.w = 1;
+
+WheelsMaxOffset.x = 0;
+WheelsMaxOffset.y = 0;
+WheelsMaxOffset.z = 0;
+WheelsMaxOffset.w = 0;
+
+//------------------------
+// HDR
+//------------------------
+
+prePostScale.x = 1;
+prePostScale.y = 1;
+
+if (HDR)
+{
+	prePostScale.x = 100 / DiffWhite;
+	prePostScale.y = DiffWhite / 100;
+}
+
+Specular.x = pow(2, Specular.x * 2);
+Specular.y = pow(2, Specular.y * 2);
+Specular.z = pow(2, Specular.z * 2);
+
+specOffset.x = pow(Highlights.x + 1, 2.4);
+specOffset.y = pow(Highlights.y + 1, 2.4);
+specOffset.z = pow(Highlights.z + 1, 2.4);
+
+//--------------------------------
+// tempTint, Contrast, Saturation
+//--------------------------------
+
+Temp 		= Temp * 0.01;			//+/-100 to +/-1
+Tint 		= Tint * 0.01;			//+/-100 to +/-1
+
+tempTint.x 	= pow(2, Temp + Tint * 0.5);
+tempTint.y 	= pow(2, -Tint);
+tempTint.z 	= pow(2, -Temp + Tint * 0.5);
+
+//normalize tempTint to counteract luma gain / loss
+oneOverDot	= 1 / (tempTint.x * lumaCoeff.x + tempTint.y * lumaCoeff.y + tempTint.z * lumaCoeff.z);
+
+tempTint.x	= tempTint.x * oneOverDot;
+tempTint.y	= tempTint.y * oneOverDot;
+tempTint.z	= tempTint.z * oneOverDot;
+
+Contrast 	= Contrast * 0.006;			//-0.6 to 0.6
+ContrastSat	= 1 + Contrast * 0.5;		//0.7 to 1.3
+
+Saturation 		= (Saturation * 0.01) * ContrastSat;
+SaturationKnee	= 0.5;
+
+SaturationMinSlope = 0;
+
+if (__AlgorithmVersion > 1.5)
+{
+	SaturationMinSlope = 1.0 / 8.0;
+}
+
+contrastMinMax.x	= 1;
+contrastMinMax.y	= 1;
+
+//------------------------
+// Sharpness
+//------------------------
+
+w1;w2;w3;w4;			//G-blur only
+invSum;					//used in both shaders
+side;corner;center;		//sharpen only
+
+if (Sharpness < 0)
+{
+	Radius.R = 1 / max((Sharpness * -0.05 + 1) * __PixelSize, 1);
+	Radius.G = Radius.R;
+	Radius.B = Radius.R;
+	Radius.A = Radius.R;
+
+	x = Radius.R;
+	if (x < 1)	w1.R = exp(-2 * x * x) * 0.79788456080287; else w1.R = 0;
+	x = 2 * Radius.R;
+	if (x < 1)	w2.R = exp(-2 * x * x) * 0.79788456080287; else w2.R = 0;
+	x = 3 * Radius.R;
+	if (x < 1)	w3.R = exp(-2 * x * x) * 0.79788456080287; else w3.R = 0;
+	x = 4 * Radius.R;
+	if (x < 1)	w4.R = exp(-2 * x * x) * 0.79788456080287; else w4.R = 0;
+
+	w1.G = w1.R;
+	w1.B = w1.R;
+	w1.A = w1.R;
+
+	w2.G = w2.R;
+	w2.B = w2.R;
+	w2.A = w2.R;
+	
+	w3.G = w3.R;
+	w3.B = w3.R;
+	w3.A = w3.R;
+
+	w4.G = w4.R;
+	w4.B = w4.R;
+	w4.A = w4.R;
+
+	invSum.R = 1 / (1 + 2 * w1.R + 2 * w2.R + 2 * w3.R + 2 * w4.R);
+}
+else
+{
+	side.r 	 = Sharpness * -0.004;	//max 40% sharpening
+	corner.r = side.r / 2;
+	center.r = -side.r * 6 + 1;
+	invSum.r = 1;
+
+	side.g 	 = side.r;
+	corner.g = corner.r;
+	center.g = center.r;
+
+	side.b 	 = side.r;
+	corner.b = corner.r;
+	center.b = center.r;
+	
+	side.a 	 = side.r;
+	corner.a = corner.r;
+	center.a = center.r;
+}
+
+invSum.G = invSum.R;
+invSum.B = invSum.R;
+invSum.A = invSum.R;
+
+</IRIDAScript>

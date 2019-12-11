@@ -1,0 +1,102 @@
+// C4D-StringResource
+// Identifier	Text
+
+STRINGTABLE
+{
+	IDS_Odisc							"Disc";
+	IDS_Osinglepoly				"Polygon";
+	IDS_Otorus						"Torus";
+	IDS_Ocube							"Cube";
+	IDS_Osphere						"Sphere";
+	IDS_Oplatonic					"Platonic";
+	IDS_Ofigure						"Figure";
+	IDS_Opyramid					"Pyramid";
+	IDS_Oplane						"Plane";
+	IDS_Otube							"Tube";
+	IDS_Ofractal					"Landscape";
+	IDS_Ocone							"Cone";
+	IDS_Ocylinder					"Cylinder";
+	IDS_Ocapsule					"Capsule";
+	IDS_Ooiltank					"Oil Tank";
+	IDS_Orelief						"Relief";
+	IDS_Osplinecircle			"Circle";
+	IDS_Osplinearc				"Arc";
+	IDS_Osplinecissoid		"Cissoid";
+	IDS_Osplinecycloid		"Cycloid";
+	IDS_Osplineprofile		"Profile";
+	IDS_Osplinecontour		"Vectorizer";
+	IDS_Osplinehelix			"Helix";
+	IDS_Osplinerectangle  "Rectangle";
+	IDS_Osplinestar				"Star";
+	IDS_Osplinecogwheel		"Cogwheel";
+	IDS_Osplineflower			"Flower";
+	IDS_Osplineformula		"Formula";
+	IDS_Osplinetext				"Text";
+	IDS_Ospline4side			"4-Side";
+	IDS_Osplinenside			"n-Side";
+
+	IDS_Oheadphone				"Stereo Microphone";
+	IDS_Obackground				"Background";
+	IDS_Oforeground				"Foreground";
+	IDS_Oconplane					"Construction Plane";
+	IDS_Oenvironment			"Environment";
+	IDS_Ofloor						"Floor";
+	IDS_Ostage						"Stage";
+	IDS_Oloudspeaker			"Loudspeaker";
+	IDS_Omicrophone				"Microphone";
+
+	IDS_Oparticlebase			"Particle Modifier";
+	IDS_Ogravitation			"Gravity";
+	IDS_Oattractor				"Attractor";
+	IDS_Odestructor				"Destructor";
+	IDS_Odeflector				"Deflector";
+	IDS_Ofriction					"Friction";
+	IDS_Orotation					"Rotation";
+	IDS_Oturbulence				"Turbulence";
+	IDS_Owind							"Wind";
+
+	IDS_Obend							"Bend";
+	IDS_Obulge						"Bulge";
+	IDS_Otwist						"Twist";
+	IDS_Otaper						"Taper";
+	IDS_Oshear						"Shear";
+
+	IDS_Oexplosion				"Explosion";
+	IDS_Oformula					"Formula";
+	IDS_Omelt							"Melt";
+	IDS_Oshatter					"Shatter";
+	IDS_Owinddeform				"Wind";
+	IDS_Owrap							"Wrap";
+
+	IDS_Opolyreduction		"Polygon Reduction";
+	IDS_POLYREDUCTION			"Reducing Polygons from # to #";
+  IDS_BOOLEOBJECT             "Boole";
+
+  IDS_VERTEX						"Face";
+  IDS_HANDEFFECTOR			"Hand Effector";
+  IDS_FOOTEFFECTOR			"Foot Effector";
+  IDS_FIGURELEFT				"Left";
+  IDS_FIGURERIGHT				"Right";
+  IDS_HEADEFFECTOR			"Head Effector";
+  IDS_UPPERBODY					"Upper Body";
+  IDS_NECK							"Neck";
+  IDS_UPPERARM					"Upper Arm";
+  IDS_LOWERARM					"Lower Arm";
+  IDS_UPPERKNEE					"Thigh";
+  IDS_LOWERKNEE					"Shin";
+  IDS_HAND							"Hand";
+	IDS_FOOT							"Foot";
+	IDS_HEAD							"Head";
+	IDS_PELVIS						"Pelvis";
+  IDS_JOINT							"Joint";
+  IDS_TEXTCONTENT				"Text";
+
+	// Polygon Reduction Generator
+	IDS_OPOLYREDUX_GENERATOR										"Polygon Reduction";
+	IDS_POLYREDUX_PREPROCESSING_REDUCTION				"Poly Reduction: Pre-Processing (#/#)";
+	IDS_POLYREDUX_PREPROCESSING_TRIANGULATING 	"Poly Reduction: Triangulating";
+	IDS_POLYREDUX_PREPROCESSING_OPTIMIZING			"Poly Reduction: Optimizing Mesh";
+	IDS_POLYREDUX_PREPROCESSING_INIT_COSTS			"Poly Reduction: Initializing Cost Values (#/#)";
+	IDS_POLYREDUX_PREPROCESSING_INIT_STACK 			"Poly Reduction: Initializing Stack (#/#)";
+	IDS_POLYREDUX_PREPROCESSING_FINALIZE_STACK	"Poly Reduction: Finalizing Stack (#/#)";
+}

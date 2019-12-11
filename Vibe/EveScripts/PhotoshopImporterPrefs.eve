@@ -1,0 +1,45 @@
+layout PhotoshopImporterPrefsDialog
+{
+	view dva_dialog(identifier: 'PhotoshopImporterPrefs', name: '$$$/MediaCoreUI/ImportLayeredFileDialog/kResMediaCoreUIImportLayeredFileDialogTitle=Import Layered File: ', spacing: 15, canResize: 'true', resizeChildren: 'true')
+	{
+		dva_arrangement(identifier: 'rootArrangement', arrangementType: 'row', horizontalSpacing: 10, verticalSpacing: 10, leftMargin: 10, rightMargin: 10, topMargin: 10, bottomMargin: 10, horizontalAlignment: 'right')
+		{
+			dva_arrangement(arrangementType: 'column', horizontalSpacing: 6, verticalSpacing: 6)
+			{
+				dva_arrangement(arrangementType: 'row', horizontalSpacing: 6, verticalSpacing: 6)
+				{
+					dva_popup(identifier: 'importAs', label: '$$$/MediaCoreUI/PhotoshopImporterPrefs/kResMediaCoreUIImportAs=Import As: ', bindRight:'true')
+					{
+						dva_popup_item(name: '$$$/MediaCoreUI/PhotoshopImporterPrefs/MergeAllLayers=Merge All Layers');
+						dva_popup_item(name: '$$$/MediaCoreUI/PhotoshopImporterPrefs/MergedLayers=Merged Layers');
+						dva_popup_item(name: '$$$/MediaCoreUI/PhotoshopImporterPrefs/Footage=Individual Layers');
+						dva_popup_item(name: '$$$/MediaCoreUI/PhotoshopImporterPrefs/Sequence=Sequence');
+					}
+				}
+				dva_listbox(identifier: 'layerSelection', useCheckboxes: 'true', direction:'vertical', minWidth: 250, minHeight: 150, bindRight:'true', bindBottom:'true');
+				dva_arrangement(arrangementType: 'row', horizontalSpacing: 6, verticalSpacing: 6)
+				{			
+					dva_popup(identifier: 'dimensions', label: '$$$/MediaCoreUI/PhotoshopImporterPrefs/FootageDimensions=Footage Dimensions: ', bindRight:'true')
+					{
+						dva_popup_item(name: '$$$/MediaCoreUI/PhotoshopImporterPrefs/DocumentSize=Document Size');
+						dva_popup_item(name: '$$$/MediaCoreUI/PhotoshopImporterPrefs/LayerSize=Layer Size');
+					}
+				}
+			}
+			dva_arrangement(arrangementType: 'column', horizontalSpacing: 18, verticalSpacing: 18)
+			{
+				dva_arrangement(arrangementType: 'column', horizontalSpacing: 6, verticalSpacing: 6)
+				{
+					dva_button(name: '$$$/dvaeve/OkCancelRow/OKButton=OK', identifier:'okButton', default:'true', setAsFocused:'true', bindRight:'true');
+					dva_button(name: '$$$/dvaeve/OkCancelRow/CancelButton=Cancel', identifier:'cancelButton', bindRight:'true');
+				}
+				dva_arrangement(arrangementType: 'column', horizontalSpacing: 6, verticalSpacing: 6)
+				{
+					dva_button(name:'$$$/MediaCoreUI/PhotoshopImporterPrefs/SelectAll=Select All', identifier:'selectAllButton', bindRight:'true');
+					dva_button(name:'$$$/MediaCoreUI/PhotoshopImporterPrefs/SelectNone=Select None', identifier:'selectNoneButton', bindRight:'true');
+					dva_button(name:'$$$/MediaCoreUI/PhotoshopImporterPrefs/ResetSelection=Reset Selection', identifier:'resetSelectionButton', bindRight:'true');
+				}
+			}			
+		}
+	}
+}

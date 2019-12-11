@@ -1,0 +1,27 @@
+<p>
+<settab 40><settab 260>
+<tab><colorselector name="gain" label=""$$$/Shaders/BleachBypass/ColorWheels/Gain=Gain"" size="100" align="center" elevation="5" min="-1,-1,-1" negative="true" mode="offset">
+<tab><tab><slider name="saturation.x" label=""$$$/Shaders/BleachBypass/Sliders/Saturation=Saturation"" size="120" align="center" default="0.75" max="1" forcerange=1>
+</p>        
+
+<hwcolor id="0" name="gain" min="-1,-1,-1">
+<hwslider id="4" name="saturation.x" forcerange=1>
+  
+<extern name="GainRange" default="2.0">
+<extern name="luminance.x" default="0.5">
+<extern name="luminance.y" default="0.5">
+<extern name="luminance.z" default="0.5">
+
+<IRIDAScript>
+
+if (GainRange < 2.0)
+	GainRange = 2.0;
+
+gain.x = pow(GainRange, gain.x);
+gain.y = pow(GainRange, gain.y);
+gain.z = pow(GainRange, gain.z);
+
+saturation.y = saturation.x;
+saturation.z = saturation.x;
+
+</IRIDAScript>

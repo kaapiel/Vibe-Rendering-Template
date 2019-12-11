@@ -1,0 +1,90 @@
+<p>
+<settab 40><settab 240><settab 330>
+<tab><colorselector name="color" size="100" label=""$$$/Shaders/fxTinting/ColorWheels/Color=Color"" align="top"><br><br><br>
+<tab><tab>"$$$/Shaders/fxTinting/Labels/Blending=Blending mode"<tab><dropdown name="Blending" size="150" items=""$$$/Shaders/fxTinting/Dropdowns/Blending/NoBlending=no blending","$$$/Shaders/fxTinting/Dropdowns/Blending/Multiply=multiply","$$$/Shaders/fxTinting/Dropdowns/Blending/Divide=divide","$$$/Shaders/fxTinting/Dropdowns/Blending/Add=add","$$$/Shaders/fxTinting/Dropdowns/Blending/Subtract=subtract","$$$/Shaders/fxTinting/Dropdowns/Blending/Screen=screen","$$$/Shaders/fxTinting/Dropdowns/Blending/Lighter=lighter (per channel)","$$$/Shaders/fxTinting/Dropdowns/Blending/Darker=darker (per channel)"" values="0,1,2,3,4,5,6,7" default="1" align="center"><br></p>
+</p>
+<br>
+
+<hwcolor id="0" name="color">
+
+<IRIDAScript>
+
+	cmp0; cmp1; cmp2; cmp3; cmp4;
+	invColor;
+
+	invColor.x = 1.0 - color.x;
+	invColor.y = 1.0 - color.y;
+	invColor.z = 1.0 - color.z;
+	invColor.w = 0;
+
+	if (Blending.x > 0.5)
+		cmp0.x = 0.5;
+	else
+		cmp0.x = -0.5;
+
+	if (Blending.x > 2.5)
+		cmp1.x = 0.5;
+	else
+		cmp1.x = -0.5;
+
+	if (Blending.x > 4.5)
+		cmp2.x = 0.5;
+	else
+		cmp2.x = -0.5;
+
+	if (Blending.x > 5.5)
+		cmp3.x = 0.5;
+	else
+		cmp3.x = -0.5;
+
+	if (Blending.x > 6.5)
+		cmp4.x = 0.5;
+	else
+		cmp4.x = -0.5;
+
+	if (Blending.x == 2)
+	{
+		if (color.x == 0)
+			color.x = 0.0000000001;
+
+		if (color.y == 0)
+			color.y = 0.0000000001;
+
+		if (color.z == 0)
+			color.z = 0.0000000001;
+
+		color.x = 1 / color.x;
+		color.y = 1 / color.y;
+		color.z = 1 / color.z;
+	}
+
+	if (Blending.x == 4)
+	{
+		color.x = -color.x;
+		color.y = -color.y;
+		color.z = -color.z;
+	}
+
+	color.w = 1.0;
+
+	cmp0.y = cmp0.x;
+	cmp0.z = cmp0.x;
+	cmp1.w = 0.5;
+
+	cmp1.y = cmp1.x;
+	cmp1.z = cmp1.x;
+	cmp1.w = -0.5;
+
+	cmp2.y = cmp2.x;
+	cmp2.z = cmp2.x;
+	cmp2.w = -0.5;
+
+	cmp3.y = cmp3.x;
+	cmp3.z = cmp3.x;
+	cmp3.w = -0.5;
+
+	cmp4.y = cmp4.x;
+	cmp4.z = cmp4.x;
+	cmp4.w = -0.5;
+
+</IRIDAScript>

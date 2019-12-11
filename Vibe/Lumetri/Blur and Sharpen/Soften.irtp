@@ -1,0 +1,38 @@
+<shader name="Convolve">
+<window width="1000">
+<p><settab 80><settab 190>"$$$/Shaders/Soften/Labels/Soften=Soften"
+<tab><slider name="Soften.R" label=""$$$/Shaders/Soften/Sliders/Red=Red"" size="100" align="center" default="0" gang="gang"><tab><editbox name="Soften.R" align="center" gang="gang"><br>
+<tab><slider name="Soften.G" label=""$$$/Shaders/Soften/Sliders/Green=Green"" size="100" align="center" default="0" gang="gang"><tab><editbox name="Soften.G" align="center" gang="gang"><br>
+<tab><slider name="Soften.B" label=""$$$/Shaders/Soften/Sliders/Blue=Blue"" size="100" align="center" default="0" gang="gang"><tab><editbox name="Soften.B" align="center" gang="gang"><br>
+<tab><slider name="Soften.A" label=""$$$/Shaders/Soften/Sliders/Alpha=Alpha"" size="100" align="center" default="0" gang="gang"><tab><editbox name="Soften.A" align="center" gang="gang"><br><br>
+<tab><gang name="gang" default="on" align="center">"$$$/Shaders/Soften/Labels/Gang=gang"
+<br>
+</p>
+
+<hwslider id="0" name="Soften.R" default="0">
+<hwslider id="1" name="Soften.G" default="0">
+<hwslider id="2" name="Soften.B" default="0">
+<hwslider id="3" name="Soften.A" default="0">
+
+<IRIDAScript>
+	//convolution matrix values
+	side.r 		= Soften.R;
+	corner.r 	= side.r / 2;
+	center.r	= 1;
+	invSum.r	= 1 / (6 * Soften.R + 1);
+
+	side.g 		= Soften.G;
+	corner.g 	= side.g / 2;
+	center.g	= 1;
+	invSum.g	= 1 / (6 * Soften.G + 1);
+
+	side.b 		= Soften.B;
+	corner.b 	= side.b / 2;
+	center.b	= 1;
+	invSum.b	= 1 / (6 * Soften.B + 1);
+
+	side.a 		= Soften.A;
+	corner.a 	= side.a / 2;
+	center.a	= 1;
+	invSum.a	= 1 / (6 * Soften.A + 1);
+</IRIDAScript>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionManifest Version="6.0" ExtensionBundleId="com.adobe.ccx.start" ExtensionBundleVersion="2.1.0.55"
+		ExtensionBundleName="Adobe CCX-Start" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" SHA="6947188">
+	<ExtensionList>
+		<Extension Id="com.adobe.ccx.start" Version="2.1.0.55" />
+	</ExtensionList>
+	<ExecutionEnvironment>
+		<HostList>
+			<Host Name="AEFT" Version="[15.0,99.9]" />
+			<Host Name="DRWV" Version="[18.0,99.9]" />
+			<Host Name="IDSN" Version="[13.0,99.9]" />
+			<Host Name="ILST" Version="[22.0,99.9]" />
+			<Host Name="MUSE" Version="[2018.0,2099.9]" />
+			<Host Name="PHXS" Version="[19.0,99.9]" />
+			<Host Name="PPRO" Version="[12.0,99.9]" />
+		</HostList>
+		<LocaleList>
+			<Locale Code="All" />
+		</LocaleList>
+		<RequiredRuntimeList>
+			<RequiredRuntime Name="CSXS" Version="6.0" />
+		</RequiredRuntimeList>
+	</ExecutionEnvironment>
+	<DispatchInfoList>
+		<Extension Id="com.adobe.ccx.start">
+			<DispatchInfo >
+				<Resources>
+					<MainPath>./index.html</MainPath>
+					<ScriptPath>./hostbridge.jsx</ScriptPath>
+					<CEFCommandLine>
+						<Parameter>--nodejs-disabled</Parameter>
+						<Parameter>--high-dpi-support=1</Parameter>
+						<Parameter>--disable-pinch</Parameter>
+					</CEFCommandLine>
+				</Resources>
+				<Lifecycle>
+					<AutoVisible>true</AutoVisible>
+				</Lifecycle>
+				<UI>
+					<Type>Dashboard</Type>
+					<Menu>%CCX_START_PANEL_NAME</Menu>
+					<Geometry>
+						<Size>
+							<Height>788</Height>
+							<Width>881</Width>
+						</Size>
+						<MaxSize>
+							<Height>1010</Height>
+							<Width>1406</Width>
+						</MaxSize>
+						<MinSize>
+							<Height>788</Height>
+							<Width>881</Width>
+						</MinSize>
+					</Geometry>
+				</UI>
+			</DispatchInfo>
+			<DispatchInfo Host="PPRO">
+				<UI>
+					<Type>Modeless</Type>
+				</UI>
+			</DispatchInfo>
+			<DispatchInfo Host="AEFT">
+				<UI>
+					<Type>Modeless</Type>
+				</UI>
+			</DispatchInfo>		
+		</Extension>
+	</DispatchInfoList>
+</ExtensionManifest>

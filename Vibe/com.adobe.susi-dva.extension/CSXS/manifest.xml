@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ExtensionManifest ExtensionBundleId="com.adobe.susi-dva" ExtensionBundleName="SUSI" ExtensionBundleVersion="1.0" Version="5.0">
+  <ExtensionList>
+    <Extension Id="com.adobe.susi-dva.extension" Version="1.0"/>
+  </ExtensionList>
+  <ExecutionEnvironment>
+    <HostList>
+      <Host Name="PPRO" Version="[9.0,99.9]"/>
+      <Host Name="AME" Version="[9.0,99.9]"/>
+      <Host Name="AEFT" Version="[13.5,99.9]"/>
+    </HostList>
+    <LocaleList>
+      <Locale Code="All"/>
+    </LocaleList>
+    <RequiredRuntimeList>
+      <RequiredRuntime Name="CSXS" Version="6.0"/>
+    </RequiredRuntimeList>
+  </ExecutionEnvironment>
+  <DispatchInfoList>
+    <Extension Id="com.adobe.susi-dva.extension">
+      <DispatchInfo>
+        <Resources>
+          <MainPath>./index.html</MainPath>
+        </Resources>
+        <UI>
+          <Type>Panel</Type>
+          <Menu>Adobe SUSI Login</Menu>
+          <Geometry>
+            <Size>
+              <Height>680</Height>
+              <Width>850</Width>
+            </Size>
+            <MaxSize>
+              <Height>680</Height>
+              <Width>850</Width>
+            </MaxSize>
+            <MinSize>
+              <Height>680</Height>
+              <Width>850</Width>
+            </MinSize>
+          </Geometry>
+        </UI>
+      </DispatchInfo>
+    </Extension>
+  </DispatchInfoList>
+</ExtensionManifest>

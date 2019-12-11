@@ -1,0 +1,10 @@
+CONTAINER Xsubstance
+{
+	INCLUDE Xbase;
+	NAME Xsubstance;
+	GROUP ID_SHADERPROPERTIES
+	{
+		LINK SUBSTANCESHADER_ASSET { ACCEPT { 1032106; 1034656; } } // Accept links from Substance Asset Plugin
+		LONG SUBSTANCESHADER_CHANNEL { CYCLE { } }
+	}
+}

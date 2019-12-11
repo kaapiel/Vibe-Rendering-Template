@@ -1,0 +1,16 @@
+<!-- Automatic Duck, Inc. Copyright 2001-2010 All Rights reserved -->
+<!-- AEFCPNameTable.xml $Revision: 1 $ -->
+
+<AutomaticDuckNameTable>
+	<table id="fcpae">
+		<rule>DE_:DE_AL_</rule>
+		<parameter ignore="">*::Deep Color Rendering</parameter>
+		<parameter ignore="">*::Hide*</parameter>
+		<parameter ignore="">*::Reduce Flicker</parameter>
+		<parameter ignore="">*::Field Rendering</parameter>
+		<!-- <name in="fcpname">aename</name> -->
+		<!-- <parameter ignore="">xxxx::yyyy</parameter> -->
+		<name in="BE8D2CAE_71D0_4CC9_8DB4_2D3FABB479A5">LocknLoad_X1</name>
+		<name in="017A86A9_A13F_4D19_8307_454D82231BD1">RG MBCC 2</name>	<!-- Colorista II -->
+	</table>
+</AutomaticDuckNameTable>

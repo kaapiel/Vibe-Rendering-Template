@@ -1,0 +1,134 @@
+STRINGTABLE
+{
+	IDS_STATUS_NOFILE															"No File specified";
+	IDS_STATUS_BADPIXELFORMAT											"Invalid Pixel Format for Substance Output";
+	IDS_STATUS_OK																	"Substance Loaded";
+	IDS_MEMORYERROR																"A Memory Error occured";
+	IDS_INVALIDFILE																"Invalid Substance Asset file";
+
+	IDS_SUBSTANCEASSET														"Substance Asset";
+	IDS_SUBSTANCESHADER														"Substance Shader";
+	IDS_SUBSTANCESHADER_SPECIFYASSET							"--- Specify an Asset ---";
+
+	IDS_SUBSTANCE_RESOLUTION_WIDTH								"Width";
+	IDS_SUBSTANCE_RESOLUTION_HEIGHT								"Height";
+	IDS_SUBSTANCE_RANDOMSEED											"Random Seed";
+	IDS_SUBSTANCE_OUTPUTS													"Outputs";
+	IDS_SUBSTANCE_GRAPHS													"Graph:";
+	IDS_SUBSTANCE_BASIC_PROPERTIES								"Basic Properties";
+	IDS_SUBSTANCE_IMAGE_INPUTS										"Image Inputs";
+	IDS_SUBSTANCE_COLOR_ALPHA											"Alpha";
+
+	IDS_LOADASSET_NAME														"Load Substance...";
+	IDS_LOADASSET_HELP														"Loads a Substance Asset into the current scene.";
+	IDS_LOADASSET_TITLE														"Choose a Substance Asset";
+	IDS_LOADASSET_DIALOG_SUBSTANCE								"One or more substances are not in the project search path. Do you want to create a copy at the project location?";
+	IDS_LOADASSET_DIALOG_IMAGE										"One or more images are not in the project search path. Do you want to create a copy at the project location?";
+	IDS_LOADASSET_COPYFAIL												"The substance failed to copy, so falling back to using imported path.";
+	IDS_LOADASSET_NOT_FOUND												"The Substance has not been found!";
+	IDS_LOADASSET_REMAP														"All materials are remapped to use the outputs of the new Substance (as long as possible).";
+	IDS_LOADASSET_LOAD_FAILED											"A Substance failed to load!";
+
+	IDS_ASSETMANAGER_NAME													"Substance Asset Manager...";
+	IDS_ASSETMANAGER_HELP													"Opens the Substance Asset Manager ...";
+	IDS_ASSETMANAGER_TITLE												"Substance Asset Manager";
+	IDS_ASSETMANAGER_COLUMN_NAME									"Name";
+	IDS_ASSETMANAGER_COLUMN_PREVIEW								"Previews";
+
+	IDS_ASSETMANAGER_MENU_FILE										"File";
+	IDS_ASSETMANAGER_MENU_EDIT										"Edit";
+	IDS_ASSETMANAGER_MENU_CREATE									"Create";
+	IDS_ASSETMANAGER_MENU_PRESET									"Preset";
+	IDS_ASSETMANAGER_MENU_CACHE										"Disk Cache";
+
+	IDS_LOADFOLDER_NAME														"Load Substances From Folder...";
+	IDS_LOADFOLDER_TITLE													"Choose a Folder to Load Substance Assets From";
+	IDS_LOADFOLDER_STATUSBAR											"Loading Substance Assets from folder...";
+	IDS_LOADFOLDER_HELP														"Loads all Substance Assets from a folder.";
+	IDS_CREATEMATERIAL														"Create Standard Materials";
+	IDS_CREATEMATERIAL_HELP												"Creates standard materials from selected Substance Assets.";
+	IDS_DUPLICATESUBSTANCE												"Duplicate";
+	IDS_DUPLICATESUBSTANCE_HELP										"Duplicates selected Substance Assets.";
+	IDS_DUPLICATESUBSTANCE_WITH_MATERIAL					"Duplicate with Materials";
+	IDS_DUPLICATESUBSTANCE_WITH_MATERIAL_HELP			"Duplicates selected Substance Assets together with materials referencing these.";
+	IDS_REIMPORTSUBSTANCE													"Reload Substances";
+	IDS_REIMPORTSUBSTANCE_HELP										"Reloads a Substance Asset, for example when it has changed outside of Cinema 4D.";
+	IDS_REMOVESUBSTANCE														"Delete";
+	IDS_REMOVEUNUSED															"Delete Unused Substances";
+	IDS_REMOVEUNUSED_HELP													"Delete all unused Substance Assets.";
+	IDS_SELECTALLSUBSTANCES												"Select All";
+	IDS_DESELECTALLSUBSTANCES											"Deselect All";
+	IDS_SELECTFROMMATERIAL												"Select from Active Materials";
+	IDS_SELECTFROMMATERIAL_HELP										"Selects all Substance Assets referenced by currently selected materials.";
+	IDS_SELECTFROMMARKEDMATERIAL									"Select from Marked Materials";
+	IDS_SELECTFROMMARKEDMATERIAL_HELP							"Selects all Substance Assets referenced by currently marked materials.";
+	IDS_SELECTFROMOBJECT													"Select from Active Objects";
+	IDS_SELECTFROMOBJECT_HELP											"Selects all Substance Assets referenced by currently selected objects/tags.";
+	IDS_SELECTMATERIALS														"Select Materials";
+	IDS_SELECTMATERIALS_HELP											"Selects all materials referencing currently selected Substance Assets.";
+	IDS_SELECTOBJECTS															"Select Objects";
+	IDS_SELECTOBJECTS_HELP												"Selects all objects referencing currently selected Substance Assets.";
+	IDS_IMPORT_PRESET															"Apply Substance Preset";
+	IDS_IMPORT_PRESET_HELP												"Applys a Substance Preset, resetting all parameters not covered by the preset.";
+	IDS_IMPORT_PRESET_MERGE												"Merge Substance Preset";
+	IDS_IMPORT_PRESET_MERGE_HELP									"Merges a Substance Preset, only changing parameters stored in the preset.";
+	IDS_EXPORT_PRESET															"Export Substance Preset";
+	IDS_EXPORT_PRESET_HELP												"Exports a Substance Preset.";
+	IDS_CREATEMATERIALMETALLIC										"Create Metallic Materials";
+	IDS_CREATEMATERIALMETALLIC_HELP								"Creates metallic materials from selected Substance Assets.";
+	IDS_CREATEMATERIALGLOSSY											"Create Glossy Materials";
+	IDS_CREATEMATERIALGLOSSY_HELP									"Creates glossy materials from selected Substance Assets.";
+	IDS_ENABLEALL																	"Enable All";
+	IDS_ENABLEALL_HELP														"Enables all Substance Assets.";
+	IDS_DISABLEALL																"Disable All";
+	IDS_DISABLEALL_HELP														"Disables all Substance Assets.";
+	IDS_CUT_SUBSTANCES														"Cut";
+	IDS_COPY_SUBSTANCES														"Copy";
+	IDS_PASTE_SUBSTANCES													"Paste";
+	IDS_OPEN_PREFERENCES													"Substance Preferences...";
+	IDS_CACHE_SELECTED														"Cache Selected";
+	IDS_CACHE_SELECTED_HELP												"Writes disk cache for currently selected Substance Assets.";
+	IDS_CACHE_ALL																	"Cache All";
+	IDS_CACHE_ALL_HELP														"Writes disk cache for all Substance Assets.";
+	IDS_CACHE_ALL_CHANGED													"Cache Modified";
+	IDS_CACHE_ALL_CHANGED_HELP										"Writes disk cache for modified Substance Assets.";
+	IDS_CACHE_CLEAR_SELECTED											"Clear Cache for Selected";
+	IDS_CACHE_CLEAR_SELECTED_HELP									"Deletes disk cache files for currently selected Substance Assets.";
+	IDS_CACHE_CLEAR_ALL														"Clear Cache for All";
+	IDS_CACHE_CLEAR_ALL_HELP											"Deletes disk cache files for all Substance Assets.";
+
+	IDS_SWITCHENGINE_COMMANDNAME									"Switch Substance Engine...";
+	IDS_SWITCHENGINE_COMMANDHELP									"Switch the Substance Engine and synchronize setting with Team Render clients";
+	IDS_SWITCHENGINE_AFTER_RESTART								", after restart:";
+	IDS_SWITCHENGINE_WINONLY											"[Windows, only]";
+	IDS_SWITCHENGINE_MACONLY											"[Mac OS X, only]";
+	IDS_SWITCHENGINE_ERR_MIXEDSETUP								"- Mixed setup detected. This is not recommended and can lead to inconsistent renders.";
+	IDS_SWITCHENGINE_ERR_TRSYNC										"- An error occured, maybe not all machines switched to new Substance Engine.";
+	IDS_SWITCHENGINE_ERR_RESTARTC4D								"- Engine change pending, please restart Cinema 4D.";
+	IDS_SWITCHENGINE_ERR_RESTARTTRC								"- Engine change pending on Team Render clients, please restart all clients.";
+	IDS_SWITCHENGINE_OK														"Substance Engine: No settings changed";
+	IDS_SWITCHENGINE_WARNPENDING									"Engine change pending. Please restart Cinema 4D.";
+
+	IDS_PRESET_LOAD_TITLE													"Load Substance Preset...";
+	IDS_PRESET_SAVE_TITLE													"Save Substance Preset for Substance "; // Substance and graph names are appended to this
+	IDS_PRESET_APPLY_MULTIGRAPH_TITLE							"Apply Substance Preset to Multigraph Substance...";
+	IDS_PRESET_APPLY_MULTIGRAPH_SUBSTANCE					"Substance:";
+	IDS_PRESET_APPLY_MULTIGRAPH_FILE							"Preset File:";
+	IDS_PRESET_APPLY_MULTIGRAPH_SELECT						"Select graphs to apply the preset to:";
+
+	IDS_ERROR_PRESET_ALLOC												"Failed to allocate preset memory";
+	IDS_ERROR_PRESET_READ													"Failed to read preset file";
+	IDS_ERROR_PRESET_PARSE												"Failed to parse preset file";
+	IDS_ERROR_PRESET_APPLY												"Failed to apply preset to Substance: "; // Substance and graph names are appended to this
+
+	IDS_SUBSTANCE_ENGINE													"Substance Engine";
+
+	IDS_SUBSTANCE_ENGINE_PREFS_WARNING						"SUBSTANCE ENGINE AND TEXTURE RESOLUTION||2k: CPU-based Substance Engine SSE2|8k: GPU-based Substance Engines, like OpenGL or Direct3D|||SYNCRONISING TEAM RENDER CLIENTS||Due to differences between GPU-based and CPU-based calculations, it is not recommended to Team Render on clients with different Substance Engine settings. Slight differences in the rendered images, visible as jitter or noise, might occur.|With Synchronize Team Render Clients button all Team Render Clients will be set to the selected engine.||If the selected engine is not available on a certain client (e.g. OpenGL on a TRC running on Windows), the best available fallback will be chosen.|Like so:|Mac: Direct3D -> OpenGL|Win: OpenGL -> Direct3D|Win: Direct3D 11 -> Direct3D 10 -> Direct3D 9";
+
+	IDS_SUBSTANCE_ENGINE_BROWSERPRESET_NAME				"Substance Preset";
+
+	IDS_CLEAR_CACHE_ALL_QUESTION									"Do you really want to delete the disk cache of ALL Substances?";
+	IDS_CLEAR_CACHE_SELECTED_QUESTION							"Do you really want to delete the disk cache of selected Substances?";
+
+	IDS_ERROR_IMPORT_NOT_FOUND										"Substance archive # not found!";
+}

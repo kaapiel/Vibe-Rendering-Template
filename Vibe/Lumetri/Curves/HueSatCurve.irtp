@@ -1,0 +1,16 @@
+<lut name="HueSatCurve" unit=2>
+<lookup lut="HueSatCurve" function="HueSatCurve" variables="HueSatCurve" swizzle="0r">
+<p>
+<settab 20>
+<br><br>
+<tab><curveeditor name="HueSatCurve" label=""$$$/Shaders/HueSatCurve/CurveEditors/Curve=HueSatCurve"" size="720" max="2" color="white" mode="hls" shape="straight">
+</p>
+  
+<extern name="luminance.x" noop=1 default=0.2126>
+<extern name="luminance.y" noop=1 default=0.7152>
+<extern name="luminance.z" noop=1 default=0.0722>
+
+<IRIDAScript>
+	rangeScaleOffset.x = 2.0;
+	rangeScaleOffset.y = 0;
+</IRIDAScript>

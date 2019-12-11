@@ -1,0 +1,3117 @@
+@-webkit-keyframes fade-in-flex {
+  from {
+    opacity: 0;
+    display: none; }
+  to {
+    opacity: 1;
+    display: -webkit-box;
+    display: flex; } }
+@keyframes fade-in-flex {
+  from {
+    opacity: 0;
+    display: none; }
+  to {
+    opacity: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; } }
+
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+
+/* Typography */
+
+/* ==========  SCROLLBAR  ========== */
+/* ==========  MENU  ========== */
+/* ==========  TEXT  ========== */
+
+.panel-ccfiles .activity-indicator__radial {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  width: 64px;
+  height: 64px;
+  background: url("../images/indicators/radial.gif") no-repeat center center;
+  background-size: cover; }
+
+.spc--dark .panel-ccfiles .activity-indicator__radial {
+  background-image: url("../images/indicators/radial-dark.gif"); }
+
+
+/* ==========  SCROLLBAR  ========== */
+/* ==========  MENU  ========== */
+/* ==========  TEXT  ========== */
+@font-face {
+  font-family: 'in-app-ui';
+  src: url("../fonts/in-app-ui.ttf?6tlxck") format("truetype"), url("../fonts/in-app-ui.woff?6tlxck") format("woff"), url("../fonts/in-app-ui.svg?6tlxck#in-app-ui") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+.inapp-icons {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  font-family: 'in-app-ui' !important;
+  font-size: 1em;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  speak: none;
+  line-height: 1;
+  letter-spacing: normal;
+  word-wrap: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.inapp-icon--error:before {
+  content: "\e900"; }
+
+.inapp-icon--check:before {
+  content: "\e901"; }
+
+.inapp-icon--left:before {
+  content: "\e902"; }
+
+.inapp-icon--clock:before {
+  content: "\e903"; }
+
+.inapp-icon--download:before {
+  content: "\e904"; }
+
+.inapp-icon--grid:before {
+  content: "\e905"; }
+
+.inapp-icon--list:before {
+  content: "\e908"; }
+
+.inapp-icon--help:before {
+  content: "\e906"; }
+
+.inapp-icon--landscape:before {
+  content: "\e907"; }
+
+.inapp-icon--portrait:before {
+  content: "\e909"; }
+
+.inapp-icon--search:before {
+  content: "\e90a"; }
+
+.inapp-icon--gear:before {
+  content: "\e90b"; }
+
+@font-face {
+  font-family: 'spc-icons';
+  src: url("../fonts/spc-icons.woff") format("woff"), url("../fonts/spc-icons.ttf") format("truetype"), url("../fonts/spc-icons.svg#icons") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+.spc-icons {
+  font-family: 'spc-icons';
+  speak: none;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale; }
+
+/* ==========  SCROLLBAR  ========== */
+/* ==========  MENU  ========== */
+/* ==========  TEXT  ========== */
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+/* Typography */
+.menu-panel {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 250px;
+  background-color: #F5F5F5;
+  padding: 40px 28px 22px 28px;
+  border-radius: 4px;
+  outline: none; }
+
+container-templates .menu-panel {
+  right: auto;
+  left: 0; }
+
+debug-menu .menu-panel--toggle {
+  color: red; }
+
+.menu-panel--toggle {
+  display: inline-block;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  padding: 0px;
+  border-width: 0;
+  background: none;
+  cursor: pointer;
+  text-align: center;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  line-height: 24px;
+  margin-right: 20px;
+  transition: color 100ms ease-in-out; }
+
+.menu-panel--item {
+  line-height: 2em;
+  padding: 3px 5px;
+  font-size: 13px; }
+
+.menu-panel--row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+
+.menu-panel--spacer {
+  height: 15px; }
+  .menu-panel--spacer:after {
+    content: '';
+    display: table;
+    clear: both; }
+
+.spc--dark .menu-panel {
+  background-color: #282828; }
+
+.spc--dark debug-menu .menu-panel--toggle {
+  color: gold; }
+
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+.modal__overlay {
+  opacity: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: fixed;
+  z-index: 9999;
+  background-color: whitesmoke;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-animation: fade-in-flex 250ms ease-in;
+          animation: fade-in-flex 250ms ease-in;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards; }
+  .modal__overlay--hidden {
+    opacity: 0;
+    display: none; }
+
+.modal__x-button {
+  width: 20px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  opacity: .5;
+  cursor: pointer;
+  transition: opacity 150ms ease-in-out; }
+  .modal__x-button:hover {
+    opacity: 1; }
+  .modal__x-button polyline {
+    stroke: #444; }
+
+.spc--dark .modal__overlay {
+  background-color: #323232; }
+
+.spc--dark .modal__x-button polyline {
+  stroke: #FFFFFF; }
+
+/* ==========  SCROLLBAR  ========== */
+/* ==========  MENU  ========== */
+/* ==========  TEXT  ========== */
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+.scroll-container {
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background-attachment: local, local, scroll, scroll; }
+
+.scroll-pane {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden; }
+
+::-webkit-scrollbar {
+  width: 13px;
+  cursor: pointer; }
+
+::-webkit-scrollbar-thumb {
+  border: 4px solid transparent;
+  border-radius: 6.5px;
+  background-clip: padding-box;
+  background-color: #B6B6B6; }
+
+::-webkit-scrollbar-thumb:horizontal:hover,
+::-webkit-scrollbar-thumb:vertical:hover {
+  background-color: #8E8E8E; }
+
+::-webkit-scrollbar-thumb:horizontal:active,
+::-webkit-scrollbar-thumb:vertical:active {
+  background-color: #707070; }
+
+::-webkit-scrollbar-track {
+  border: 4px solid transparent;
+  border-radius: 6.5px; }
+
+::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+  display: none; }
+
+::-webkit-scrollbar-corner {
+  background-color: transparent; }
+
+.spc--dark {
+  /* ::-webkit-scrollbar-track {
+		background-color: $color-dark-grey-3;
+		border-color: $color-dark-grey-0;
+	} */ }
+  .spc--dark ::-webkit-scrollbar-thumb {
+    background-color: #5A5A5A; }
+  .spc--dark ::-webkit-scrollbar-thumb:horizontal:hover,
+  .spc--dark ::-webkit-scrollbar-thumb:vertical:hover {
+    background-color: #7B7B7B; }
+  .spc--dark ::-webkit-scrollbar-thumb:horizontal:active,
+  .spc--dark ::-webkit-scrollbar-thumb:vertical:active {
+    background-color: #999999; }
+
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+/* $tab-bar-height: 30px;
+$tab-font-size: 16px;
+$tab-font-size-vertical: 14px; */
+.spc-tabs .spc-tabs__tab.is-active {
+  color: #2C2C2C; }
+
+.spc--dark .spc-tabs .spc-tabs__tab.is-active {
+  color: #FCFCFC; }
+
+/*
+.spc-tabs {
+	display: block;
+}
+
+.spc-tabs__tab-bar {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+
+	padding: 0;
+	margin: 0;
+}
+
+.spc-tabs__line {
+	position: absolute;
+	display: block;
+	height: 2px;
+	width: 1px;
+	bottom: 0px;
+	left: 0px;
+
+	transform-origin: left;
+	background: $color-grey-10;
+	transition: all 150ms ease-in-out;
+}
+
+.spc-tabs__tab {
+	margin: 0;
+	border: none;
+	margin-right: $tab-bar-height;
+
+	float: left;
+	position: relative;
+	display: block;
+
+	text-decoration: none;
+	height: $tab-bar-height;
+	line-height: $tab-bar-height;
+
+	text-align: center;
+	font-size: $tab-font-size;
+
+	cursor: pointer;
+	color: $color-grey-8;
+	overflow: hidden;
+
+	transition: color 100ms linear;
+
+	.spc-tabs.is-upgraded &.is-active {
+		color: $color-grey-10;
+	}
+
+	&:last-child {
+		margin-right: 0;
+	}
+
+	&:not(.is-active):hover {
+		color: $color-blue-3;
+	}
+}
+
+.spc-tabs.spc-tabs--vertical {
+	.spc-tabs__tab-bar {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.spc-tabs__line {
+		bottom: auto;
+		top: 0px;
+		width: 2px;
+		height: 1px;
+		transform-origin: top;
+	}
+
+	.spc-tabs__tab {
+		width: auto;
+		height: 1em;
+		padding: 2px 8px;
+		margin: 3px 0;
+
+		font-size: $tab-font-size-vertical;
+		line-height: 1;
+		text-transform: uppercase;
+	}
+}
+
+.spc-tabs__panel {
+	display: block;
+
+	.spc-tabs.is-upgraded & {
+		display: none;
+	}
+
+	.spc-tabs.is-upgraded &.is-active {
+		display: block;
+	}
+}
+ */
+
+/* Tooltip container */
+.tooltip {
+  position: relative; }
+  .tooltip:hover .tooltip__content {
+    /* Show the tooltip text when you mouse over the tooltip container */
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+    -webkit-animation-name: anim-tooltip--fadeInOut;
+            animation-name: anim-tooltip--fadeInOut;
+    -webkit-animation-duration: 10s;
+            animation-duration: 10s;
+    -webkit-animation-delay: 2s;
+            animation-delay: 2s; }
+  .tooltip .tooltip__content {
+    position: absolute;
+    cursor: default;
+    opacity: 0;
+    z-index: -1;
+    margin-top: -20px;
+    margin-left: 10px;
+    background: #fff4c4;
+    padding: 2px 6px;
+    padding-top: 1px;
+    border: 1px solid #2c2c2c;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.6);
+    color: black;
+    font-size: 12px;
+    line-height: 15px; }
+  .tooltip .tooltip__content--table {
+    margin-top: 0px;
+    margin-left: 0px; }
+
+@-webkit-keyframes anim-tooltip--fadeInOut {
+  0% {
+    opacity: 0; }
+  5% {
+    z-index: 9999999;
+    opacity: 1; }
+  95% {
+    opacity: 1; }
+  100% {
+    z-index: -1;
+    opacity: 0; } }
+
+@keyframes anim-tooltip--fadeInOut {
+  0% {
+    opacity: 0; }
+  5% {
+    z-index: 9999999;
+    opacity: 1; }
+  95% {
+    opacity: 1; }
+  100% {
+    z-index: -1;
+    opacity: 0; } }
+
+@-webkit-keyframes fade-in-flex {
+  from {
+    opacity: 0;
+    display: none; }
+  to {
+    opacity: 1;
+    display: -webkit-box;
+    display: flex; } }
+
+@keyframes fade-in-flex {
+  from {
+    opacity: 0;
+    display: none; }
+  to {
+    opacity: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; } }
+
+@-webkit-keyframes fade-in-search {
+  0% {
+    opacity: 0;
+    height: 0; }
+  5% {
+    opacity: 0;
+    height: 100%; }
+  100% {
+    opacity: 1;
+    height: 100%; } }
+
+@keyframes fade-in-search {
+  0% {
+    opacity: 0;
+    height: 0; }
+  5% {
+    opacity: 0;
+    height: 100%; }
+  100% {
+    opacity: 1;
+    height: 100%; } }
+
+@-webkit-keyframes fade-out-search {
+  0% {
+    opacity: 1;
+    height: 100%; }
+  95% {
+    opacity: 0;
+    height: 100%; }
+  100% {
+    opacity: 0;
+    height: 0; } }
+
+@keyframes fade-out-search {
+  0% {
+    opacity: 1;
+    height: 100%; }
+  95% {
+    opacity: 0;
+    height: 100%; }
+  100% {
+    opacity: 0;
+    height: 0; } }
+
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+
+/* Typography */
+
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+/*:=========  LAYOUT :========= */
+/*:=========  GRID :========= */
+/*:=========  HEADER :========= */
+/*:=========  CARDS :========= */
+/*:=========  BREAKPOINTS :========= */
+/*:=========  LAYERS :========= */
+/*:=========  FRIZZLES :========= */
+/*:=========  TEXT :========= */
+
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+/*:=========  LAYOUT :========= */
+/*:=========  GRID :========= */
+/*:=========  HEADER :========= */
+/*:=========  CARDS :========= */
+/*:=========  BREAKPOINTS :========= */
+/*:=========  LAYERS :========= */
+/*:=========  FRIZZLES :========= */
+/*:=========  TEXT :========= */
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+/* Typography */
+@-webkit-keyframes fade-in-flex {
+  from {
+    opacity: 0;
+    display: none; }
+  to {
+    opacity: 1;
+    display: -webkit-box;
+    display: flex; } }
+@keyframes fade-in-flex {
+  from {
+    opacity: 0;
+    display: none; }
+  to {
+    opacity: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; } }
+
+@-webkit-keyframes fade-in-search {
+  0% {
+    opacity: 0;
+    height: 0; }
+  5% {
+    opacity: 0;
+    height: 100%; }
+  100% {
+    opacity: 1;
+    height: 100%; } }
+
+@keyframes fade-in-search {
+  0% {
+    opacity: 0;
+    height: 0; }
+  5% {
+    opacity: 0;
+    height: 100%; }
+  100% {
+    opacity: 1;
+    height: 100%; } }
+
+@-webkit-keyframes fade-out-search {
+  0% {
+    opacity: 1;
+    height: 100%; }
+  95% {
+    opacity: 0;
+    height: 100%; }
+  100% {
+    opacity: 0;
+    height: 0; } }
+
+@keyframes fade-out-search {
+  0% {
+    opacity: 1;
+    height: 100%; }
+  95% {
+    opacity: 0;
+    height: 100%; }
+  100% {
+    opacity: 0;
+    height: 0; } }
+
+.spc-layout {
+  background: #FFFFFF; }
+
+* {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; }
+
+.spc-keyboard *:focus {
+  outline-color: #0F66D0; }
+
+.app {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+  .app__tab {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1; }
+  .app__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    position: relative; }
+    .open-mode .app__container {
+      max-height: inherit; }
+  .app__container--hide {
+    visibility: hidden; }
+  .app__row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row; }
+  .app__column {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column; }
+  .app__content-column {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    max-width: 1460px;
+    min-width: 450px;
+    margin-right: 100px;
+    /* $sidebar-width; */
+    margin-left: 230px;
+    margin-bottom: 80px; }
+  .app__heading {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 110px;
+    margin: 0;
+    font-weight: 100;
+    font-style: normal;
+    text-align: center;
+    cursor: default; }
+  .app__actions {
+    float: left; }
+    .app__actions > .spc-button {
+      float: left;
+      clear: both;
+      margin-bottom: 15px; }
+  .app__video-container {
+    width: 854px; }
+  .app__video-player {
+    width: 100%;
+    border-radius: 4px; }
+    .app__video-player::-webkit-media-controls-fullscreen-button {
+      display: none; }
+  .app .modal__overlay {
+    z-index: 1480; }
+  .app .spc-tabs__tab {
+    margin-right: 60px; }
+    .app .spc-tabs__tab--last {
+      margin-right: 0; }
+
+.spc-spinner__dots {
+  background-image: url("../images/indicators/dots.gif");
+  background-size: cover; }
+
+.spc-layout.spc--dark {
+  background: #1B1B1B; }
+
+.spc-layout.spc-keyboard.spc--dark *:focus {
+  outline-color: #21A5F9; }
+
+.spc--dark .spc-spinner__dots {
+  background-image: url("../images/indicators/dots-dark.gif"); }
+
+@media (min-width: 1920px) {
+  .app__content-column {
+    margin-left: auto;
+    margin-right: auto; } }
+
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+/*:=========  LAYOUT :========= */
+/*:=========  GRID :========= */
+/*:=========  HEADER :========= */
+/*:=========  CARDS :========= */
+/*:=========  BREAKPOINTS :========= */
+/*:=========  LAYERS :========= */
+/*:=========  FRIZZLES :========= */
+/*:=========  TEXT :========= */
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+.breadcrumb {
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  height: 100%;
+  width: 80%;
+  margin: auto; }
+
+.breadcrumb__nav {
+  height: 40px;
+  line-height: 40px;
+  font-size: 13px; }
+
+.breadcrumb__nav__item {
+  cursor: pointer;
+  color: #2C2C2C; }
+
+.spc-layout.spc--dark .breadcrumb__nav__item {
+  color: #FCFCFC; }
+
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+/*:=========  LAYOUT :========= */
+/*:=========  GRID :========= */
+/*:=========  HEADER :========= */
+/*:=========  CARDS :========= */
+/*:=========  BREAKPOINTS :========= */
+/*:=========  LAYERS :========= */
+/*:=========  FRIZZLES :========= */
+/*:=========  TEXT :========= */
+.card {
+  box-sizing: border-box;
+  padding: 0 15px 15px 0;
+  transition: all 150ms ease-out; }
+  .card__content {
+    border-radius: 4px;
+    background-color: #F5F5F5;
+    transition: all 125ms ease-in-out;
+    cursor: pointer; }
+    .card__content:hover {
+      box-shadow: 0 0 0 1px #999999;
+      /*  dark shadow for light and vice versa */ }
+    .card__content:active {
+      box-shadow: 0 0 0 1px #8E8E8E;
+      /* same for light and dark */ }
+  .card__info {
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 12px 16px 13px;
+    border-top: 1px solid #FFFFFF; }
+  .card__title {
+    font-size: 14px; }
+  .card__subtitle {
+    font-size: 12px; }
+  .card__thumbnail {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px 4px 0 0;
+    width: 100%;
+    height: 0px;
+    padding-bottom: 56.25%;
+    /* 16:9 */ }
+    .card__thumbnail__img--contain-landscape {
+      width: 100%;
+      height: auto; }
+    .card__thumbnail__img--contain {
+      width: auto;
+      height: 100%; }
+    .card__thumbnail img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate3d(-50%, -50%, 0);
+              transform: translate3d(-50%, -50%, 0); }
+  .card__extra {
+    padding-left: 5px;
+    padding-top: 2px;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #8E8E8E; }
+  .card--truncate-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
+  .card__video-overlay {
+    position: absolute;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    top: 0;
+    border-radius: 4px 4px 0 0; }
+    .card__video-overlay:hover .card__video-overlay__img-play {
+      opacity: 0.8; }
+    .card__video-overlay__img-play {
+      opacity: 0.65;
+      transition: opacity 150ms ease-in-out; }
+      .card__video-overlay__img-play path {
+        fill: #fff; }
+  .card__external-icon {
+    width: 15px;
+    height: 15px;
+    margin: 0 0 3px 5px;
+    fill: #707070; }
+
+.spc--dark .card__content {
+  background-color: #222; }
+
+.spc--dark .card__content:hover {
+  box-shadow: 0 0 0 1px #707070; }
+
+.spc--dark .card__extra {
+  color: #999999; }
+
+.spc--dark .card__title {
+  color: #FFFFFF; }
+
+.spc--dark .card__info {
+  border-color: #1B1B1B; }
+
+.spc--dark .card__external-icon {
+  fill: #999999; }
+
+/* LEARN TAB */
+@media (max-width: 645px) {
+  .tab-learn__grid .card {
+    width: 80%; } }
+
+@media (min-width: 645px) {
+  .tab-learn__grid .card {
+    width: 45%; } }
+
+/* WORK TAB */
+/* @media (max-width: $breakpoint1) {
+	.panel-recent__grid .card {
+		width: 50%;
+	}
+}
+
+@media (min-width: $breakpoint1) {
+	.panel-recent__grid .card {
+		width: 33%;
+	}
+}
+
+@media (min-width: $breakpoint3) {
+	.panel-recent__grid .card {
+		width: 25%;
+	}
+}
+
+@media (min-width: $breakpoint4) {
+	.panel-recent__grid .card {
+		width: 20%;
+	}
+}
+
+@media (min-width: $breakpoint5) {
+	.panel-recent__grid .card {
+		width: 16.66%;
+	}
+} */
+
+.learn-card .card__info-wrapper {
+  box-sizing: border-box;
+  padding: 12px 16px 13px; }
+
+.learn-card .card__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0;
+  border-top: none; }
+
+.learn-card .card__title {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
+.learn-card .card__title-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+  -webkit-column-break-after: always;
+          break-after: always; }
+
+.learn-card .card__external-icon {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto; }
+
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+/*:=========  LAYOUT :========= */
+/*:=========  GRID :========= */
+/*:=========  HEADER :========= */
+/*:=========  CARDS :========= */
+/*:=========  BREAKPOINTS :========= */
+/*:=========  LAYERS :========= */
+/*:=========  FRIZZLES :========= */
+/*:=========  TEXT :========= */
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+.footer {
+  position: fixed;
+  bottom: 0;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  height: 74px;
+  width: 100%;
+  opacity: 1;
+  background-color: #FAFAFA;
+  transition: all 500ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  /* easeInOutQuad */ }
+  .footer__inner {
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding-top: 4px;
+    height: 100%; }
+
+.footer--collapsed {
+  -webkit-transform: translate(0px, 100%);
+          transform: translate(0px, 100%);
+  opacity: 0; }
+
+.spc--dark .footer {
+  background-color: #292929; }
+
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+.upsell {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  transition-duration: .9s;
+  transition-timing-function: ease;
+  margin: 0 auto;
+  padding: 0 16px;
+  width: 580px;
+  height: 64px;
+  border-radius: 4px;
+  opacity: 1;
+  background-color: #F5F5F5; }
+  .upsell__mainline {
+    color: #4B4B4B;
+    line-height: 1;
+    margin-right: 10px; }
+  .upsell__subline {
+    color: #707070;
+    margin-top: 4px;
+    font-size: 87.5%; }
+
+.stock-card {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+  .stock-card__search-wrapper {
+    position: relative;
+    margin-right: 20px; }
+    .stock-card__search-wrapper .spc-icons {
+      position: absolute;
+      top: 10px;
+      left: 0px;
+      font-size: 16px;
+      color: #B6B6B6; }
+  .stock-card form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: direction;
+            flex-direction: direction;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 10px; }
+    .stock-card form .spc-textfield {
+      width: 300px;
+      margin-bottom: 0; }
+  .stock-card .spc-textfield--quiet .spc-textfield__input {
+    color: #B6B6B6;
+    border-color: #B6B6B6;
+    font-size: 16px;
+    padding-left: 26px; }
+  .stock-card .spc-textfield__input:hover::-webkit-input-placeholder {
+    color: #E1E1E1; }
+  .stock-card .spc-textfield__input:hover:-ms-input-placeholder {
+    color: #E1E1E1; }
+  .stock-card .spc-textfield__input:hover::placeholder {
+    color: #E1E1E1; }
+
+.spc--dark .upsell {
+  background-color: #343434; }
+  .spc--dark .upsell__mainline {
+    color: #CDCDCD; }
+  .spc--dark .upsell__subline {
+    color: #999999; }
+  .spc--dark .upsell .spc-textfield--quiet .spc-textfield__input {
+    border-color: #B6B6B6; }
+  .spc--dark .upsell .spc-textfield__input::-webkit-input-placeholder {
+    color: #B6B6B6; }
+  .spc--dark .upsell .spc-textfield__input:-ms-input-placeholder {
+    color: #B6B6B6; }
+  .spc--dark .upsell .spc-textfield__input::placeholder {
+    color: #B6B6B6; }
+  .spc--dark .upsell .spc-textfield__input:hover::-webkit-input-placeholder {
+    color: #E1E1E1; }
+  .spc--dark .upsell .spc-textfield__input:hover:-ms-input-placeholder {
+    color: #E1E1E1; }
+  .spc--dark .upsell .spc-textfield__input:hover::placeholder {
+    color: #E1E1E1; }
+
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+/*:=========  LAYOUT :========= */
+/*:=========  GRID :========= */
+/*:=========  HEADER :========= */
+/*:=========  CARDS :========= */
+/*:=========  BREAKPOINTS :========= */
+/*:=========  LAYERS :========= */
+/*:=========  FRIZZLES :========= */
+/*:=========  TEXT :========= */
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+@-webkit-keyframes fade-in-flex {
+  from {
+    opacity: 0;
+    display: none; }
+  to {
+    opacity: 1;
+    display: -webkit-box;
+    display: flex; } }
+@keyframes fade-in-flex {
+  from {
+    opacity: 0;
+    display: none; }
+  to {
+    opacity: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; } }
+
+@-webkit-keyframes fade-in-search {
+  0% {
+    opacity: 0;
+    height: 0; }
+  5% {
+    opacity: 0;
+    height: 100%; }
+  100% {
+    opacity: 1;
+    height: 100%; } }
+
+@keyframes fade-in-search {
+  0% {
+    opacity: 0;
+    height: 0; }
+  5% {
+    opacity: 0;
+    height: 100%; }
+  100% {
+    opacity: 1;
+    height: 100%; } }
+
+@-webkit-keyframes fade-out-search {
+  0% {
+    opacity: 1;
+    height: 100%; }
+  95% {
+    opacity: 0;
+    height: 100%; }
+  100% {
+    opacity: 0;
+    height: 0; } }
+
+@keyframes fade-out-search {
+  0% {
+    opacity: 1;
+    height: 100%; }
+  95% {
+    opacity: 0;
+    height: 100%; }
+  100% {
+    opacity: 0;
+    height: 0; } }
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 64px;
+  width: 100%;
+  min-width: 500px;
+  background: #F5F5F5; }
+  .header__left {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    z-index: 1300; }
+  .header__center {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+    z-index: 1300; }
+  .header__right {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    z-index: 1300; }
+  .header__search {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-right: 25px;
+    cursor: pointer;
+    transition: all 150ms linear; }
+    .header__search .spc-icons {
+      font-size: 1.2em;
+      outline: none; }
+    .header__search:hover {
+      color: #2C2C2C; }
+  .header::after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 64px;
+    opacity: 0;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.3s ease-in-out; }
+  .header--hanging.header::after {
+    opacity: 1; }
+  .header .spc-tabs__tab {
+    font-size: 18px;
+    padding-bottom: 10px; }
+
+.spc--dark .header {
+  background: #323232; }
+  .spc--dark .header__search:hover {
+    color: #FCFCFC; }
+
+[modality=keyboard] .header__search .spc-icons:focus {
+  color: #0F66D0; }
+
+[modality=keyboard].spc--dark .header__search .spc-icons:focus {
+  color: #1884EC; }
+
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+/*:=========  LAYOUT :========= */
+/*:=========  GRID :========= */
+/*:=========  HEADER :========= */
+/*:=========  CARDS :========= */
+/*:=========  BREAKPOINTS :========= */
+/*:=========  LAYERS :========= */
+/*:=========  FRIZZLES :========= */
+/*:=========  TEXT :========= */
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+.product-rune {
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  margin-left: 20px; }
+  .product-rune span {
+    margin-left: 10px;
+    letter-spacing: 0.01em;
+    font-size: 18.5px;
+    color: #4B4B4B; }
+  .product-rune div {
+    cursor: pointer;
+    color: #4B4B4B; }
+  .product-rune__icon {
+    width: 36px;
+    height: auto; }
+
+.spc--dark .product-rune span {
+  color: #CDCDCD; }
+
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+/*:=========  LAYOUT :========= */
+/*:=========  GRID :========= */
+/*:=========  HEADER :========= */
+/*:=========  CARDS :========= */
+/*:=========  BREAKPOINTS :========= */
+/*:=========  LAYERS :========= */
+/*:=========  FRIZZLES :========= */
+/*:=========  TEXT :========= */
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+.trial-status {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 10px;
+  margin-right: 20px;
+  color: #FFFFFF;
+  background-color: #E1E1E1;
+  border-radius: 4px;
+  cursor: pointer; }
+
+.spc--dark .trial-status {
+  background-color: #3E3E3E; }
+
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+/*:=========  LAYOUT :========= */
+/*:=========  GRID :========= */
+/*:=========  HEADER :========= */
+/*:=========  CARDS :========= */
+/*:=========  BREAKPOINTS :========= */
+/*:=========  LAYERS :========= */
+/*:=========  FRIZZLES :========= */
+/*:=========  TEXT :========= */
+.user-profile {
+  width: 36px;
+  height: 36px;
+  margin-right: 20px;
+  background-color: #d8d8d8;
+  border-radius: 4px;
+  cursor: pointer; }
+  .user-profile img {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px; }
+
+.spc--dark .user-profile {
+  background-color: #464646; }
+
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+.image-grid img:hover {
+  outline: 2px solid #FAFAFA;
+  outline-offset: -2px;
+  cursor: pointer; }
+
+.image-grid img:focus {
+  outline: 2px solid #1884EC;
+  outline-offset: -2px;
+  cursor: pointer; }
+
+.image-grid__item {
+  position: relative; }
+
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+/*:=========  LAYOUT :========= */
+/*:=========  GRID :========= */
+/*:=========  HEADER :========= */
+/*:=========  CARDS :========= */
+/*:=========  BREAKPOINTS :========= */
+/*:=========  LAYERS :========= */
+/*:=========  FRIZZLES :========= */
+/*:=========  TEXT :========= */
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+/* Typography */
+.item-view-toggle {
+  transition-property: opacity;
+  transition-duration: 0.3s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .item-view-toggle.hide {
+    opacity: 0;
+    pointer-events: none;
+    cursor: default; }
+  .item-view-toggle .iaw-List-listIcon,
+  .item-view-toggle .iaw-List-gridIcon {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    margin-right: 5px;
+    padding: 0 8px;
+    border-radius: 4px;
+    outline: none; }
+    .item-view-toggle .iaw-List-listIcon .iaw-List-iconThumbnail,
+    .item-view-toggle .iaw-List-gridIcon .iaw-List-iconThumbnail {
+      transition-property: fill;
+      transition-duration: 0.3s;
+      fill: #B6B6B6; }
+    .item-view-toggle .iaw-List-listIcon:hover,
+    .item-view-toggle .iaw-List-gridIcon:hover {
+      background-color: #EAEAEA; }
+      .item-view-toggle .iaw-List-listIcon:hover .iaw-List-iconThumbnail,
+      .item-view-toggle .iaw-List-gridIcon:hover .iaw-List-iconThumbnail {
+        fill: #FFFFFF; }
+    .item-view-toggle .iaw-List-listIcon:active .iaw-List-iconThumbnail,
+    .item-view-toggle .iaw-List-gridIcon:active .iaw-List-iconThumbnail {
+      fill: #000000; }
+    .item-view-toggle .iaw-List-listIcon.selected .iaw-List-iconThumbnail,
+    .item-view-toggle .iaw-List-gridIcon.selected .iaw-List-iconThumbnail {
+      fill: #4B4B4B; }
+  .item-view-toggle .tooltip__content {
+    white-space: nowrap;
+    margin-top: 25px;
+    margin-left: -15px; }
+
+.spc--dark .iaw-List-listIcon .iaw-List-iconThumbnail,
+.spc--dark .iaw-List-gridIcon .iaw-List-iconThumbnail {
+  fill: #999999; }
+
+.spc--dark .iaw-List-listIcon:hover,
+.spc--dark .iaw-List-gridIcon:hover {
+  background-color: #393939; }
+  .spc--dark .iaw-List-listIcon:hover .iaw-List-iconThumbnail,
+  .spc--dark .iaw-List-gridIcon:hover .iaw-List-iconThumbnail {
+    fill: #FFFFFF; }
+
+.spc--dark .iaw-List-listIcon:active .iaw-List-iconThumbnail,
+.spc--dark .iaw-List-gridIcon:active .iaw-List-iconThumbnail {
+  fill: #FFFFFF; }
+
+.spc--dark .iaw-List-listIcon.selected .iaw-List-iconThumbnail,
+.spc--dark .iaw-List-gridIcon.selected .iaw-List-iconThumbnail {
+  fill: #FCFCFC; }
+
+[modality=keyboard] .item-view-toggle .iaw-List-listIcon:focus .iaw-List-iconThumbnail,
+[modality=keyboard] .item-view-toggle .iaw-List-gridIcon:focus .iaw-List-iconThumbnail {
+  fill: #0F66D0; }
+
+[modality=keyboard] .item-view-toggle .iaw-List-listIcon.selected:focus .iaw-List-iconThumbnail,
+[modality=keyboard] .item-view-toggle .iaw-List-gridIcon.selected:focus .iaw-List-iconThumbnail {
+  fill: #0F66D0; }
+
+[modality=keyboard].spc--dark .item-view-toggle .iaw-List-listIcon:focus .iaw-List-iconThumbnail,
+[modality=keyboard].spc--dark .item-view-toggle .iaw-List-gridIcon:focus .iaw-List-iconThumbnail {
+  fill: #1884EC; }
+
+[modality=keyboard].spc--dark .item-view-toggle .iaw-List-listIcon.selected:focus .iaw-List-iconThumbnail,
+[modality=keyboard].spc--dark .item-view-toggle .iaw-List-gridIcon.selected:focus .iaw-List-iconThumbnail {
+  fill: #1884EC; }
+
+@media (max-width: 811px) {
+  .item-view-toggle .tooltip__content {
+    margin-top: 3px;
+    margin-left: 0px; } }
+
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+.lazy-image__container {
+  width: 100%;
+  height: 100%;
+  background: #B6B6B6; }
+  .lazy-image__container img {
+    width: 100%;
+    height: 100%; }
+  .lazy-image__container--loading {
+    width: 0 !important; }
+
+.spc-layout.spc--dark .lazy-image__container {
+  background: #5A5A5A; }
+
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+/*:=========  LAYOUT :========= */
+/*:=========  GRID :========= */
+/*:=========  HEADER :========= */
+/*:=========  CARDS :========= */
+/*:=========  BREAKPOINTS :========= */
+/*:=========  LAYERS :========= */
+/*:=========  FRIZZLES :========= */
+/*:=========  TEXT :========= */
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+.page-intro {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-width: 365px;
+  min-height: 500px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .page-intro .app__heading {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start; }
+  .page-intro .app__row {
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
+  .page-intro__grid {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 100%;
+    max-width: 1160px;
+    padding-bottom: 110px;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap; }
+    .page-intro__grid .card {
+      -webkit-box-flex: 1;
+          -ms-flex: 1;
+              flex: 1;
+      padding: 0 16px;
+      width: 33%; }
+  .page-intro__new-doc {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    max-width: 90%;
+    padding: 0 16px;
+    text-align: center; }
+    .page-intro__new-doc__image {
+      height: 75px;
+      margin-top: 20px; }
+    .page-intro__new-doc span {
+      font-size: 14px;
+      padding: 0 20px; }
+    .page-intro__new-doc .spc-button {
+      margin: 0 2px;
+      font-size: 14px;
+      padding: 0 10px; }
+
+@media (max-width: 767px) {
+  .page-intro__grid .card {
+    width: 50%;
+    min-width: 50%; }
+  .page-intro__new-doc {
+    height: 263.5px; } }
+
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+/*:=========  LAYOUT :========= */
+/*:=========  GRID :========= */
+/*:=========  HEADER :========= */
+/*:=========  CARDS :========= */
+/*:=========  BREAKPOINTS :========= */
+/*:=========  LAYERS :========= */
+/*:=========  FRIZZLES :========= */
+/*:=========  TEXT :========= */
+/* Typography */
+.ccfiles-empty {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center; }
+  .ccfiles-empty__heading {
+    font-weight: 100;
+    font-style: normal;
+    font-size: 32px; }
+  .ccfiles-empty__title {
+    font-weight: 100;
+    font-style: normal;
+    font-size: 24px; }
+  .ccfiles-empty__subtitle {
+    width: 500px;
+    font-size: 18px; }
+  .ccfiles-empty__logo {
+    opacity: 0.4; }
+  .ccfiles-empty__card {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-top: 100px;
+    max-width: 500px; }
+    .ccfiles-empty__card:first-child {
+      margin-left: 0; }
+    .ccfiles-empty__card svg {
+      width: 80px;
+      height: auto; }
+    .ccfiles-empty__card > * {
+      margin-bottom: 24px; }
+  .ccfiles-empty__buttons .spc-button {
+    box-sizing: border-box;
+    margin-top: 20px; }
+  .ccfiles-empty__buttons .spc-button--quiet {
+    margin-right: 10px; }
+
+.spc--dark .ccfiles-empty__card svg {
+  fill: white; }
+
+.panel-ccfiles {
+  width: 100%; }
+  .panel-ccfiles .activity-indicator__radial {
+    margin-top: 75px; }
+  .panel-ccfiles .ccfiles-sync__heading {
+    width: 100%;
+    text-align: center;
+    font-size: 22px; }
+
+.panel-ccphotos {
+  width: 100%;
+  position: relative; }
+  .panel-ccphotos .activity-indicator__radial {
+    margin-top: 75px; }
+
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+/*:=========  LAYOUT :========= */
+/*:=========  GRID :========= */
+/*:=========  HEADER :========= */
+/*:=========  CARDS :========= */
+/*:=========  BREAKPOINTS :========= */
+/*:=========  LAYERS :========= */
+/*:=========  FRIZZLES :========= */
+/*:=========  TEXT :========= */
+/* Typography */
+.empty-recent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center; }
+  .empty-recent__heading {
+    font-weight: 100;
+    font-style: normal;
+    font-size: 32px; }
+  .empty-recent__title {
+    font-weight: 100;
+    font-style: normal;
+    font-size: 24px; }
+  .empty-recent__subtitle {
+    width: 500px;
+    font-size: 18px; }
+  .empty-recent__card {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    margin-top: 80px; }
+    .empty-recent__card .spc-button {
+      margin-top: 20px; }
+    .empty-recent__card > * {
+      margin-bottom: 24px; }
+  .empty-recent__image {
+    width: auto;
+    height: 92px; }
+
+/* .spc--dark {
+	.empty-recent {
+
+	}
+} */
+
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+/*:=========  LAYOUT :========= */
+/*:=========  GRID :========= */
+/*:=========  HEADER :========= */
+/*:=========  CARDS :========= */
+/*:=========  BREAKPOINTS :========= */
+/*:=========  LAYERS :========= */
+/*:=========  FRIZZLES :========= */
+/*:=========  TEXT :========= */
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+.panel-recent {
+  width: 100%; }
+  .panel-recent__grid {
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -ms-flex-item-align: center;
+        align-self: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    width: 100%; }
+    .panel-recent__grid .card {
+      width: 208px;
+      transition: none; }
+  .panel-recent__actions {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column; }
+    .panel-recent__actions button {
+      margin-bottom: 15px; }
+  .panel-recent__filter {
+    position: absolute;
+    top: 110px;
+    right: 130px; }
+  .panel-recent__search-wrapper {
+    position: absolute;
+    top: 100px;
+    left: 56px; }
+    .panel-recent__search-wrapper .spc-textfield {
+      width: 160px; }
+    .panel-recent__search-wrapper .spc-icons {
+      position: absolute;
+      top: 10px;
+      left: -20px;
+      font-size: 14px;
+      color: #7B7B7B; }
+
+.list-view {
+  width: 100%; }
+
+.rendition-badge {
+  position: absolute;
+  bottom: 18px;
+  right: 10px;
+  height: 10px;
+  width: 10px; }
+
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+/*:=========  LAYOUT :========= */
+/*:=========  GRID :========= */
+/*:=========  HEADER :========= */
+/*:=========  CARDS :========= */
+/*:=========  BREAKPOINTS :========= */
+/*:=========  LAYERS :========= */
+/*:=========  FRIZZLES :========= */
+/*:=========  TEXT :========= */
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+@-webkit-keyframes fade-in-flex {
+  from {
+    opacity: 0;
+    display: none; }
+  to {
+    opacity: 1;
+    display: -webkit-box;
+    display: flex; } }
+@keyframes fade-in-flex {
+  from {
+    opacity: 0;
+    display: none; }
+  to {
+    opacity: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; } }
+
+@-webkit-keyframes fade-in-search {
+  0% {
+    opacity: 0;
+    height: 0; }
+  5% {
+    opacity: 0;
+    height: 100%; }
+  100% {
+    opacity: 1;
+    height: 100%; } }
+
+@keyframes fade-in-search {
+  0% {
+    opacity: 0;
+    height: 0; }
+  5% {
+    opacity: 0;
+    height: 100%; }
+  100% {
+    opacity: 1;
+    height: 100%; } }
+
+@-webkit-keyframes fade-out-search {
+  0% {
+    opacity: 1;
+    height: 100%; }
+  95% {
+    opacity: 0;
+    height: 100%; }
+  100% {
+    opacity: 0;
+    height: 0; } }
+
+@keyframes fade-out-search {
+  0% {
+    opacity: 1;
+    height: 100%; }
+  95% {
+    opacity: 0;
+    height: 100%; }
+  100% {
+    opacity: 0;
+    height: 0; } }
+
+.search {
+  cursor: default; }
+  .search__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    height: 0;
+    transition: all 150ms linear;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    background: #FFFFFF;
+    visibility: hidden;
+    /* &--outro {
+			animation: fade-out-search 300ms linear;
+			animation-fill-mode: forwards;
+		} */ }
+    .search__container--active {
+      -webkit-animation: fade-in-search 200ms linear;
+              animation: fade-in-search 200ms linear;
+      -webkit-animation-fill-mode: forwards;
+              animation-fill-mode: forwards;
+      z-index: 1480;
+      visibility: visible; }
+  .search__bar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    min-width: 600px;
+    height: 64px;
+    transition: all 150ms linear; }
+  .search__bar::after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    opacity: 0;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.3s ease-in-out; }
+  .search__bar--hanging {
+    background-color: #FAFAFA; }
+  .search__bar--hanging.search__bar::after {
+    opacity: 1;
+    height: 64px; }
+  .search__error-message {
+    max-width: 600px;
+    margin-top: 10vh; }
+    .search__error-message__image {
+      width: 150px;
+      margin: auto;
+      fill: #8E8E8E; }
+    .search__error-message__text {
+      text-align: center;
+      color: #707070;
+      font-style: italic;
+      font-size: 14px;
+      max-width: 330px; }
+    .search__error-message__title {
+      text-align: center;
+      font-size: 24px; }
+  .search__exit {
+    cursor: pointer;
+    z-index: 10;
+    transition: color 150ms linear;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    .search__exit svg {
+      margin-right: 10px;
+      fill: #707070;
+      transition: fill 150ms linear; }
+    .search__exit:hover {
+      color: #000000; }
+      .search__exit:hover svg {
+        fill: #000000; }
+  .search__result-container {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1; }
+  .search__results {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-top: 50px; }
+  .search__block {
+    width: 80%;
+    margin-bottom: 42px; }
+    .search__block__grid .card {
+      width: 165px;
+      padding: 0;
+      margin: 0 15px 15px 0; }
+    .search__block__header {
+      margin-bottom: 14px;
+      padding: 4px 8px 0 8px; }
+      .search__block__header__title {
+        display: inline-block;
+        color: #4B4B4B;
+        font-size: 16px; }
+        .search__block__header__title .inapp-icons {
+          margin-right: 4px; }
+          .search__block__header__title .inapp-icons:before {
+            font-size: 18px;
+            vertical-align: top; }
+      .search__block__header__meta {
+        display: inline-block;
+        text-align: right;
+        float: right;
+        color: #8E8E8E;
+        font-size: 15px;
+        margin-right: 8px; }
+        .search__block__header__meta__link {
+          margin-left: 5px;
+          color: #4B4B4B;
+          cursor: pointer;
+          transition: color 150ms linear; }
+          .search__block__header__meta__link svg {
+            transition: fill 150ms linear; }
+          .search__block__header__meta__link:hover {
+            color: #000000; }
+            .search__block__header__meta__link:hover svg {
+              fill: #000000; }
+      .search__block__header__breadcrumb {
+        color: #8E8E8E;
+        cursor: pointer;
+        transition: color 200ms linear; }
+        .search__block__header__breadcrumb:hover {
+          color: #4B4B4B;
+          transition: color 200ms linear; }
+        .search__block__header__breadcrumb__divider {
+          margin: 0 15px;
+          color: #8E8E8E;
+          cursor: default; }
+          .search__block__header__breadcrumb__divider .spc-icons {
+            font-size: 9px; }
+        .search__block__header__breadcrumb--active {
+          color: #4B4B4B;
+          cursor: default; }
+  .search__title-icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    fill: #8E8E8E; }
+    .search__title-icon svg {
+      /* re-align icons, was being set to middle by spectreui */
+      vertical-align: text-bottom; }
+  .search__title-icon-ccfiles {
+    fill: #4B4B4B; }
+  .search__title-icon-stock {
+    fill: #b3b3b3; }
+  .search__title-icon-learn svg {
+    /* this one looks better at this alignment */
+    vertical-align: text-top; }
+  .search__field-bumper {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 100%; }
+    .search__field-bumper--left {
+      padding-left: 20px; }
+      .search__field-bumper--left .inapp-icon--left {
+        margin-right: 10px;
+        padding: 4px;
+        border-radius: 50%;
+        color: #4B4B4B;
+        border: 2px solid #4B4B4B; }
+    .search__field-bumper--right {
+      text-align: left;
+      padding-left: 15px;
+      color: #8E8E8E; }
+  .search__field-wrapper {
+    position: relative;
+    -webkit-box-flex: 2;
+        -ms-flex: 2;
+            flex: 2;
+    width: 60%;
+    z-index: 2;
+    /* bring it above the ::after dropshadow */
+    /*&__search-terms {
+			position: absolute;
+			background: $color-dark-grey-2;
+			width: 100%;
+			box-sizing: border-box;
+			display: none;
+
+			&__term {
+				cursor: pointer;
+				padding: 5px 10px;
+
+				&:hover {
+					background: $color-dark-grey-1;
+				}
+			}
+		}*/ }
+    .search__field-wrapper .spc-textfield {
+      width: 100%;
+      margin: 0; }
+    .search__field-wrapper .spc-textfield__input {
+      text-indent: 0;
+      padding-left: 34px; }
+    .search__field-wrapper .spc-icons {
+      position: absolute;
+      top: 8px;
+      left: 11px;
+      font-size: 1em;
+      color: #4B4B4B;
+      z-index: 1500; }
+    .search__field-wrapper .spc-spinner__dots {
+      position: absolute;
+      top: 4px;
+      left: 5px;
+      width: 24px;
+      height: 24px;
+      z-index: 1500; }
+    .search__field-wrapper .listbox {
+      position: absolute;
+      background: #FFFFFF;
+      color: #4B4B4B;
+      width: 100%;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      display: none;
+      top: 40px;
+      border-radius: 4px; }
+      .search__field-wrapper .listbox:focus {
+        outline: none;
+        display: block; }
+      .search__field-wrapper .listbox--active {
+        display: block; }
+    .search__field-wrapper .listbox__options {
+      border: 1px solid #B6B6B6;
+      border-radius: 4px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      overflow: hidden; }
+    .search__field-wrapper .listbox__item {
+      cursor: pointer;
+      padding: 5px 25px;
+      list-style-type: none;
+      border-left: 2px solid transparent;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap; }
+      .search__field-wrapper .listbox__item:hover {
+        background: #FAFAFA;
+        color: #2C2C2C;
+        transition: color 200ms linear; }
+      .search__field-wrapper .listbox__item--selected {
+        background: #FAFAFA;
+        color: #1884EC;
+        border-color: #1884EC; }
+  .search__instruct {
+    font-size: 12px;
+    color: #B6B6B6;
+    z-index: 1500;
+    word-spacing: 0.03em; }
+    .search__instruct--inner {
+      position: absolute;
+      top: 8px;
+      right: 11px; }
+    .search__instruct__key {
+      border: 1px solid;
+      border-radius: 4px;
+      padding: 0px 4px 1px 4px;
+      margin: 0px 1px; }
+
+.spc-textfield__input:focus + .search__field-wrapper__search-terms, .search__field-wrapper__search-terms:hover {
+  display: block; }
+
+.learn-result {
+  overflow: hidden;
+  padding: 10px 4px; }
+  .learn-result .card__external-icon {
+    width: 14px;
+    height: 14px; }
+  .learn-result .learn-result__wrapper {
+    max-width: 680px; }
+  .learn-result .learn-result__title {
+    font-size: 15px;
+    color: #4B4B4B;
+    margin-bottom: 10px;
+    transition: color 150ms linear; }
+    .learn-result .learn-result__title svg {
+      transition: fill 150ms linear; }
+    .learn-result .learn-result__title:hover {
+      cursor: pointer;
+      color: #000000; }
+      .learn-result .learn-result__title:hover svg {
+        fill: #000000; }
+  .learn-result .learn-result__description {
+    color: #8E8E8E;
+    font-size: 14px; }
+  .learn-result .learn-result__date {
+    color: #B6B6B6;
+    font-size: 13px;
+    margin-top: 6px; }
+  .learn-result .learn-result__image {
+    float: left;
+    max-height: 120px;
+    margin-right: 20px; }
+    .learn-result .learn-result__image:hover {
+      cursor: pointer; }
+
+.spc-layout.spc--dark .search__container {
+  background: #1B1B1B; }
+
+.spc-layout.spc--dark .search__title-icon {
+  fill: #999999; }
+
+.spc-layout.spc--dark .search__title-icon-ccfiles {
+  fill: #CDCDCD; }
+
+.spc-layout.spc--dark .search__title-icon-stock {
+  fill: #b3b3b3; }
+
+.spc-layout.spc--dark .search__exit svg {
+  fill: #999999; }
+
+.spc-layout.spc--dark .search__exit:hover {
+  color: #FFFFFF; }
+  .spc-layout.spc--dark .search__exit:hover svg {
+    fill: #FFFFFF; }
+
+.spc-layout.spc--dark .search__bar--hanging {
+  background-color: #212121; }
+
+.spc-layout.spc--dark .search__field-wrapper .spc-icons {
+  color: #CDCDCD; }
+
+.spc-layout.spc--dark .search__error-message__image {
+  fill: #7B7B7B; }
+
+.spc-layout.spc--dark .search__error-message__text {
+  color: #999999; }
+
+.spc-layout.spc--dark .search__instruct {
+  color: #5A5A5A; }
+
+.spc-layout.spc--dark .search__field-bumper--left .inapp-icon--left {
+  color: #CDCDCD;
+  border-color: #CDCDCD; }
+
+.spc-layout.spc--dark .search__field-bumper--right {
+  color: #7B7B7B; }
+
+.spc-layout.spc--dark .listbox {
+  color: #CDCDCD;
+  background: #282828; }
+
+.spc-layout.spc--dark .listbox__options {
+  border-color: #3E3E3E; }
+
+.spc-layout.spc--dark .listbox__item {
+  border-left: 2px solid transparent; }
+  .spc-layout.spc--dark .listbox__item:hover {
+    color: #FCFCFC;
+    background: #2D2D2D; }
+  .spc-layout.spc--dark .listbox__item--selected {
+    color: #1884EC;
+    border-color: #1884EC;
+    background: #2D2D2D; }
+
+.spc-layout.spc--dark .search__block__header__title {
+  color: #CDCDCD; }
+
+.spc-layout.spc--dark .search__block__header__meta {
+  color: #7B7B7B; }
+  .spc-layout.spc--dark .search__block__header__meta__link {
+    color: #CDCDCD; }
+    .spc-layout.spc--dark .search__block__header__meta__link:hover {
+      color: #FFFFFF; }
+      .spc-layout.spc--dark .search__block__header__meta__link:hover svg {
+        fill: #FFFFFF; }
+
+.spc-layout.spc--dark .search__block__header__breadcrumb {
+  color: #7B7B7B; }
+  .spc-layout.spc--dark .search__block__header__breadcrumb:hover {
+    color: #CDCDCD; }
+  .spc-layout.spc--dark .search__block__header__breadcrumb__divider {
+    color: #7B7B7B; }
+  .spc-layout.spc--dark .search__block__header__breadcrumb--active {
+    color: #CDCDCD; }
+
+.spc-layout.spc--dark .learn-result .learn-result__title {
+  color: #CDCDCD; }
+  .spc-layout.spc--dark .learn-result .learn-result__title:hover {
+    color: #FFFFFF; }
+    .spc-layout.spc--dark .learn-result .learn-result__title:hover svg {
+      fill: #FFFFFF; }
+
+.spc-layout.spc--dark .learn-result .learn-result__description {
+  color: #7B7B7B; }
+
+.spc-layout.spc--dark .learn-result .learn-result__date {
+  color: #5A5A5A; }
+
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+/*:=========  LAYOUT :========= */
+/*:=========  GRID :========= */
+/*:=========  HEADER :========= */
+/*:=========  CARDS :========= */
+/*:=========  BREAKPOINTS :========= */
+/*:=========  LAYERS :========= */
+/*:=========  FRIZZLES :========= */
+/*:=========  TEXT :========= */
+/* Typography */
+.sidebar {
+  position: fixed;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-width: 230px;
+  padding: 0 25px 0 50px; }
+  .sidebar--top-bar {
+    padding-top: 59px; }
+  .sidebar .spc-tabs {
+    font-weight: bold;
+    font-style: normal;
+    margin-top: 59px;
+    margin-bottom: 40px; }
+    .sidebar .spc-tabs .spc-tabs__tab {
+      font-size: 15px;
+      /* same size as the buttons */
+      text-align: left;
+      height: auto;
+      /* let super long tab names break lines */ }
+      .sidebar .spc-tabs .spc-tabs__tab:not(.is-active):hover {
+        color: #4B4B4B; }
+
+.spc--dark .sidebar .spc-tabs .spc-tabs__tab:not(.is-active):hover {
+  color: #FFFFFF; }
+
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+/*:=========  LAYOUT :========= */
+/*:=========  GRID :========= */
+/*:=========  HEADER :========= */
+/*:=========  CARDS :========= */
+/*:=========  BREAKPOINTS :========= */
+/*:=========  LAYERS :========= */
+/*:=========  FRIZZLES :========= */
+/*:=========  TEXT :========= */
+.tab-discover__content {
+  margin-top: 50px; }
+
+.tab-discover__header {
+  height: 35px; }
+
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+/*:=========  LAYOUT :========= */
+/*:=========  GRID :========= */
+/*:=========  HEADER :========= */
+/*:=========  CARDS :========= */
+/*:=========  BREAKPOINTS :========= */
+/*:=========  LAYERS :========= */
+/*:=========  FRIZZLES :========= */
+/*:=========  TEXT :========= */
+.tab-learn .app__content-column {
+  margin: 0 auto; }
+
+.tab-learn__grid {
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  max-width: 900px; }
+
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+/*:=========  LAYOUT :========= */
+/*:=========  GRID :========= */
+/*:=========  HEADER :========= */
+/*:=========  CARDS :========= */
+/*:=========  BREAKPOINTS :========= */
+/*:=========  LAYERS :========= */
+/*:=========  FRIZZLES :========= */
+/*:=========  TEXT :========= */
+.tab-work__content {
+  margin-top: 50px; }
+
+.tab-work__header {
+  height: 35px;
+  margin-bottom: 24px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  min-width: 500px; }
+
+.tab-work__sort-options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: default; }
+  .tab-work__sort-options .tab-work__sort-button {
+    margin-right: 40px;
+    padding: 0;
+    font-family: 'spc-icons';
+    color: #4B4B4B;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    line-height: 30px;
+    height: 30px;
+    width: 30px;
+    font-size: 12px;
+    border-radius: 4px;
+    outline: none; }
+    .tab-work__sort-options .tab-work__sort-button:hover {
+      background-color: #EAEAEA; }
+  .tab-work__sort-options .spc-dropdown {
+    width: 153px;
+    cursor: pointer;
+    border-bottom: 1px solid #E1E1E1;
+    transition: all 200ms linear; }
+  .tab-work__sort-options .spc-dropdown__options.is-open {
+    max-height: 600px; }
+
+.tab-work__sort-label {
+  margin-right: 7px;
+  font-size: 14px;
+  line-height: 30px;
+  margin-bottom: 4px; }
+
+.tab-work__search-wrapper {
+  position: relative; }
+  .tab-work__search-wrapper .spc-textfield__input {
+    padding-left: 24px;
+    font-size: 14px; }
+  .tab-work__search-wrapper .spc-textfield {
+    width: 170px;
+    margin: 0; }
+  .tab-work__search-wrapper .tab-work__filter-icon {
+    position: absolute;
+    top: 7px;
+    left: 0px;
+    font-size: 14px;
+    fill: #B6B6B6; }
+
+.tab-work__search-wrapper.grid-view {
+  margin-right: 22px; }
+
+.tab-work__no-results {
+  width: 100%;
+  margin-top: 50px;
+  font-style: italic;
+  text-align: center; }
+
+[lang="ja-JP"] .tab-work__no-results,
+[lang="zh-CN"] .tab-work__no-results,
+[lang="zh-TW"] .tab-work__no-results,
+[lang="ko-KR"] .tab-work__no-results {
+  font-style: normal; }
+
+.spc--dark .tab-work .tab-work__search-wrapper .tab-work__filter-icon {
+  fill: #5A5A5A; }
+
+.spc--dark .tab-work .tab-work__sort-options .spc-dropdown {
+  border-color: #3E3E3E; }
+
+.spc--dark .tab-work .tab-work__sort-button {
+  color: #CDCDCD; }
+  .spc--dark .tab-work .tab-work__sort-button:hover {
+    background-color: #393939; }
+
+/* @media (max-width: $breakpoint2) {
+	.tab-work .app__content-column {
+		margin-right: 60px;
+	}
+} */
+.cc-photos {
+  display: none; }
+  .cc-photos.cc-photos-visible {
+    display: block; }
+
+[modality=keyboard] .tab-work__sort-button:focus {
+  color: #0F66D0; }
+
+[modality=keyboard].spc--dark .tab-work__sort-button:focus {
+  color: #1884EC; }
+
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+/*:=========  LAYOUT :========= */
+/*:=========  GRID :========= */
+/*:=========  HEADER :========= */
+/*:=========  CARDS :========= */
+/*:=========  BREAKPOINTS :========= */
+/*:=========  LAYERS :========= */
+/*:=========  FRIZZLES :========= */
+/*:=========  TEXT :========= */
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+.file-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  text-align: left; }
+  .file-table__sorted {
+    color: #4B4B4B; }
+  .file-table__sorted--asc, .file-table__sorted--desc {
+    position: relative; }
+    .file-table__sorted--asc:after, .file-table__sorted--desc:after {
+      font-family: 'spc-icons';
+      font-size: 8px;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+              transform: translateY(-50%);
+      padding-left: 3px;
+      position: absolute;
+      color: #4B4B4B; }
+  .file-table__sorted--asc:after {
+    content: 'L'; }
+  .file-table__sorted--desc:after {
+    content: 'K'; }
+  .file-table--text-right {
+    text-align: right; }
+  .file-table tbody tr {
+    cursor: pointer;
+    transition-property: background;
+    transition-duration: 0.2s; }
+  .file-table tbody tr:hover {
+    background: #F5F5F5; }
+  .file-table th {
+    text-transform: uppercase;
+    color: #B6B6B6;
+    font-size: 12px;
+    font-weight: normal;
+    transition-property: color;
+    transition-duration: 0.2s; }
+    .file-table th:hover {
+      color: #000000; }
+  .file-table .file-table--truncate span {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block; }
+  .file-table td {
+    white-space: nowrap; }
+  .file-table th,
+  .file-table td {
+    padding: 10px 10px;
+    border-bottom: 1px solid #EAEAEA; }
+  .file-table .file-table__size-field {
+    display: none; }
+  .file-table .file-table__kind-field {
+    display: none; }
+
+.spc--dark .file-table tbody tr:hover {
+  background: #282828; }
+
+.spc--dark .file-table th {
+  color: #5A5A5A; }
+  .spc--dark .file-table th:hover {
+    color: #FFFFFF; }
+
+.spc--dark .file-table th,
+.spc--dark .file-table td {
+  cursor: pointer;
+  border-color: #2D2D2D; }
+
+.spc--dark .file-table__sorted {
+  color: #CDCDCD !important; }
+
+.spc--dark .file-table__sorted--asc, .spc--dark .file-table__sorted--desc {
+  position: relative; }
+  .spc--dark .file-table__sorted--asc:after, .spc--dark .file-table__sorted--desc:after {
+    padding-left: 3px;
+    position: absolute;
+    color: #CDCDCD; }
+
+@media (min-width: 991px) {
+  .file-table {
+    table-layout: auto; }
+    .file-table .file-table--truncate span {
+      width: 350px; }
+    .file-table .file-table__kind-field {
+      display: table-cell; } }
+
+@media (min-width: 1280px) {
+  .file-table .file-table__size-field {
+    display: table-cell; }
+  .file-table .file-table--truncate span {
+    width: 450px; } }
+
+@media (min-width: 1441px) {
+  .file-table .file-table--truncate span {
+    width: 550px; } }
+
+@media (min-width: 1920px) {
+  .file-table .file-table--truncate span {
+    width: 750px; } }
+
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+/*:=========  LAYOUT :========= */
+/*:=========  GRID :========= */
+/*:=========  HEADER :========= */
+/*:=========  CARDS :========= */
+/*:=========  BREAKPOINTS :========= */
+/*:=========  LAYERS :========= */
+/*:=========  FRIZZLES :========= */
+/*:=========  TEXT :========= */
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+.header .spc-tabs__tab:not(.is-active):hover {
+  color: #4B4B4B; }
+
+.spc--dark .header .spc-tabs__tab:not(.is-active):hover {
+  color: #FFFFFF; }
+
+/*:=========  Spectrum Palette :========= */
+/*
+	Spectrum "Light 245"
+	Color order: light -> dark
+	Always keep in HEX format since it's easiest to manipulate with builtin Stylus functions
+*/
+/*
+	Spectrum "Dark 50"
+	Color order: dark -> light
+	Order reversed so that theming is as simple as adding "dark" to the variable, rather than switching numbers around.
+*/
+.virtual-scroller {
+  outline: none !important; }
+
+.virtual-scroller__item-container:hover {
+  border: 2px solid #FAFAFA;
+  cursor: pointer; }
+
+.virtual-scroller__item {
+  width: 100%;
+  height: 100%;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  box-sizing: border-box;
+  background: #B6B6B6; }
+
+.virtual-scroller__item-container {
+  box-sizing: border-box;
+  border: 2px solid transparent;
+  width: 100%;
+  overflow: hidden; }
+
+.virtual-scroller__active-item {
+  outline-color: #0F66D0;
+  outline-width: 5px;
+  outline-offset: -3px;
+  outline-style: auto; }
+
+.spc-layout.spc--dark .virtual-scroller__item {
+  background: #5A5A5A; }
+
+.spc-layout.spc--dark .virtual-scroller__active-item {
+  outline-color: #21A5F9; }
+
+/*# sourceMappingURL=app.css.map */

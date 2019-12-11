@@ -1,0 +1,196 @@
+<!-- Automatic Duck, Inc. Copyright 2001-2007 All Rights reserved -->
+<!-- AECompPresets.xml $Revision: 4 $ -->
+
+
+<!--
+Edit this file to change the presets that appear in Pro Import AE's
+Advanced Settings window.
+
+The order entries appear in this file reflects the order that
+the presets will appear in the popup menu.
+
+Template entry at end of file.
+
+Pixel aspect ratios...
+1.0 = Square Pixels
+0.9 = D1/DV NTSC
+1.2 = D1/DV NTSC Widescreen
+1.07 = D1/DV PAL
+1.42 = D1/DV PAL Widescreen
+1.33 = HDV 1080/DVCPRO HD 720
+1.5 = DVCPRO HD 1080
+2.0 = Anamorphic 2:1
+-->
+
+<AutomaticDuckCompPresetTable>
+	<entry name="Web Video, 320 x 240">
+		<width>320</width>
+		<height>240</height>
+		<pixelaspectratio>1.0</pixelaspectratio>
+		<framerate>15</framerate>
+	</entry>
+	<entry name="Web Banner, 468 x 60">
+		<width>468</width>
+		<height>60</height>
+		<pixelaspectratio>1.0</pixelaspectratio>
+		<framerate>15</framerate>
+	</entry>
+	<entry name="NTSC DV">
+		<width>720</width>
+		<height>480</height>
+		<pixelaspectratio vers="CS3">0.9</pixelaspectratio>
+		<pixelaspectratio>0.91</pixelaspectratio>
+		<framerate>29.97</framerate>
+	</entry>
+	<entry name="NTSC DV Widescreen">
+		<width>720</width>
+		<height>480</height>
+		<pixelaspectratio vers="CS3">1.2</pixelaspectratio>
+		<pixelaspectratio>1.21</pixelaspectratio>
+		<framerate>29.97</framerate>
+	</entry>
+	<entry name="NTSC DV Widescreen/23.976">
+		<width>720</width>
+		<height>480</height>
+		<pixelaspectratio>1.2</pixelaspectratio>
+		<framerate>23.976</framerate>
+	</entry>
+	<entry name="NTSC D1">
+		<width>720</width>
+		<height>486</height>
+		<pixelaspectratio vers="CS3">0.9</pixelaspectratio>
+		<pixelaspectratio>0.91</pixelaspectratio>
+		<framerate>29.97</framerate>
+	</entry>
+	<entry name="NTSC D1 Widescreen">
+		<width>720</width>
+		<height>486</height>
+		<pixelaspectratio vers="CS3">1.2</pixelaspectratio>
+		<pixelaspectratio>1.21</pixelaspectratio>
+		<framerate>29.97</framerate>
+	</entry>
+	<entry name="NTSC D1 Square Pixel">
+		<width>720</width>
+		<height>540</height>
+		<pixelaspectratio>1.0</pixelaspectratio>
+		<framerate>29.97</framerate>
+	</entry>
+	<entry name="NTSC D1 Widescreen Square Pixel">
+		<width>864</width>
+		<height>486</height>
+		<pixelaspectratio>1.0</pixelaspectratio>
+		<framerate>29.97</framerate>
+	</entry>
+	<entry name="PAL D1/DV">
+		<width>720</width>
+		<height>576</height>
+		<pixelaspectratio vers="CS3">1.07</pixelaspectratio>
+		<pixelaspectratio>1.09</pixelaspectratio>
+		<framerate>25</framerate>
+	</entry>
+	<entry name="PAL D1/DV Widescreen">
+		<width>720</width>
+		<height>576</height>
+		<pixelaspectratio vers="CS3">1.42</pixelaspectratio>
+		<pixelaspectratio>1.46</pixelaspectratio>
+		<framerate>25</framerate>
+	</entry>
+	<entry name="PAL D1/DV Square Pixel">
+		<width>768</width>
+		<height>576</height>
+		<pixelaspectratio>1.0</pixelaspectratio>
+		<framerate>25</framerate>
+	</entry>
+	<entry name="PAL D1/DV Widescreen Square Pixel">
+		<width>1024</width>
+		<height>576</height>
+		<pixelaspectratio>1.0</pixelaspectratio>
+		<framerate>25</framerate>
+	</entry>
+	<entry name="HDV/HDTV 720/29.97">
+		<width>1280</width>
+		<height>720</height>
+		<pixelaspectratio>1.0</pixelaspectratio>
+		<framerate>29.97</framerate>
+	</entry>
+	<entry name="HDV/HDTV 720/25">
+		<width>1280</width>
+		<height>720</height>
+		<pixelaspectratio>1.0</pixelaspectratio>
+		<framerate>25</framerate>
+	</entry>
+	<entry name="HDV 1080/29.97">
+		<width>1440</width>
+		<height>1080</height>
+		<pixelaspectratio>1.33</pixelaspectratio>
+		<framerate>29.97</framerate>
+	</entry>
+	<entry name="HDV 1080/25">
+		<width>1440</width>
+		<height>1080</height>
+		<pixelaspectratio>1.33</pixelaspectratio>
+		<framerate>25</framerate>
+	</entry>
+	<entry name="DVCPRO HD 720/23.976">
+		<width>960</width>
+		<height>720</height>
+		<pixelaspectratio>1.33</pixelaspectratio>
+		<framerate>23.976</framerate>
+	</entry>
+	<entry name="DVCPRO HD 720/29.97">
+		<width>960</width>
+		<height>720</height>
+		<pixelaspectratio>1.33</pixelaspectratio>
+		<framerate>29.97</framerate>
+	</entry>
+	<entry name="DVCPRO HD 1080/29.97">
+		<width>1280</width>
+		<height>1080</height>
+		<pixelaspectratio>1.5</pixelaspectratio>
+		<framerate>29.97</framerate>
+	</entry>
+	<entry name="HDTV 1080/24">
+		<width>1920</width>
+		<height>1080</height>
+		<pixelaspectratio>1.0</pixelaspectratio>
+		<framerate>24</framerate>
+	</entry>
+	<entry name="HDTV 1080/29.97">
+		<width>1920</width>
+		<height>1080</height>
+		<pixelaspectratio>1.0</pixelaspectratio>
+		<framerate>29.97</framerate>
+	</entry>
+	<entry name="Cineon Half">
+		<width>1828</width>
+		<height>1332</height>
+		<pixelaspectratio>1.0</pixelaspectratio>
+		<framerate>24</framerate>
+	</entry>
+	<entry name="Cineon Full">
+		<width>3656</width>
+		<height>2664</height>
+		<pixelaspectratio>1.0</pixelaspectratio>
+		<framerate>24</framerate>
+	</entry>
+	<entry name="Film (2K)">
+		<width>2048</width>
+		<height>1556</height>
+		<pixelaspectratio>1.0</pixelaspectratio>
+		<framerate>24</framerate>
+	</entry>
+	<entry name="Film (4K)">
+		<width>4096</width>
+		<height>3112</height>
+		<pixelaspectratio>1.0</pixelaspectratio>
+		<framerate>24</framerate>
+	</entry>
+<!--  template entry follows  -->
+	<entry name="">								<!-- name of preset goes here between quotes -->
+		<framerate></framerate>					<!-- comp frame rate -->
+		<width></width>							<!-- comp width, in pixels -->
+		<height></height>						<!-- comp height, in pixels -->
+		<pixelaspectratio></pixelaspectratio>	<!-- pixel aspect ratio, expressed as fraction -->
+	</entry>
+	
+</AutomaticDuckCompPresetTable>
