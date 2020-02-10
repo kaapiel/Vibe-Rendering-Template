@@ -44,7 +44,7 @@ This repository's issue tracker is only for bugs and feature requests.
 
 *PayPal*
 
-- Do you ever though about paying a coffee, lunch or dinner for maintaining the project? [*So please click on this link*](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=gabriel_aguido@hotmail.com&lc=US&item_name=Donation+to+Wearever+You+Are+Android+Maintenance&no_note=0&cn=&currency_code=USD&bn=PP-DonationsBF:btn_donateCC_LG.gif:NonHosted), all donations are awesome!
+- Do you ever though about paying a coffee, lunch or dinner for maintaining the project? [*So please click on this link*](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=gabriel_aguido@hotmail.com&lc=US&item_name=Donation+to+Vibe+Rendering+Template+Maintenance&no_note=0&cn=&currency_code=USD&bn=PP-DonationsBF:btn_donateCC_LG.gif:NonHosted), all donations are awesome!
 
 <br/>
 
