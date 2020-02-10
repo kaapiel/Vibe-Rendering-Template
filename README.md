@@ -22,10 +22,8 @@ Add the library to your Android project, then check out the examples below!
 
 <br/>
 
-<h2 id="examples">Examples :eyes:</h2>
-
 ### Before we get started
-1. Extraia o arquivo "AdobePSL.dll.zip"
+1. Extract the file "AdobePSL.dll.zip"
 
 ### Prerequisites
 1. Run on Windows Machine
@@ -43,8 +41,6 @@ Add the library to your Android project, then check out the examples below!
 1. The process will be done for each database line (names)
 1. It can take around 2 minutes per name rendering
 1. To render it on another machine only copy "vibe" folder and take the above steps.
-
-<br/>
 
 <h2 id="report">Questions & Issues :thinking:</h2>
 
