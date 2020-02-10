@@ -1,4 +1,5 @@
-![banner](https://raw.github.com/kaapiel/Raw-content/master/Automation-Python/app.png)
+# Vibe Render Farm Template
+A powerful & easy to use Adobe after Effects rendering farm
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=alm-integration-java&metric=alert_status)](https://sonarcloud.io/dashboard?id=alm-integration-java)
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=alm-integration-java&metric=ncloc)](https://sonarcloud.io/dashboard?id=alm-integration-java)
@@ -7,8 +8,6 @@
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=alm-integration-java&metric=security_rating)](https://sonarcloud.io/dashboard?id=alm-integration-java)
 ![CircleCI](https://img.shields.io/circleci/build/github/kaapiel/ALMIntegration-Java/master)
 [![API](https://img.shields.io/badge/API-26%2B-green.svg?style=flat)](https://android-arsenal.com/api?level=26)
-
-A powerful & easy to use library for Android
 
 ## Table of Contents
 1. [Quick Start](#quick-start)
@@ -25,10 +24,25 @@ Add the library to your Android project, then check out the examples below!
 
 <h2 id="examples">Examples :eyes:</h2>
 
-![banner](https://raw.github.com/kaapiel/Raw-content/master/Automation-Python/app.png)
-![banner](https://raw.github.com/kaapiel/Raw-content/master/Automation-Python/app.png)
-![banner](https://raw.github.com/kaapiel/Raw-content/master/Automation-Python/app.png)
-![banner](https://raw.github.com/kaapiel/Raw-content/master/Automation-Python/app.png)
+### Before we get started
+1. Extraia o arquivo "AdobePSL.dll.zip"
+
+### Prerequisites
+1. Run on Windows Machine
+1. After Effects installed
+1. '.aep' project inside "projetos" folder
+1. Database file on root folder (database.csv/database.txt)
+1. Latest Java version installed
+	
+### Instructions
+1. After you getthe database file, left it only with names
+1. Double click on "Parser.jar"
+1. It will create a new file with the correct names
+1. Double click on "vibe.bat"
+1. A window will be opened with rendering process data
+1. The process will be done for each database line (names)
+1. It can take around 2 minutes per name rendering
+1. To render it on another machine only copy "vibe" folder and take the above steps.
 
 <br/>
 
@@ -70,30 +84,4 @@ limitations under the License.
 
 These people rock!
 
-- [Daniel Marques](https://www.linkedin.com/in/dmarques) - Who helped me and encouraged me to take steps further
-- [Rodrigo Franchi](https://www.linkedin.com/in/rodrigo-franchi-817b9339) - Who gave lots of ideas and several ways to solve problems
-- [Rafael Barriento](https://www.linkedin.com/in/rafael-barriento-de-goes-8014b1b1) - Who gave me tons of tech insights to create innovative solutions
-- [Diogo Julião](https://www.linkedin.com/in/diogo-oliveira-4b7a96128) - Who encourage me to whatever ideia i had as an outstading one
-
-
-Renderizacao em massa
-
-ANTES DE TUDO
-	1 - Extraia o arquivo "AdobePSL.dll.zip"
-
-PRE REQUISITOS
-	1 - Rodar em máquina Windows
-	2 - After Effects instalado
-	3 - Projeto .aep dentro da pasta "projetos"
-	4 - Arquivo da base de dados na pasta raiz (database.csv/database.txt)
-	5 - Ultima versao do java instalado
-	
-INSTRUCOES
-	1 - Apos obter o arquivo database, deixar no mesmo apenas os nomes
-	2 - Duplo click no "Parser.jar"
-	3 - Repare que sera criado um novo arquivo com o formato correto dos nomes
-	4 - Duplo click em "vibe.bat"
-	5 - Sera aberta uma janela com os dados do processo de renderizacao
-	6 - O processo sera realizado para cada linha do arquivo database
-	7 - Estima-se 2 minutos por linha para realizacao do processo
-	8 - Para renderizar em outro pc, apenas copie a pasta "vibe" e realize os processos acima.
+- [Estevão Fiochi](https://www.linkedin.com/in/est%C3%AAv%C3%A3o-fiochi-2b737287/) - Who organized the ideas and make this project come true
